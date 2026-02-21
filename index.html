@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentinel OT — Passive ICS Intelligence for System Integrators</title>
+  <meta name="description" content="Qualified vulnerability leads for ICS system integrators, OT cybersecurity firms, and industrial automation distributors. Firmware-validated CVEs, confirmed operators, decision-maker contacts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0a1628;
+      --navy-light: #121f36;
+      --navy-mid: #1a2d4a;
+      --red: #c0392b;
+      --red-hover: #e74c3c;
+      --slate: #94a3b8;
+      --white: #f1f5f9;
+      --grid-color: rgba(148, 163, 184, 0.06);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Nav */
+    nav {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--red);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span {
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    nav a.contact-link {
+      color: var(--slate);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a.contact-link:hover { color: var(--white); }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(192, 57, 43, 0.15);
+      border: 1px solid rgba(192, 57, 43, 0.3);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--red-hover);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    h1 .accent { color: var(--red); }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--slate);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--red);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .cta-btn:hover {
+      background: var(--red-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(148,163,184,0.2), transparent);
+      margin: 20px 0;
+    }
+
+    /* What We Deliver */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--navy-light);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: 10px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(192, 57, 43, 0.3);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--navy-mid);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    /* How It Works */
+    .steps {
+      display: grid;
+      gap: 24px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      min-width: 36px;
+      height: 36px;
+      background: rgba(192, 57, 43, 0.15);
+      border: 1px solid rgba(192, 57, 43, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--red-hover);
+    }
+
+    .step-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: var(--slate);
+    }
+
+    /* Who It's For */
+    .buyers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .buyer {
+      background: var(--navy-light);
+      border: 1px solid rgba(148, 163, 184, 0.08);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .buyer-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .buyer h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .buyer p {
+      font-size: 12px;
+      color: var(--slate);
+    }
+
+    /* Stats bar */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 40px 0;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--slate);
+      margin-top: 4px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: var(--slate);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    footer p {
+      font-size: 13px;
+      color: rgba(148, 163, 184, 0.5);
+    }
+
+    footer a {
+      color: rgba(148, 163, 184, 0.5);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--slate); }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .hero { padding: 50px 0 40px; }
+      .section { padding: 40px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .buyers { grid-template-columns: repeat(2, 1fr); }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">Sentinel <span>OT</span></div>
+      </a>
+      <a href="mailto:johnny@sentinelot.com" class="contact-link">Contact</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <div class="hero-badge">Passive ICS Intelligence</div>
+      <h1>Qualified vulnerability leads<br>for <span class="accent">OT professionals</span></h1>
+      <p>We find companies running legacy SCADA and PLCs with confirmed, unpatched vulnerabilities &mdash; and deliver them as ready-to-pitch intelligence packages.</p>
+      <a href="mailto:johnny@sentinelot.com" class="cta-btn">Request a Sample Lead</a>
+    </div>
+  </div>
+
+  <div class="container"><div class="divider"></div></div>
+
+  <div class="container">
+    <div class="section">
+      <div class="section-label">What We Deliver</div>
+      <h2>Every lead is a qualified intelligence package</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">&#9878;</div>
+          <h3>Firmware-Validated CVEs</h3>
+          <p>Every CVE is confirmed against the exact device model and firmware version. No keyword-match false positives. We check NVD version ranges and flag what's patched vs. unpatched.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#9673;</div>
+          <h3>Confirmed Operators</h3>
+          <p>Multi-signal attribution using property records, EPA facility data, state databases, and LinkedIn research. We identify who owns the devices and who to contact.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#9733;</div>
+          <h3>Decision-Maker Contacts</h3>
+          <p>OT Manager, Controls Engineer, Plant Manager &mdash; we find the person who signs the PO. Name, title, and company verified through public sources.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container"><div class="divider"></div></div>
+
+  <div class="container">
+    <div class="section">
+      <div class="section-label">Methodology</div>
+      <h2>How we build a lead</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Passive Discovery</h3>
+            <p>We identify exposed ICS devices using publicly indexed data &mdash; Shodan, Censys, and public network records. No active scanning or probing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>CVE Validation</h3>
+            <p>Each device's firmware version is matched against NVD vulnerability data with version-range checking. We eliminate false positives and flag patched vulnerabilities.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Operator Attribution</h3>
+            <p>We cross-reference GPS coordinates, property records, EPA facility databases, state regulatory filings, and network registration data to identify the asset owner.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Contact Research</h3>
+            <p>LinkedIn and public directory research to identify the decision maker &mdash; the person responsible for controls, automation, or OT security at the confirmed operator.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>Intelligence Package</h3>
+            <p>Delivered as a branded PDF memo with device inventory, validated CVE tables, risk assessment, operator profile, and contact information. Ready for your sales team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container"><div class="divider"></div></div>
+
+  <div class="container">
+    <div class="section">
+      <div class="section-label">Who It's For</div>
+      <h2>Built for OT professionals</h2>
+      <div class="buyers">
+        <div class="buyer">
+          <div class="buyer-icon">&#9881;</div>
+          <h3>System Integrators</h3>
+          <p>Migration project leads</p>
+        </div>
+        <div class="buyer">
+          <div class="buyer-icon">&#128737;</div>
+          <h3>OT Cybersecurity</h3>
+          <p>Monitoring platform leads</p>
+        </div>
+        <div class="buyer">
+          <div class="buyer-icon">&#128269;</div>
+          <h3>Security Assessors</h3>
+          <p>Assessment engagement leads</p>
+        </div>
+        <div class="buyer">
+          <div class="buyer-icon">&#128230;</div>
+          <h3>Hardware Distributors</h3>
+          <p>Equipment replacement leads</p>
+        </div>
+        <div class="buyer">
+          <div class="buyer-icon">&#128225;</div>
+          <h3>Managed Security</h3>
+          <p>OT monitoring contracts</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container"><div class="divider"></div></div>
+
+  <div class="container">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Passive sources only</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Active scans performed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24-42%</div>
+        <div class="stat-label">False positives eliminated</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container"><div class="divider"></div></div>
+
+  <div class="container">
+    <div class="cta-section">
+      <h2>See a real lead</h2>
+      <p>Request a free sample vulnerability memo &mdash; a real lead with validated CVEs, confirmed operator, and decision-maker contact.</p>
+      <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="cta-btn">Request a Sample Lead</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sentinel OT &mdash; Calgary, AB &nbsp;|&nbsp; <a href="mailto:johnny@sentinelot.com">johnny@sentinelot.com</a></p>
+      <p style="margin-top: 8px;">Public &amp; passive intelligence only. No active scanning. Data provided for defensive modernization purposes.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
