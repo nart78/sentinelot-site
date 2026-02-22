@@ -858,63 +858,54 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-    }
-
-    .risk-score-badge.critical {
-      background: var(--danger-light);
-      color: var(--danger);
-      border: 1px solid rgba(192,57,43,0.2);
+      background: var(--bg);
+      color: var(--black-9);
+      border: 1px solid var(--border);
     }
 
     .risk-score-num {
       font-size: 2.2rem;
       font-weight: 700;
-      color: var(--danger);
+      color: var(--black);
       letter-spacing: -0.02em;
     }
 
     .risk-factors {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-bottom: 20px;
+      gap: 0;
     }
 
     .risk-factor {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.25rem;
     }
 
     .risk-factor-label {
-      font-size: 1.25rem;
-      font-weight: 500;
       color: var(--black-7);
     }
 
-    .risk-meter {
-      height: 6px;
-      background: var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .risk-meter-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #e67e22, var(--danger));
-      border-radius: 3px;
+    .risk-factor-value {
+      font-weight: 600;
+      color: var(--black-9);
+      white-space: nowrap;
+      margin-left: 16px;
     }
 
     .risk-bottom {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0 0;
+      margin-top: 4px;
     }
 
     .risk-bottom-label {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -922,9 +913,10 @@
     }
 
     .risk-bottom-value {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--danger);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
     }
 
     /* ─── METHODOLOGY ─── */
@@ -1569,30 +1561,30 @@
           <div class="fv-card risk-card">
             <div class="fv-header">Risk Assessment</div>
             <div class="risk-score-row">
-              <div class="risk-score-badge critical">Critical</div>
+              <div class="risk-score-badge">High Priority</div>
               <span class="risk-score-num">8.7 / 10</span>
             </div>
             <div class="risk-factors">
               <div class="risk-factor">
                 <span class="risk-factor-label">Internet-exposed PLCs</span>
-                <div class="risk-meter"><div class="risk-meter-fill" style="width:95%"></div></div>
+                <span class="risk-factor-value">6 devices</span>
               </div>
               <div class="risk-factor">
                 <span class="risk-factor-label">Unpatched critical CVEs</span>
-                <div class="risk-meter"><div class="risk-meter-fill" style="width:88%"></div></div>
+                <span class="risk-factor-value">29 confirmed</span>
               </div>
               <div class="risk-factor">
                 <span class="risk-factor-label">End-of-life firmware</span>
-                <div class="risk-meter"><div class="risk-meter-fill" style="width:80%"></div></div>
+                <span class="risk-factor-value">All devices</span>
               </div>
               <div class="risk-factor">
-                <span class="risk-factor-label">No network segmentation</span>
-                <div class="risk-meter"><div class="risk-meter-fill" style="width:72%"></div></div>
+                <span class="risk-factor-label">Network segmentation</span>
+                <span class="risk-factor-value">None detected</span>
               </div>
             </div>
             <div class="risk-bottom">
-              <span class="risk-bottom-label">Recommended action</span>
-              <span class="risk-bottom-value">Immediate modernization &mdash; high compliance risk</span>
+              <span class="risk-bottom-label">Action</span>
+              <span class="risk-bottom-value">Immediate</span>
             </div>
           </div>
         </div>
