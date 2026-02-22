@@ -57,10 +57,10 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(243,243,243,0.85);
+      background: rgba(20,24,33,0.8);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .nav-inner {
@@ -89,13 +89,13 @@
     .nav-logo-text {
       font-size: 1.6rem;
       font-weight: 600;
-      color: var(--black);
+      color: #ffffff;
       letter-spacing: -0.03em;
     }
 
     .nav-logo-text span {
       font-weight: 400;
-      color: var(--black-5);
+      color: rgba(255,255,255,0.4);
     }
 
     .nav-links {
@@ -107,18 +107,18 @@
     .nav-links a {
       font-size: 1.4rem;
       font-weight: 500;
-      color: var(--black-7);
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--black); }
+    .nav-links a:hover { color: #ffffff; }
 
     .nav-cta {
       display: inline-flex;
       align-items: center;
       padding: 8px 20px;
-      background: var(--black);
+      background: var(--accent);
       color: var(--white) !important;
       border-radius: 8px;
       font-size: 1.4rem;
@@ -128,7 +128,7 @@
     }
 
     .nav-cta:hover {
-      background: #2a2a2a;
+      background: var(--accent-hover);
       transform: translateY(-1px);
     }
 
@@ -137,6 +137,27 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 32px;
+    }
+
+    /* ─── HERO SHADER WRAPPER ─── */
+    .hero-shader-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero-shader-wrap canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.6;
+    }
+
+    .hero-shader-wrap .container {
+      position: relative;
+      z-index: 1;
     }
 
     /* ─── HERO ─── */
@@ -156,8 +177,8 @@
     .hero-badge {
       display: inline-block;
       padding: 6px 14px;
-      background: var(--accent-light);
-      border: 1px solid rgba(14,165,233,0.2);
+      background: rgba(14,165,233,0.15);
+      border: 1px solid rgba(14,165,233,0.3);
       border-radius: 100px;
       font-size: 1.2rem;
       font-weight: 600;
@@ -172,18 +193,18 @@
       font-weight: 600;
       line-height: 1.08;
       letter-spacing: -0.04em;
-      color: var(--black);
+      color: #ffffff;
       margin-bottom: 24px;
     }
 
     .hero h1 .muted {
-      color: var(--black-5);
+      color: rgba(255,255,255,0.4);
     }
 
     .hero-desc {
       font-size: 1.7rem;
       line-height: 1.5;
-      color: var(--black-7);
+      color: rgba(255,255,255,0.65);
       margin-bottom: 36px;
       max-width: 440px;
     }
@@ -200,7 +221,7 @@
       align-items: center;
       gap: 8px;
       padding: 14px 28px;
-      background: var(--black);
+      background: var(--accent);
       color: var(--white);
       border-radius: 10px;
       font-size: 1.5rem;
@@ -212,23 +233,23 @@
     }
 
     .btn-primary:hover {
-      background: #2a2a2a;
+      background: var(--accent-hover);
       transform: translateY(-1px);
     }
 
     .btn-text {
       font-size: 1.4rem;
       font-weight: 500;
-      color: var(--black-7);
+      color: rgba(255,255,255,0.5);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .btn-text:hover { color: var(--black); }
+    .btn-text:hover { color: rgba(255,255,255,0.8); }
 
     .hero-trust {
       font-size: 1.3rem;
-      color: var(--black-5);
+      color: rgba(255,255,255,0.35);
     }
 
     /* ─── HERO SHOWCASE ─── */
@@ -1155,6 +1176,8 @@
   </nav>
 
   <!-- HERO -->
+  <div class="hero-shader-wrap">
+    <canvas id="shader-canvas"></canvas>
   <div class="container">
     <div class="hero">
       <div class="hero-content">
@@ -1232,6 +1255,7 @@
       </div>
     </div>
   </div>
+  </div><!-- /hero-shader-wrap -->
 
   <!-- TRUST BAR -->
   <div class="container">
@@ -1570,5 +1594,133 @@
     </div>
   </footer>
 
+  <script>
+  (function() {
+    var canvas = document.getElementById('shader-canvas');
+    if (!canvas) return;
+    var gl = canvas.getContext('webgl');
+    if (!gl) return;
+
+    var vsSource = 'attribute vec4 aVertexPosition;void main(){gl_Position=aVertexPosition;}';
+
+    var fsSource = [
+      'precision highp float;',
+      'uniform vec2 iResolution;',
+      'uniform float iTime;',
+      'const float overallSpeed=0.2;',
+      'const float gridSmoothWidth=0.015;',
+      'const float axisWidth=0.05;',
+      'const float majorLineWidth=0.025;',
+      'const float minorLineWidth=0.0125;',
+      'const float majorLineFrequency=5.0;',
+      'const float minorLineFrequency=1.0;',
+      'const vec4 gridColor=vec4(0.5);',
+      'const float scale=5.0;',
+      'const vec4 lineColor=vec4(0.055,0.55,0.9,1.0);',
+      'const float minLineWidth=0.01;',
+      'const float maxLineWidth=0.2;',
+      'const float lineSpeed=1.0*overallSpeed;',
+      'const float lineAmplitude=1.0;',
+      'const float lineFrequency=0.2;',
+      'const float warpSpeed=0.2*overallSpeed;',
+      'const float warpFrequency=0.5;',
+      'const float warpAmplitude=1.0;',
+      'const float offsetFrequency=0.5;',
+      'const float offsetSpeed=1.33*overallSpeed;',
+      'const float minOffsetSpread=0.6;',
+      'const float maxOffsetSpread=2.0;',
+      'const int linesPerGroup=16;',
+      '#define drawCircle(pos,radius,coord) smoothstep(radius+gridSmoothWidth,radius,length(coord-(pos)))',
+      '#define drawSmoothLine(pos,halfWidth,t) smoothstep(halfWidth,0.0,abs(pos-(t)))',
+      '#define drawCrispLine(pos,halfWidth,t) smoothstep(halfWidth+gridSmoothWidth,halfWidth,abs(pos-(t)))',
+      '#define drawPeriodicLine(freq,width,t) drawCrispLine(freq/2.0,width,abs(mod(t,freq)-(freq)/2.0))',
+      'float drawGridLines(float axis){return drawCrispLine(0.0,axisWidth,axis)+drawPeriodicLine(majorLineFrequency,majorLineWidth,axis)+drawPeriodicLine(minorLineFrequency,minorLineWidth,axis);}',
+      'float drawGrid(vec2 space){return min(1.0,drawGridLines(space.x)+drawGridLines(space.y));}',
+      'float random(float t){return(cos(t)+cos(t*1.3+1.3)+cos(t*1.4+1.4))/3.0;}',
+      'float getPlasmaY(float x,float horizontalFade,float offset){return random(x*lineFrequency+iTime*lineSpeed)*horizontalFade*lineAmplitude+offset;}',
+      'void main(){',
+      '  vec2 uv=gl_FragCoord.xy/iResolution.xy;',
+      '  vec2 space=(gl_FragCoord.xy-iResolution.xy/2.0)/iResolution.x*2.0*scale;',
+      '  float horizontalFade=1.0-(cos(uv.x*6.28)*0.5+0.5);',
+      '  float verticalFade=1.0-(cos(uv.y*6.28)*0.5+0.5);',
+      '  space.y+=random(space.x*warpFrequency+iTime*warpSpeed)*warpAmplitude*(0.5+horizontalFade);',
+      '  space.x+=random(space.y*warpFrequency+iTime*warpSpeed+2.0)*warpAmplitude*horizontalFade;',
+      '  vec4 lines=vec4(0.0);',
+      '  vec4 bgColor1=vec4(0.078,0.094,0.129,1.0);',
+      '  vec4 bgColor2=vec4(0.102,0.122,0.18,1.0);',
+      '  for(int l=0;l<linesPerGroup;l++){',
+      '    float nli=float(l)/float(linesPerGroup);',
+      '    float ot=iTime*offsetSpeed;',
+      '    float op=float(l)+space.x*offsetFrequency;',
+      '    float rand=random(op+ot)*0.5+0.5;',
+      '    float hw=mix(minLineWidth,maxLineWidth,rand*horizontalFade)/2.0;',
+      '    float offset=random(op+ot*(1.0+nli))*mix(minOffsetSpread,maxOffsetSpread,horizontalFade);',
+      '    float lp=getPlasmaY(space.x,horizontalFade,offset);',
+      '    float line=drawSmoothLine(lp,hw,space.y)/2.0+drawCrispLine(lp,hw*0.15,space.y);',
+      '    float cx=mod(float(l)+iTime*lineSpeed,25.0)-12.0;',
+      '    vec2 cp=vec2(cx,getPlasmaY(cx,horizontalFade,offset));',
+      '    float circle=drawCircle(cp,0.01,space)*4.0;',
+      '    line=line+circle;',
+      '    lines+=line*lineColor*rand;',
+      '  }',
+      '  vec4 fragColor=mix(bgColor1,bgColor2,uv.x);',
+      '  fragColor*=verticalFade;',
+      '  fragColor.a=1.0;',
+      '  fragColor+=lines;',
+      '  gl_FragColor=fragColor;',
+      '}'
+    ].join('\n');
+
+    function loadShader(gl,type,source){
+      var s=gl.createShader(type);
+      gl.shaderSource(s,source);
+      gl.compileShader(s);
+      if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(s));gl.deleteShader(s);return null;}
+      return s;
+    }
+
+    var vs=loadShader(gl,gl.VERTEX_SHADER,vsSource);
+    var fs=loadShader(gl,gl.FRAGMENT_SHADER,fsSource);
+    var prog=gl.createProgram();
+    gl.attachShader(prog,vs);
+    gl.attachShader(prog,fs);
+    gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(prog));return;}
+
+    var buf=gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+
+    var aPos=gl.getAttribLocation(prog,'aVertexPosition');
+    var uRes=gl.getUniformLocation(prog,'iResolution');
+    var uTime=gl.getUniformLocation(prog,'iTime');
+
+    function resize(){
+      var wrap=document.querySelector('.hero-shader-wrap');
+      canvas.width=wrap.offsetWidth;
+      canvas.height=wrap.offsetHeight;
+      gl.viewport(0,0,canvas.width,canvas.height);
+    }
+
+    window.addEventListener('resize',resize);
+    resize();
+
+    var start=Date.now();
+    function render(){
+      var t=(Date.now()-start)/1000;
+      gl.clearColor(0,0,0,1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(prog);
+      gl.uniform2f(uRes,canvas.width,canvas.height);
+      gl.uniform1f(uTime,t);
+      gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+      gl.vertexAttribPointer(aPos,2,gl.FLOAT,false,0,0);
+      gl.enableVertexAttribArray(aPos);
+      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+  })();
+  </script>
 </body>
 </html>
