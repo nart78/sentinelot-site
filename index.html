@@ -12,292 +12,992 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --navy: #0a1628;
-      --navy-light: #121f36;
-      --navy-mid: #1a2d4a;
-      --red: #c0392b;
-      --red-hover: #e74c3c;
-      --slate: #94a3b8;
-      --white: #f1f5f9;
-      --grid-color: rgba(148, 163, 184, 0.06);
+      --bg: #f3f3f3;
+      --bg-card: #e8e8e8;
+      --white: #ffffff;
+      --black: #151515;
+      --black-11: rgba(0,0,0,0.80);
+      --black-9: rgba(0,0,0,0.64);
+      --black-7: rgba(0,0,0,0.48);
+      --black-5: rgba(0,0,0,0.32);
+      --black-3: rgba(0,0,0,0.16);
+      --black-2: rgba(0,0,0,0.08);
+      --border: #e2e2e2;
+      --accent: #0ea5e9;
+      --accent-hover: #38bdf8;
+      --accent-light: rgba(14,165,233,0.08);
+      --danger: #c0392b;
+      --danger-light: rgba(192,57,43,0.08);
+      --navy: #141821;
+      --navy-light: #1a1f2e;
+      --navy-mid: #242a3a;
+      --green: #27ae60;
+      --green-light: rgba(39,174,96,0.1);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+
+    html { font-size: 62.5%; scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--navy);
-      color: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--black-7);
+      font-size: 1.6rem;
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Grid background */
-    body::before {
-      content: '';
+    /* ─── NAV ─── */
+    .nav {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image:
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(243,243,243,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .container {
-      max-width: 1000px;
+    .nav-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Nav */
-    nav {
-      padding: 24px 0;
+      padding: 0 32px;
+      height: 64px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
     }
 
-    .logo {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
     }
 
-    .logo-icon {
-      width: 300px;
-      height: 300px;
-    }
-
-    .logo-icon img {
-      width: 100%;
-      height: 100%;
+    .nav-left img {
+      width: 36px;
+      height: 36px;
       object-fit: contain;
     }
 
-    .logo-text {
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--white);
-      letter-spacing: -0.02em;
+    .nav-logo-text {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.03em;
     }
 
-    .logo-text span {
-      color: var(--slate);
+    .nav-logo-text span {
       font-weight: 400;
+      color: var(--black-5);
     }
 
-    nav a.contact-link {
-      color: var(--slate);
-      text-decoration: none;
-      font-size: 14px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 1.4rem;
       font-weight: 500;
+      color: var(--black-7);
+      text-decoration: none;
       transition: color 0.2s;
     }
 
-    nav a.contact-link:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--black); }
 
-    /* Hero */
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 20px;
+      background: var(--black);
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .nav-cta:hover {
+      background: #2a2a2a;
+      transform: translateY(-1px);
+    }
+
+    /* ─── CONTAINER ─── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ─── HERO ─── */
     .hero {
-      padding: 80px 0 60px;
-      text-align: center;
+      padding-top: 160px;
+      padding-bottom: 80px;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 520px;
     }
 
     .hero-badge {
       display: inline-block;
-      padding: 6px 16px;
-      background: rgba(192, 57, 43, 0.15);
-      border: 1px solid rgba(192, 57, 43, 0.3);
+      padding: 6px 14px;
+      background: var(--accent-light);
+      border: 1px solid rgba(14,165,233,0.2);
       border-radius: 100px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--red-hover);
-      margin-bottom: 24px;
-      letter-spacing: 0.02em;
-    }
-
-    h1 {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-    }
-
-    h1 .accent { color: var(--red); }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--slate);
-      max-width: 600px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background: var(--red);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
+      font-size: 1.2rem;
       font-weight: 600;
-      font-size: 15px;
-      transition: background 0.2s, transform 0.1s;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
 
-    .cta-btn:hover {
-      background: var(--red-hover);
+    .hero h1 {
+      font-size: clamp(3.6rem, 5vw, 5.6rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .muted {
+      color: var(--black-5);
+    }
+
+    .hero-desc {
+      font-size: 1.7rem;
+      line-height: 1.5;
+      color: var(--black-7);
+      margin-bottom: 36px;
+      max-width: 440px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 10px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #2a2a2a;
       transform: translateY(-1px);
     }
 
-    /* Divider */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(148,163,184,0.2), transparent);
-      margin: 20px 0;
+    .btn-text {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--black-7);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    /* What We Deliver */
+    .btn-text:hover { color: var(--black); }
+
+    .hero-trust {
+      font-size: 1.3rem;
+      color: var(--black-5);
+    }
+
+    /* ─── HERO SHOWCASE ─── */
+    .hero-showcase {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      max-width: 520px;
+    }
+
+    .showcase-card {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 28px;
+      color: rgba(255,255,255,0.9);
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.08);
+      font-size: 1.3rem;
+    }
+
+    .sc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 20px;
+    }
+
+    .sc-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .sc-lead-id {
+      font-size: 1.1rem;
+      padding: 3px 10px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+    }
+
+    .sc-classification {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(39,174,96,0.15);
+      border: 1px solid rgba(39,174,96,0.25);
+      border-radius: 4px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #2ecc71;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .sc-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .sc-field {
+      display: flex;
+      gap: 12px;
+    }
+
+    .sc-label {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.35);
+      min-width: 72px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .sc-value {
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+
+    .sc-section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 10px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sc-devices {
+      margin-bottom: 16px;
+    }
+
+    .sc-device-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 1.2rem;
+    }
+
+    .sc-device-name {
+      color: rgba(255,255,255,0.7);
+      flex: 1;
+    }
+
+    .sc-device-fw {
+      color: rgba(255,255,255,0.4);
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 1.1rem;
+      margin-right: 12px;
+    }
+
+    .sc-cve-badge {
+      font-size: 1.05rem;
+      padding: 2px 8px;
+      background: rgba(192,57,43,0.25);
+      border-radius: 4px;
+      color: #ef5350;
+      font-weight: 600;
+    }
+
+    .sc-device-more {
+      color: rgba(255,255,255,0.25);
+      font-style: italic;
+      padding: 6px 0;
+      font-size: 1.15rem;
+    }
+
+    .sc-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 4px;
+    }
+
+    .sc-scope {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .sc-scope-label {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.3);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .sc-scope-value {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      letter-spacing: -0.02em;
+    }
+
+    .sc-dm-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.15rem;
+      color: #2ecc71;
+      font-weight: 500;
+    }
+
+    .sc-dm-check {
+      width: 20px;
+      height: 20px;
+      background: rgba(39,174,96,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    /* Floating badges */
+    .float-badge {
+      position: absolute;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--black);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .fb-confidence {
+      top: -12px;
+      right: -20px;
+    }
+
+    .fb-confidence .fb-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .fb-passive {
+      bottom: 40px;
+      left: -28px;
+    }
+
+    .fb-passive .fb-icon {
+      width: 20px;
+      height: 20px;
+      background: rgba(14,165,233,0.12);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #0ea5e9;
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-label {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--black-5);
+      margin-bottom: 24px;
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--black-9);
+    }
+
+    .trust-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    /* ─── SECTION COMMON ─── */
     .section {
-      padding: 60px 0;
+      padding: 100px 0;
     }
 
     .section-label {
-      font-size: 12px;
+      font-size: 1.2rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--black-5);
       margin-bottom: 12px;
     }
 
-    h2 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 40px;
+    .section h2 {
+      font-size: clamp(2.8rem, 3.5vw, 4.2rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 20px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    .section-desc {
+      font-size: 1.6rem;
+      color: var(--black-7);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 56px;
     }
 
-    .card {
-      background: var(--navy-light);
-      border: 1px solid rgba(148, 163, 184, 0.1);
-      border-radius: 10px;
-      padding: 28px;
-      transition: border-color 0.2s;
-    }
-
-    .card:hover {
-      border-color: rgba(192, 57, 43, 0.3);
-    }
-
-    .card-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--navy-mid);
-      border-radius: 8px;
+    /* ─── FEATURE ROWS ─── */
+    .feature-row {
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      font-size: 18px;
+      gap: 64px;
+      margin-bottom: 80px;
     }
 
-    .card h3 {
-      font-size: 16px;
+    .feature-row:last-child { margin-bottom: 0; }
+
+    .feature-row.reverse { flex-direction: row-reverse; }
+
+    .feature-text {
+      flex: 1;
+      max-width: 440px;
+    }
+
+    .feature-text h3 {
+      font-size: 2.4rem;
       font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 12px;
+      line-height: 1.2;
     }
 
-    .card p {
-      font-size: 14px;
-      color: var(--slate);
+    .feature-text p {
+      font-size: 1.5rem;
+      color: var(--black-7);
       line-height: 1.6;
     }
 
-    /* How It Works */
-    .steps {
-      display: grid;
-      gap: 24px;
-    }
-
-    .step {
+    .feature-visual {
+      flex: 1;
       display: flex;
-      gap: 20px;
-      align-items: flex-start;
+      justify-content: center;
     }
 
-    .step-num {
-      min-width: 36px;
-      height: 36px;
-      background: rgba(192, 57, 43, 0.15);
-      border: 1px solid rgba(192, 57, 43, 0.3);
+    /* Feature visual cards */
+    .fv-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .fv-header {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--black-5);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* CVE Validation visual */
+    .vd-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
       border-radius: 8px;
+      margin-bottom: 6px;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    .vd-cve {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 1.2rem;
+    }
+
+    .vd-product {
+      color: var(--black-5);
+      font-size: 1.2rem;
+    }
+
+    .vd-status {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .vd-row.confirmed {
+      background: var(--green-light);
+    }
+
+    .vd-row.confirmed .vd-status { color: var(--green); }
+    .vd-row.confirmed .vd-cve { color: var(--black-9); }
+
+    .vd-row.rejected {
+      background: var(--danger-light);
+    }
+
+    .vd-row.rejected .vd-status { color: var(--danger); }
+    .vd-row.rejected .vd-cve { color: var(--black-5); text-decoration: line-through; }
+
+    .vd-row.patched {
+      background: rgba(52,152,219,0.06);
+    }
+
+    .vd-row.patched .vd-status { color: #2980b9; }
+    .vd-row.patched .vd-cve { color: var(--black-7); }
+
+    .vd-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      margin-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .vd-summary-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--black-9);
+    }
+
+    .vd-bar {
+      width: 120px;
+      height: 6px;
+      background: var(--bg-card);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .vd-bar-fill {
+      width: 62%;
+      height: 100%;
+      background: var(--green);
+      border-radius: 3px;
+    }
+
+    /* Attribution visual */
+    .attr-signals {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .attr-signal {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 1.3rem;
+    }
+
+    .attr-signal-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--red-hover);
+      font-size: 1.3rem;
+      flex-shrink: 0;
     }
 
-    .step-content h3 {
-      font-size: 16px;
+    .attr-signal-name {
+      font-weight: 500;
+      color: var(--black-7);
+      flex: 1;
+    }
+
+    .attr-signal-check {
+      color: var(--green);
       font-weight: 600;
-      margin-bottom: 4px;
+      font-size: 1.2rem;
     }
 
-    .step-content p {
-      font-size: 14px;
-      color: var(--slate);
+    .attr-result {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      background: var(--navy);
+      border-radius: 10px;
+      margin-top: 12px;
     }
 
-    /* Who It's For */
-    .buyers {
+    .attr-result-arrow {
+      color: rgba(255,255,255,0.3);
+      font-size: 1.6rem;
+    }
+
+    .attr-result-text {
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+
+    .attr-result-conf {
+      margin-left: auto;
+      font-size: 1.2rem;
+      color: #2ecc71;
+      font-weight: 600;
+    }
+
+    /* Contact visual */
+    .contact-card {
+      padding: 4px;
+    }
+
+    .cc-profile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg);
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    .cc-avatar {
+      width: 48px;
+      height: 48px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.8rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .cc-info h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+    }
+
+    .cc-info p {
+      font-size: 1.25rem;
+      color: var(--black-7);
+    }
+
+    .cc-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cc-detail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 1.25rem;
+    }
+
+    .cc-detail-icon {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .cc-detail-label {
+      color: var(--black-5);
+      min-width: 80px;
+    }
+
+    .cc-detail-value {
+      color: var(--black-9);
+      font-weight: 500;
+    }
+
+    /* ─── METHODOLOGY ─── */
+    .method-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .method-step {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .method-step:hover {
+      border-color: rgba(14,165,233,0.25);
+      box-shadow: 0 4px 16px rgba(14,165,233,0.06);
+    }
+
+    .method-num {
+      width: 32px;
+      height: 32px;
+      background: var(--bg);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black-7);
+      margin-bottom: 14px;
+    }
+
+    .method-step h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+
+    .method-step p {
+      font-size: 1.2rem;
+      color: var(--black-5);
+      line-height: 1.5;
+    }
+
+    /* ─── COMPARISON ─── */
+    .comparison {
+      padding: 80px 0;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .comp-col {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .comp-col.highlighted {
+      border-color: rgba(14,165,233,0.25);
+      box-shadow: 0 4px 24px rgba(14,165,233,0.06);
+    }
+
+    .comp-col-header {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .comp-col-header.dim { color: var(--black-5); }
+
+    .comp-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .comp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 1.4rem;
+      line-height: 1.4;
+    }
+
+    .comp-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .comp-icon.negative {
+      background: var(--danger-light);
+      color: var(--danger);
+    }
+
+    .comp-icon.positive {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .comp-item-text { color: var(--black-7); }
+    .comp-col.highlighted .comp-item-text { color: var(--black-9); }
+
+    /* ─── BUYERS ─── */
+    .buyer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 16px;
     }
 
-    .buyer {
-      background: var(--navy-light);
-      border: 1px solid rgba(148, 163, 184, 0.08);
-      border-radius: 8px;
-      padding: 20px;
+    .buyer-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 20px;
       text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .buyer-card:hover {
+      border-color: var(--black-3);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
     }
 
     .buyer-icon {
-      font-size: 24px;
-      margin-bottom: 10px;
+      width: 40px;
+      height: 40px;
+      background: var(--bg);
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
     }
 
-    .buyer h3 {
-      font-size: 14px;
+    .buyer-card h3 {
+      font-size: 1.35rem;
       font-weight: 600;
+      color: var(--black);
       margin-bottom: 4px;
+      letter-spacing: -0.01em;
     }
 
-    .buyer p {
-      font-size: 12px;
-      color: var(--slate);
+    .buyer-card p {
+      font-size: 1.2rem;
+      color: var(--black-5);
     }
 
-    /* Stats bar */
-    .stats {
+    /* ─── STATS ─── */
+    .stats-bar {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-      padding: 40px 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
     }
 
     .stat {
@@ -305,105 +1005,386 @@
     }
 
     .stat-num {
-      font-size: 36px;
+      font-size: 4.2rem;
       font-weight: 700;
-      color: var(--red);
-      letter-spacing: -0.02em;
+      color: var(--black);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
     }
 
     .stat-label {
-      font-size: 13px;
-      color: var(--slate);
-      margin-top: 4px;
+      font-size: 1.3rem;
+      color: var(--black-5);
+      font-weight: 500;
     }
 
-    /* CTA Section */
+    /* ─── CTA ─── */
     .cta-section {
       text-align: center;
-      padding: 60px 0 40px;
+      padding: 100px 0 60px;
     }
 
     .cta-section h2 {
+      font-size: clamp(2.8rem, 4vw, 4.8rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      color: var(--black);
       margin-bottom: 16px;
+      line-height: 1.1;
     }
 
     .cta-section p {
-      color: var(--slate);
-      font-size: 16px;
-      margin-bottom: 32px;
+      font-size: 1.6rem;
+      color: var(--black-7);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
     }
 
-    /* Footer */
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── FOOTER ─── */
     footer {
       padding: 40px 0;
-      text-align: center;
-      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     footer p {
-      font-size: 13px;
-      color: rgba(148, 163, 184, 0.5);
+      font-size: 1.3rem;
+      color: var(--black-5);
     }
 
     footer a {
-      color: rgba(148, 163, 184, 0.5);
+      color: var(--black-5);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
-    footer a:hover { color: var(--slate); }
+    footer a:hover { color: var(--black-7); }
 
-    /* Mobile */
-    @media (max-width: 640px) {
-      .hero { padding: 50px 0 40px; }
-      .section { padding: 40px 0; }
-      .cards { grid-template-columns: 1fr; }
-      .buyers { grid-template-columns: repeat(2, 1fr); }
-      .stats { grid-template-columns: repeat(2, 1fr); }
+    .footer-legal {
+      font-size: 1.15rem;
+      color: var(--black-3);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero {
+        flex-direction: column;
+        padding-top: 120px;
+        gap: 48px;
+      }
+
+      .hero-content { max-width: 100%; text-align: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-trust { text-align: center; }
+      .hero-showcase { max-width: 420px; }
+
+      .method-grid { grid-template-columns: repeat(3, 1fr); }
+      .buyer-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      html { font-size: 60%; }
+
+      .nav-links { display: none; }
+      .nav-inner { padding: 0 20px; }
+      .container { padding: 0 20px; }
+
+      .hero { padding-top: 100px; padding-bottom: 48px; }
+      .hero-showcase { max-width: 100%; }
+      .showcase-card { padding: 20px; }
+
+      .float-badge { display: none; }
+
+      .section { padding: 64px 0; }
+
+      .feature-row, .feature-row.reverse {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .feature-text { max-width: 100%; }
+
+      .comparison-grid { grid-template-columns: 1fr; }
+      .method-grid { grid-template-columns: repeat(2, 1fr); }
+      .buyer-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+      .trust-items { gap: 24px; }
+
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .method-grid { grid-template-columns: 1fr; }
+      .buyer-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+      .hero-actions { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <nav>
-      <a href="/" class="logo">
-        <div class="logo-icon"><img src="logo.png" alt="Sentinel OT"></div>
-        <div class="logo-text">Sentinel <span>OT</span></div>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-left">
+        <img src="logo.png" alt="Sentinel OT">
+        <div class="nav-logo-text">Sentinel <span>OT</span></div>
       </a>
-      <a href="mailto:johnny@sentinelot.com" class="contact-link">Contact</a>
-    </nav>
-  </div>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#buyers">For Buyers</a>
+        <a href="mailto:johnny@sentinelot.com">Contact</a>
+        <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="nav-cta">Request Sample</a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- HERO -->
   <div class="container">
     <div class="hero">
-      <div class="hero-badge">Passive ICS Intelligence</div>
-      <h1>Qualified vulnerability leads<br>for <span class="accent">OT professionals</span></h1>
-      <p>We find companies running legacy SCADA and PLCs with confirmed, unpatched vulnerabilities &mdash; and deliver them as ready-to-pitch intelligence packages.</p>
-      <a href="mailto:johnny@sentinelot.com" class="cta-btn">Request a Sample Lead</a>
+      <div class="hero-content">
+        <div class="hero-badge">Passive ICS Intelligence</div>
+        <h1>Qualified vulnerability leads.<br><span class="muted">Without the guesswork.</span></h1>
+        <p class="hero-desc">Sentinel OT delivers firmware-validated intelligence packages for OT professionals &mdash; confirmed operators, validated CVEs, and decision-maker contacts. Ready for your sales team.</p>
+        <div class="hero-actions">
+          <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="btn-primary">Request a Sample Lead</a>
+          <a href="#how-it-works" class="btn-text">See how it works &darr;</a>
+        </div>
+        <p class="hero-trust">100% passive sources &middot; No active scanning &middot; Ever.</p>
+      </div>
+
+      <div class="hero-showcase">
+        <div class="showcase-card">
+          <div class="sc-header">
+            <span class="sc-logo">Sentinel OT</span>
+            <span class="sc-lead-id">TX-2026-001</span>
+          </div>
+          <div class="sc-classification">Verified Lead</div>
+          <div class="sc-meta">
+            <div class="sc-field">
+              <span class="sc-label">Operator</span>
+              <span class="sc-value">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608; College &mdash; Fieldbus Center</span>
+            </div>
+            <div class="sc-field">
+              <span class="sc-label">Location</span>
+              <span class="sc-value">Baytown, TX 77520</span>
+            </div>
+            <div class="sc-field">
+              <span class="sc-label">Industry</span>
+              <span class="sc-value">Industrial Process Technology</span>
+            </div>
+          </div>
+          <div class="sc-devices">
+            <div class="sc-section-title">Equipment Inventory</div>
+            <div class="sc-device-row">
+              <span class="sc-device-name">MicroLogix 1400</span>
+              <span class="sc-device-fw">C/21.02</span>
+              <span class="sc-cve-badge">29 CVEs</span>
+            </div>
+            <div class="sc-device-row">
+              <span class="sc-device-name">MicroLogix 1400</span>
+              <span class="sc-device-fw">C/21.06</span>
+              <span class="sc-cve-badge">29 CVEs</span>
+            </div>
+            <div class="sc-device-row">
+              <span class="sc-device-name">MicroLogix 1400</span>
+              <span class="sc-device-fw">B/21.05</span>
+              <span class="sc-cve-badge">38 CVEs</span>
+            </div>
+            <span class="sc-device-more">+ 3 more devices</span>
+          </div>
+          <div class="sc-bottom">
+            <div class="sc-scope">
+              <span class="sc-scope-label">Est. Scope</span>
+              <span class="sc-scope-value">$75K &mdash; $150K</span>
+            </div>
+            <div class="sc-dm-status">
+              <span class="sc-dm-check">&#10003;</span>
+              Decision Maker Identified
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="float-badge fb-confidence">
+          <span class="fb-dot"></span>
+          85% Confidence
+        </div>
+        <div class="float-badge fb-passive">
+          <span class="fb-icon">&#9678;</span>
+          Firmware Validated
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="container"><div class="divider"></div></div>
+  <!-- TRUST BAR -->
+  <div class="container">
+    <div class="trust-bar">
+      <p class="trust-label">Every lead includes</p>
+      <div class="trust-items">
+        <div class="trust-item">
+          <div class="trust-icon">&#9878;</div>
+          Firmware-Validated CVEs
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#9673;</div>
+          Confirmed Operators
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#9733;</div>
+          Decision-Maker Contacts
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#9635;</div>
+          Migration Path
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#8982;</div>
+          Risk Assessment
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- FEATURES -->
   <div class="container">
     <div class="section">
       <div class="section-label">What We Deliver</div>
-      <h2>Every lead is a qualified intelligence package</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">&#9878;</div>
+      <h2>Every lead is a qualified<br>intelligence package</h2>
+      <p class="section-desc">We don't hand you a list of IP addresses. Every lead is a researched, validated, ready-to-pitch memo with everything your sales team needs.</p>
+
+      <!-- Feature 1: CVE Validation -->
+      <div class="feature-row">
+        <div class="feature-text">
           <h3>Firmware-Validated CVEs</h3>
           <p>Every CVE is confirmed against the exact device model and firmware version. No keyword-match false positives. We check NVD version ranges and flag what's patched vs. unpatched.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">&#9673;</div>
-          <h3>Confirmed Operators</h3>
-          <p>Multi-signal attribution using property records, EPA facility data, state databases, and LinkedIn research. We identify who owns the devices and who to contact.</p>
+        <div class="feature-visual">
+          <div class="fv-card">
+            <div class="fv-header">CVE Validation Engine</div>
+            <div class="vd-row rejected">
+              <span class="vd-cve">CVE-2024-3493</span>
+              <span class="vd-product">CompactLogix 5380</span>
+              <span class="vd-status">&#10005; Wrong model</span>
+            </div>
+            <div class="vd-row confirmed">
+              <span class="vd-cve">CVE-2018-17924</span>
+              <span class="vd-product">MicroLogix 1400</span>
+              <span class="vd-status">&#10003; Confirmed</span>
+            </div>
+            <div class="vd-row patched">
+              <span class="vd-cve">CVE-2020-6998</span>
+              <span class="vd-product">MicroLogix 1400</span>
+              <span class="vd-status">&uarr; Patched</span>
+            </div>
+            <div class="vd-row confirmed">
+              <span class="vd-cve">CVE-2019-10952</span>
+              <span class="vd-product">MicroLogix 1400</span>
+              <span class="vd-status">&#10003; Confirmed</span>
+            </div>
+            <div class="vd-summary">
+              <span class="vd-summary-text">47 &rarr; 29 validated</span>
+              <div class="vd-bar"><div class="vd-bar-fill"></div></div>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-icon">&#9733;</div>
+      </div>
+
+      <!-- Feature 2: Operator Attribution -->
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <h3>Confirmed Operators</h3>
+          <p>Multi-signal attribution using property records, EPA facility data, state regulatory databases, and professional network research. We identify who owns the devices and confirm it independently.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="fv-card">
+            <div class="fv-header">Multi-Signal Attribution</div>
+            <div class="attr-signals">
+              <div class="attr-signal">
+                <span class="attr-signal-icon">&#127963;</span>
+                <span class="attr-signal-name">EPA ECHO Database</span>
+                <span class="attr-signal-check">&#10003;</span>
+              </div>
+              <div class="attr-signal">
+                <span class="attr-signal-icon">&#128196;</span>
+                <span class="attr-signal-name">Property Records</span>
+                <span class="attr-signal-check">&#10003;</span>
+              </div>
+              <div class="attr-signal">
+                <span class="attr-signal-icon">&#9878;</span>
+                <span class="attr-signal-name">State Regulatory Filings</span>
+                <span class="attr-signal-check">&#10003;</span>
+              </div>
+              <div class="attr-signal">
+                <span class="attr-signal-icon">&#128100;</span>
+                <span class="attr-signal-name">LinkedIn Research</span>
+                <span class="attr-signal-check">&#10003;</span>
+              </div>
+            </div>
+            <div class="attr-result">
+              <span class="attr-result-arrow">&rarr;</span>
+              <span class="attr-result-text">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608; College</span>
+              <span class="attr-result-conf">85%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Decision Maker -->
+      <div class="feature-row">
+        <div class="feature-text">
           <h3>Decision-Maker Contacts</h3>
-          <p>OT Manager, Controls Engineer, Plant Manager &mdash; we find the person who signs the PO. Name, title, and company verified through public sources.</p>
+          <p>OT Manager, Controls Engineer, Plant Manager &mdash; we find the person who signs the PO. Name, title, and company verified through public sources and professional networks.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="fv-card contact-card">
+            <div class="fv-header">Decision Maker Identified</div>
+            <div class="cc-profile">
+              <div class="cc-avatar">CT</div>
+              <div class="cc-info">
+                <h4>Charles T., Ph.D.</h4>
+                <p>Division Chair, Process Technology</p>
+              </div>
+            </div>
+            <div class="cc-details">
+              <div class="cc-detail">
+                <span class="cc-detail-icon">&#10003;</span>
+                <span class="cc-detail-label">Company</span>
+                <span class="cc-detail-value">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608; College</span>
+              </div>
+              <div class="cc-detail">
+                <span class="cc-detail-icon">&#10003;</span>
+                <span class="cc-detail-label">Authority</span>
+                <span class="cc-detail-value">Program Budget &amp; Equipment</span>
+              </div>
+              <div class="cc-detail">
+                <span class="cc-detail-icon">&#10003;</span>
+                <span class="cc-detail-label">Approach</span>
+                <span class="cc-detail-value">Workforce readiness + grant funding</span>
+              </div>
+              <div class="cc-detail">
+                <span class="cc-detail-icon">&#10003;</span>
+                <span class="cc-detail-label">Verified</span>
+                <span class="cc-detail-value">LinkedIn + public directory</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -411,44 +1392,100 @@
 
   <div class="container"><div class="divider"></div></div>
 
-  <div class="container">
+  <!-- METHODOLOGY -->
+  <div class="container" id="how-it-works">
     <div class="section">
       <div class="section-label">Methodology</div>
       <h2>How we build a lead</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h3>Passive Discovery</h3>
-            <p>We identify exposed ICS devices using proprietary passive reconnaissance techniques. No active scanning or probing &mdash; ever.</p>
+      <p class="section-desc">Five steps from raw signal to ready-to-pitch intelligence. All passive. All verified.</p>
+
+      <div class="method-grid">
+        <div class="method-step">
+          <div class="method-num">1</div>
+          <h3>Passive Discovery</h3>
+          <p>Proprietary passive reconnaissance to identify exposed ICS devices. No active scanning.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">2</div>
+          <h3>CVE Validation</h3>
+          <p>Each firmware version matched against NVD data with version-range checking.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">3</div>
+          <h3>Operator Attribution</h3>
+          <p>Cross-reference GPS, property records, EPA databases, and state filings.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">4</div>
+          <h3>Contact Research</h3>
+          <p>LinkedIn and public directory research to identify the decision maker.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">5</div>
+          <h3>Intelligence Package</h3>
+          <p>Branded PDF memo with full inventory, CVEs, risk assessment, and contacts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container"><div class="divider"></div></div>
+
+  <!-- COMPARISON -->
+  <div class="container">
+    <div class="comparison">
+      <div class="section-label">Why Sentinel OT</div>
+      <h2 style="font-size:clamp(2.8rem,3.5vw,4.2rem);font-weight:600;letter-spacing:-0.03em;color:var(--black);margin-bottom:40px;line-height:1.1;">Your reputation is on the lead.</h2>
+
+      <div class="comparison-grid">
+        <div class="comp-col">
+          <div class="comp-col-header dim">Traditional Lead Gen</div>
+          <div class="comp-items">
+            <div class="comp-item">
+              <div class="comp-icon negative">&#10005;</div>
+              <span class="comp-item-text">Keyword-matched CVEs with high false positive rates</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon negative">&#10005;</div>
+              <span class="comp-item-text">Unknown operators &mdash; just IP addresses</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon negative">&#10005;</div>
+              <span class="comp-item-text">Generic contact lists scraped from databases</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon negative">&#10005;</div>
+              <span class="comp-item-text">Active scanning that triggers alerts</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon negative">&#10005;</div>
+              <span class="comp-item-text">Raw data dumps that need your own analysis</span>
+            </div>
           </div>
         </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h3>CVE Validation</h3>
-            <p>Each device's firmware version is matched against NVD vulnerability data with version-range checking. We eliminate false positives and flag patched vulnerabilities.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h3>Operator Attribution</h3>
-            <p>We cross-reference GPS coordinates, property records, EPA facility databases, state regulatory filings, and network registration data to identify the asset owner.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3>Contact Research</h3>
-            <p>LinkedIn and public directory research to identify the decision maker &mdash; the person responsible for controls, automation, or OT security at the confirmed operator.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <h3>Intelligence Package</h3>
-            <p>Delivered as a branded PDF memo with device inventory, validated CVE tables, risk assessment, operator profile, and contact information. Ready for your sales team.</p>
+        <div class="comp-col highlighted">
+          <div class="comp-col-header">Sentinel OT</div>
+          <div class="comp-items">
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Firmware-validated CVEs with 24-42% false positives eliminated</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Confirmed operators via multi-signal attribution</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Decision-maker contacts verified through public sources</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">100% passive intelligence &mdash; no scanning, ever</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Ready-to-pitch PDF memos for your sales team</span>
+            </div>
           </div>
         </div>
       </div>
@@ -457,32 +1494,35 @@
 
   <div class="container"><div class="divider"></div></div>
 
-  <div class="container">
+  <!-- BUYERS -->
+  <div class="container" id="buyers">
     <div class="section">
       <div class="section-label">Who It's For</div>
       <h2>Built for OT professionals</h2>
-      <div class="buyers">
-        <div class="buyer">
+      <p class="section-desc">Each lead is packaged for your specific use case. Different buyers get different intelligence from the same discovery.</p>
+
+      <div class="buyer-grid">
+        <div class="buyer-card">
           <div class="buyer-icon">&#9881;</div>
           <h3>System Integrators</h3>
           <p>Migration project leads</p>
         </div>
-        <div class="buyer">
+        <div class="buyer-card">
           <div class="buyer-icon">&#128737;</div>
           <h3>OT Cybersecurity</h3>
           <p>Monitoring platform leads</p>
         </div>
-        <div class="buyer">
+        <div class="buyer-card">
           <div class="buyer-icon">&#128269;</div>
           <h3>Security Assessors</h3>
           <p>Assessment engagement leads</p>
         </div>
-        <div class="buyer">
+        <div class="buyer-card">
           <div class="buyer-icon">&#128230;</div>
           <h3>Hardware Distributors</h3>
           <p>Equipment replacement leads</p>
         </div>
-        <div class="buyer">
+        <div class="buyer-card">
           <div class="buyer-icon">&#128225;</div>
           <h3>Managed Security</h3>
           <p>OT monitoring contracts</p>
@@ -491,39 +1531,42 @@
     </div>
   </div>
 
-  <div class="container"><div class="divider"></div></div>
-
+  <!-- STATS -->
   <div class="container">
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Passive sources only</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100+</div>
-        <div class="stat-label">Passive scans performed</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">24-42%</div>
-        <div class="stat-label">False positives eliminated</div>
+    <div class="stats-bar">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Passive sources only</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Passive scans performed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">24-42%</div>
+          <div class="stat-label">False positives eliminated</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container"><div class="divider"></div></div>
-
+  <!-- CTA -->
   <div class="container">
     <div class="cta-section">
-      <h2>See a real lead</h2>
+      <h2>See a real lead.</h2>
       <p>Request a free sample vulnerability memo &mdash; a real lead with validated CVEs, confirmed operator, and decision-maker contact.</p>
-      <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="cta-btn">Request a Sample Lead</a>
+      <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="btn-primary">Request a Sample Lead</a>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Sentinel OT &mdash; Calgary, AB &nbsp;|&nbsp; <a href="mailto:johnny@sentinelot.com">johnny@sentinelot.com</a></p>
-      <p style="margin-top: 8px;">Public &amp; passive intelligence only. No active scanning. Data provided for defensive modernization purposes.</p>
+      <div class="footer-inner">
+        <p>&copy; 2026 Sentinel OT &mdash; Calgary, AB &nbsp;|&nbsp; <a href="mailto:johnny@sentinelot.com">johnny@sentinelot.com</a></p>
+        <p class="footer-legal">Public &amp; passive intelligence only. No active scanning. Data provided for defensive modernization purposes.</p>
+      </div>
     </div>
   </footer>
 
