@@ -57,10 +57,10 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(20,24,33,0.8);
+      background: rgba(243,243,243,0.8);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
     .nav-inner {
@@ -89,13 +89,13 @@
     .nav-logo-text {
       font-size: 1.6rem;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--black);
       letter-spacing: -0.03em;
     }
 
     .nav-logo-text span {
       font-weight: 400;
-      color: rgba(255,255,255,0.4);
+      color: var(--black-5);
     }
 
     .nav-links {
@@ -107,18 +107,18 @@
     .nav-links a {
       font-size: 1.4rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.6);
+      color: var(--black-7);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: #ffffff; }
+    .nav-links a:hover { color: var(--black); }
 
     .nav-cta {
       display: inline-flex;
       align-items: center;
       padding: 8px 20px;
-      background: var(--accent);
+      background: var(--black);
       color: var(--white) !important;
       border-radius: 8px;
       font-size: 1.4rem;
@@ -128,7 +128,7 @@
     }
 
     .nav-cta:hover {
-      background: var(--accent-hover);
+      background: var(--black-11);
       transform: translateY(-1px);
     }
 
@@ -143,21 +143,7 @@
     .hero-shader-wrap {
       position: relative;
       overflow: hidden;
-      background: var(--navy);
-    }
-
-    .hero-shader-wrap canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.6;
-    }
-
-    .hero-shader-wrap .container {
-      position: relative;
-      z-index: 1;
+      background: var(--bg);
     }
 
     /* ─── HERO ─── */
@@ -193,18 +179,18 @@
       font-weight: 600;
       line-height: 1.08;
       letter-spacing: -0.04em;
-      color: #ffffff;
+      color: var(--black);
       margin-bottom: 24px;
     }
 
     .hero h1 .muted {
-      color: rgba(255,255,255,0.4);
+      color: var(--black-5);
     }
 
     .hero-desc {
       font-size: 1.7rem;
       line-height: 1.5;
-      color: rgba(255,255,255,0.65);
+      color: var(--black-7);
       margin-bottom: 36px;
       max-width: 440px;
     }
@@ -221,7 +207,7 @@
       align-items: center;
       gap: 8px;
       padding: 14px 28px;
-      background: var(--accent);
+      background: var(--black);
       color: var(--white);
       border-radius: 10px;
       font-size: 1.5rem;
@@ -233,23 +219,23 @@
     }
 
     .btn-primary:hover {
-      background: var(--accent-hover);
+      background: var(--black-11);
       transform: translateY(-1px);
     }
 
     .btn-text {
       font-size: 1.4rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
+      color: var(--black-7);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .btn-text:hover { color: rgba(255,255,255,0.8); }
+    .btn-text:hover { color: var(--black); }
 
     .hero-trust {
       font-size: 1.3rem;
-      color: rgba(255,255,255,0.35);
+      color: var(--black-5);
     }
 
     /* ─── HERO SHOWCASE ─── */
@@ -261,6 +247,16 @@
       max-width: 520px;
     }
 
+    .hero-showcase canvas {
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: calc(100% + 60px);
+      height: calc(100% + 60px);
+      border-radius: 24px;
+      opacity: 0.8;
+    }
+
     .showcase-card {
       background: var(--navy);
       border-radius: 16px;
@@ -270,6 +266,8 @@
       max-width: 460px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.08);
       font-size: 1.3rem;
+      position: relative;
+      z-index: 1;
     }
 
     .sc-header {
@@ -443,6 +441,7 @@
     /* Floating badges */
     .float-badge {
       position: absolute;
+      z-index: 2;
       background: var(--white);
       border-radius: 10px;
       padding: 10px 16px;
@@ -1177,7 +1176,6 @@
 
   <!-- HERO -->
   <div class="hero-shader-wrap">
-    <canvas id="shader-canvas"></canvas>
   <div class="container">
     <div class="hero">
       <div class="hero-content">
@@ -1192,6 +1190,7 @@
       </div>
 
       <div class="hero-showcase">
+        <canvas id="shader-canvas"></canvas>
         <div class="showcase-card">
           <div class="sc-header">
             <span class="sc-logo">Sentinel OT</span>
@@ -1276,7 +1275,7 @@
         </div>
         <div class="trust-item">
           <div class="trust-icon">&#9635;</div>
-          Migration Path
+          Project Scope
         </div>
         <div class="trust-item">
           <div class="trust-icon">&#8982;</div>
@@ -1696,9 +1695,10 @@
     var uTime=gl.getUniformLocation(prog,'iTime');
 
     function resize(){
-      var wrap=document.querySelector('.hero-shader-wrap');
-      canvas.width=wrap.offsetWidth;
-      canvas.height=wrap.offsetHeight;
+      var wrap=document.querySelector('.hero-showcase');
+      if(!wrap)return;
+      canvas.width=wrap.offsetWidth+60;
+      canvas.height=wrap.offsetHeight+60;
       gl.viewport(0,0,canvas.width,canvas.height);
     }
 
