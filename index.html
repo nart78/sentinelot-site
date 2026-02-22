@@ -2129,6 +2129,8 @@
     if (e.key === 'Escape') closeContactForm();
   });
 
+  if (window.location.search.indexOf('contact') !== -1) openContactForm();
+
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = this;
