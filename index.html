@@ -1114,33 +1114,77 @@
 
     /* ─── FOOTER ─── */
     footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      padding: 64px 0 32px;
     }
 
-    .footer-inner {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand img {
+      height: 32px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 1.35rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: #ffffff; }
+
+    .footer-col p {
+      font-size: 1.35rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    footer p {
-      font-size: 1.3rem;
-      color: var(--black-5);
+    .footer-bottom p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.25);
     }
 
-    footer a {
-      color: var(--black-5);
+    .footer-bottom a {
+      color: rgba(255,255,255,0.25);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    footer a:hover { color: var(--black-7); }
-
-    .footer-legal {
-      font-size: 1.15rem;
-      color: var(--black-3);
-    }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
@@ -1198,7 +1242,8 @@
 
       .trust-items { flex-direction: column; align-items: center; gap: 16px; }
 
-      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     }
 
     @media (max-width: 480px) {
@@ -1206,6 +1251,7 @@
       .buyer-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr; gap: 24px; }
       .hero-actions { flex-direction: column; gap: 12px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
     }
   </style>
 </head>
@@ -1678,9 +1724,32 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-inner">
-        <p>&copy; 2026 Sentinel OT &mdash; Calgary, AB</p>
-        <p class="footer-legal">Public &amp; passive intelligence only. No active scanning. Data provided for defensive modernization purposes.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="SENTINEL-banner-no-shield.png" alt="Sentinel OT">
+          <p>Passive ICS intelligence for system integrators. Firmware-validated leads your sales team can close.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#buyers">For Buyers</a>
+          <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request">Request a Sample</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="mailto:johnny@sentinelot.com">Contact Us</a>
+          <p>Calgary, AB, Canada</p>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <p>Public &amp; passive sources only</p>
+          <p>No active scanning &mdash; ever</p>
+          <p>Defensive modernization use only</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
+        <p>Data provided for defensive hardening and modernization purposes only.</p>
       </div>
     </div>
   </footer>
