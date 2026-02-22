@@ -76,26 +76,13 @@
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
     }
 
     .nav-left img {
-      width: 36px;
       height: 36px;
+      width: auto;
       object-fit: contain;
-    }
-
-    .nav-logo-text {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: -0.03em;
-    }
-
-    .nav-logo-text span {
-      font-weight: 400;
-      color: #94a3b8;
     }
 
     .nav-links {
@@ -842,6 +829,56 @@
       font-weight: 500;
     }
 
+    /* Scope visual */
+    .scope-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .scope-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.25rem;
+    }
+
+    .scope-line-label {
+      color: var(--black-7);
+    }
+
+    .scope-line-value {
+      font-weight: 600;
+      color: var(--black-9);
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    .scope-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0 0;
+      margin-top: 4px;
+    }
+
+    .scope-total-label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black-5);
+    }
+
+    .scope-total-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+    }
+
     /* ─── METHODOLOGY ─── */
     .method-grid {
       display: grid;
@@ -1165,8 +1202,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-left">
-        <img src="logo.png" alt="Sentinel OT">
-        <div class="nav-logo-text">Sentinel <span>OT</span></div>
+        <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
       </a>
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
@@ -1380,6 +1416,44 @@
                 <span class="cc-detail-label">Verified</span>
                 <span class="cc-detail-value">LinkedIn + public directory</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Feature 4: Project Scope -->
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <h3>Full Project Scope</h3>
+          <p>Every lead includes a realistic cost estimate broken down by hardware, engineering, installation, and software. Your sales team walks in with a number &mdash; not a guess.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="fv-card scope-card">
+            <div class="fv-header">Project Scope Estimate</div>
+            <div class="scope-lines">
+              <div class="scope-line">
+                <span class="scope-line-label">Hardware &mdash; PLCs, RTUs, HMIs, network</span>
+                <span class="scope-line-value">$680K &mdash; $820K</span>
+              </div>
+              <div class="scope-line">
+                <span class="scope-line-label">Engineering &mdash; design, programming, cyber</span>
+                <span class="scope-line-value">$750K &mdash; $950K</span>
+              </div>
+              <div class="scope-line">
+                <span class="scope-line-label">Installation &mdash; field, commissioning, cutover</span>
+                <span class="scope-line-value">$420K &mdash; $520K</span>
+              </div>
+              <div class="scope-line">
+                <span class="scope-line-label">Software &mdash; SCADA licensing, historian, OT security</span>
+                <span class="scope-line-value">$180K &mdash; $260K</span>
+              </div>
+              <div class="scope-line">
+                <span class="scope-line-label">PM &mdash; documentation, compliance, training</span>
+                <span class="scope-line-value">$120K &mdash; $180K</span>
+              </div>
+            </div>
+            <div class="scope-total">
+              <span class="scope-total-label">Estimated Total</span>
+              <span class="scope-total-value">$2.15M &mdash; $2.73M</span>
             </div>
           </div>
         </div>
