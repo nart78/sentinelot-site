@@ -1222,6 +1222,144 @@
 
     .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
 
+    /* ─── CONTACT MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      background: var(--bg);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.6rem;
+      color: var(--black-5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover { background: var(--border); }
+
+    .modal h2 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .modal p {
+      font-size: 1.4rem;
+      color: var(--black-7);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--black-7);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-family: var(--font);
+      color: var(--black);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--black-11); }
+
+    .form-success {
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .form-success h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      color: var(--black-7);
+      margin-bottom: 0;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
       .hero {
@@ -1300,8 +1438,8 @@
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
         <a href="#buyers">For Buyers</a>
-        <a href="mailto:johnny@sentinelot.com">Contact</a>
-        <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="nav-cta">Request Sample</a>
+        <a href="#" onclick="openContactForm();return false">Contact</a>
+        <a href="#" onclick="openContactForm();return false" class="nav-cta">Request Sample</a>
       </div>
     </div>
   </nav>
@@ -1316,7 +1454,7 @@
         <h1>Qualified vulnerability leads.<br><span class="muted">Without the guesswork.</span></h1>
         <p class="hero-desc">Sentinel OT delivers firmware-validated intelligence packages for OT professionals &mdash; confirmed operators, validated CVEs, and decision-maker contacts. Ready for your sales team.</p>
         <div class="hero-actions">
-          <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="btn-primary">Request a Sample Lead</a>
+          <a href="#" onclick="openContactForm();return false" class="btn-primary">Request a Sample Lead</a>
           <a href="#how-it-works" class="btn-text">See how it works &darr;</a>
         </div>
         <p class="hero-trust">100% passive sources &middot; No active scanning &middot; Ever.</p>
@@ -1758,7 +1896,53 @@
     <div class="cta-section">
       <h2>See a real lead.</h2>
       <p>Request a free sample vulnerability memo &mdash; a real lead with validated CVEs, confirmed operator, and decision-maker contact.</p>
-      <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request" class="btn-primary">Request a Sample Lead</a>
+      <a href="#" onclick="openContactForm();return false" class="btn-primary">Request a Sample Lead</a>
+    </div>
+  </div>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeContactForm()">&times;</button>
+      <div id="contactFormWrap">
+        <h2>Request a Sample Lead</h2>
+        <p>Get a free sample vulnerability memo — a real lead with validated CVEs, confirmed operator, and decision-maker contact.</p>
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required placeholder="you@company.com">
+          </div>
+          <div class="form-group">
+            <label for="cf-company">Company</label>
+            <input type="text" id="cf-company" name="company" required placeholder="Your company name">
+          </div>
+          <div class="form-group">
+            <label for="cf-role">Your Role</label>
+            <select id="cf-role" name="role">
+              <option value="">Select your role</option>
+              <option value="System Integrator">System Integrator</option>
+              <option value="OT Cybersecurity">OT Cybersecurity</option>
+              <option value="Security Assessor">Security Assessor</option>
+              <option value="Hardware Distributor">Hardware Distributor</option>
+              <option value="Managed Security Provider">Managed Security Provider</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Message (optional)</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us about your business or what you're looking for"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Request</button>
+        </form>
+      </div>
+      <div id="contactSuccess" class="form-success" style="display:none">
+        <h3>Request sent</h3>
+        <p>We'll get back to you within 24 hours with a sample lead package.</p>
+      </div>
     </div>
   </div>
 
@@ -1774,11 +1958,11 @@
           <h4>Product</h4>
           <a href="#how-it-works">How It Works</a>
           <a href="#buyers">For Buyers</a>
-          <a href="mailto:johnny@sentinelot.com?subject=Sample%20Lead%20Request">Request a Sample</a>
+          <a href="#" onclick="openContactForm();return false">Request a Sample</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
-          <a href="mailto:johnny@sentinelot.com">Contact Us</a>
+          <a href="#" onclick="openContactForm();return false">Contact Us</a>
           <p>Calgary, AB, Canada</p>
         </div>
         <div class="footer-col">
@@ -1922,6 +2106,43 @@
     }
     requestAnimationFrame(render);
   })();
+  </script>
+
+  <script>
+  function openContactForm() {
+    document.getElementById('contactModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeContactForm() {
+    document.getElementById('contactModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('contactModal').addEventListener('click', function(e) {
+    if (e.target === this) closeContactForm();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeContactForm();
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+      if (response.ok) {
+        document.getElementById('contactFormWrap').style.display = 'none';
+        document.getElementById('contactSuccess').style.display = 'block';
+        form.reset();
+      }
+    });
+  });
   </script>
 </body>
 </html>
