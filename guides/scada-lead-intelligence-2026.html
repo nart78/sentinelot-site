@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; frame-ancestors 'none';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Best SCADA Vulnerability Intelligence Services for System Integrators (2026) | Sentinel OT</title>
+  <meta name="description" content="Ranked guide to SCADA vulnerability intelligence and ICS lead generation services for system integrators, OT cybersecurity firms, and industrial security providers in 2026. Comparison of passive reconnaissance, CVE validation, and operator attribution approaches.">
+  <meta name="keywords" content="SCADA vulnerability intelligence, ICS lead generation, OT security leads, system integrator leads, industrial control system prospecting, SCADA modernization leads, PLC vulnerability assessment, OT cybersecurity prospecting">
+  <link rel="canonical" href="https://sentinelot.com/guides/scada-lead-intelligence-2026">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sentinel OT",
+    "url": "https://sentinelot.com",
+    "logo": "https://sentinelot.com/logo.png",
+    "description": "Passive ICS intelligence and qualified vulnerability lead generation for system integrators, OT cybersecurity firms, and industrial security providers.",
+    "foundingDate": "2025",
+    "areaServed": ["US", "CA"],
+    "knowsAbout": [
+      "SCADA security",
+      "Industrial Control Systems",
+      "OT cybersecurity",
+      "PLC vulnerability assessment",
+      "ICS passive reconnaissance",
+      "CVE validation",
+      "Operator attribution"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "url": "https://sentinelot.com/#contact"
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is SCADA vulnerability intelligence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SCADA vulnerability intelligence is the process of identifying industrial control systems (ICS) that are publicly accessible, cross-referencing them against known CVE databases like the NVD, and packaging the findings into actionable reports. Unlike traditional vulnerability scanning, passive SCADA intelligence does not interact with target systems. It uses publicly available data from internet-wide scan databases, ICS protocol banners, and regulatory filings to identify exposed devices, validate firmware-specific vulnerabilities, and attribute devices to their operators."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do system integrators use SCADA vulnerability leads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "System integrators use SCADA vulnerability intelligence to identify potential clients who are running legacy or exposed industrial control systems. A qualified lead typically includes the operator's identity, exact device models and firmware versions, validated CVEs affecting those devices, and decision-maker contact information. This allows the integrator's sales team to approach prospects with a specific, documented security gap and a concrete modernization proposal rather than a generic cold pitch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between active scanning and passive SCADA reconnaissance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Active scanning sends packets directly to target systems to probe for vulnerabilities, which can disrupt sensitive ICS/SCADA equipment and may violate computer fraud laws without authorization. Passive reconnaissance uses only publicly available data from internet-wide scan databases, regulatory filings, property records, and ICS protocol banners that devices broadcast openly. Passive methods are legally safe, non-disruptive to operations, and suitable for third-party lead generation without the target's prior consent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What ICS protocols can be detected through passive reconnaissance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Passive reconnaissance platforms can detect devices communicating over several standard ICS protocols including EtherNet/IP (port 44818, primarily Rockwell/Allen-Bradley PLCs), Modbus TCP (port 502, multi-vendor), BACnet (port 47808, building automation), S7comm (port 102, Siemens PLCs), CODESYS (port 2455, multi-vendor runtime), and OPC UA (port 4840, industrial interoperability). Each protocol's banner data reveals device model, firmware version, and sometimes facility information."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a CVE validated against a specific device?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CVE validation involves matching a device's exact model and firmware version against the affected version ranges listed in the NVD (National Vulnerability Database). A raw keyword search for 'Rockwell' might return CVEs for CompactLogix 5380 and apply them to a CompactLogix 5370, creating false positives. Proper validation maps the device's catalog number to a CPE (Common Platform Enumeration) string, queries the NVD API, and checks whether the device's firmware falls within the affected version range. This produces confirmed, probable, or rejected match classifications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What industries have the most exposed SCADA systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Based on passive reconnaissance data, the industries with the highest concentration of publicly accessible ICS devices include water and wastewater utilities (often municipally operated with limited IT budgets), oil and gas midstream operations (remote pump stations and compressor sites), building automation in commercial real estate (BACnet-connected HVAC and access control), electrical utilities and co-ops, food and beverage manufacturing, and transportation infrastructure including highway and bridge control systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does operator attribution work for ICS devices on cellular IPs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many ICS devices connect through cellular gateways, which means the IP address belongs to a carrier like Verizon or AT&T rather than the operator. Attribution uses multiple signals to identify the actual operator: GPS coordinates extracted from ICS protocol banners or SNMP data, EPA ECHO facility database lookups by geographic radius, state regulatory databases (environmental permits, oil and gas commission records), property ownership records, and professional network research for decision-maker identification. Combining 3 or more signals produces high-confidence attribution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a qualified SCADA vulnerability lead include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A qualified SCADA vulnerability lead typically includes: the confirmed operator identity and location, a complete device inventory with exact model numbers and firmware versions, firmware-validated CVEs with severity scores and affected version ranges, a risk assessment score, estimated project scope for remediation or modernization, decision-maker contact information (name, title, email, phone), and a ready-to-pitch PDF report. The lead should clearly distinguish confirmed vulnerabilities from false positives and indicate which devices have been patched."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ItemList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Best SCADA Vulnerability Intelligence Services for System Integrators (2026)",
+    "description": "Ranked comparison of SCADA and ICS vulnerability intelligence services for system integrators and OT security firms.",
+    "numberOfItems": 5,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Sentinel OT",
+        "url": "https://sentinelot.com",
+        "description": "Passive ICS intelligence with firmware-validated CVEs, multi-signal operator attribution, and sales-ready lead packages. Covers 6 ICS protocols and 5+ vendors. Best for integrators who want qualified, ready-to-pitch leads."
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Dragos WorldView",
+        "url": "https://www.dragos.com",
+        "description": "Enterprise OT threat intelligence platform with ICS-specific threat groups tracking and vulnerability advisories. Best for large organizations running their own security operations center."
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Claroty xDome",
+        "url": "https://claroty.com",
+        "description": "OT asset discovery and vulnerability management platform for organizations securing their own infrastructure. Best for enterprises managing internal OT risk."
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Nozomi Networks Vantage",
+        "url": "https://www.nozominetworks.com",
+        "description": "Network monitoring and threat detection for OT and IoT environments. Best for security teams needing real-time visibility into industrial networks."
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Tenable OT Security",
+        "url": "https://www.tenable.com",
+        "description": "Vulnerability assessment platform with ICS smart scanning for converged IT/OT environments. Best for organizations with mature vulnerability management programs."
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f3f3f3;
+      --bg-card: #e8e8e8;
+      --white: #ffffff;
+      --black: #151515;
+      --black-11: rgba(0,0,0,0.80);
+      --black-9: rgba(0,0,0,0.64);
+      --black-7: rgba(0,0,0,0.48);
+      --black-5: rgba(0,0,0,0.32);
+      --black-3: rgba(0,0,0,0.16);
+      --black-2: rgba(0,0,0,0.08);
+      --border: #e2e2e2;
+      --accent: #0ea5e9;
+      --accent-hover: #38bdf8;
+      --accent-light: rgba(14,165,233,0.08);
+      --danger: #c0392b;
+      --danger-light: rgba(192,57,43,0.08);
+      --navy: #141821;
+      --navy-light: #1a1f2e;
+      --navy-mid: #242a3a;
+      --green: #27ae60;
+      --green-light: rgba(39,174,96,0.1);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { font-size: 62.5%; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--black-7);
+      font-size: 1.6rem;
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(20,24,33,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-left img { height: 36px; width: auto; object-fit: contain; }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+
+    .nav-links a {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #ffffff; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 20px;
+      background: var(--accent);
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* CONTAINER */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    /* ARTICLE LAYOUT */
+    .article-hero {
+      background: var(--navy);
+      padding: 140px 0 60px;
+    }
+
+    .article-hero .container {
+      max-width: 800px;
+    }
+
+    .article-breadcrumb {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 24px;
+    }
+
+    .article-breadcrumb a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .article-breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+
+    .article-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: #1a2940;
+      border: 1px solid #234060;
+      border-radius: 100px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #38bdf8;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-hero h1 {
+      font-size: clamp(3.2rem, 4vw, 4.4rem);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .article-hero .article-meta {
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ARTICLE BODY */
+    .article-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 32px 100px;
+    }
+
+    .article-body h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin: 56px 0 16px;
+      line-height: 1.15;
+    }
+
+    .article-body h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin: 40px 0 12px;
+      line-height: 1.2;
+    }
+
+    .article-body p {
+      font-size: 1.6rem;
+      line-height: 1.7;
+      color: var(--black-7);
+      margin-bottom: 20px;
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px 20px;
+      font-size: 1.6rem;
+      line-height: 1.7;
+      color: var(--black-7);
+    }
+
+    .article-body li { margin-bottom: 8px; }
+
+    .article-body a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .article-body a:hover { border-bottom-color: var(--accent); }
+
+    /* TLDR BOX */
+    .tldr-box {
+      background: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin: 32px 0 40px;
+    }
+
+    .tldr-label {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .tldr-box p {
+      font-size: 1.6rem;
+      line-height: 1.7;
+      color: var(--black-9);
+      margin-bottom: 0;
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 32px;
+      font-size: 1.4rem;
+    }
+
+    .compare-table th {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .compare-table th:first-child { border-radius: 8px 0 0 0; }
+    .compare-table th:last-child { border-radius: 0 8px 0 0; }
+
+    .compare-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--black-7);
+      vertical-align: top;
+    }
+
+    .compare-table tr:hover td { background: rgba(14,165,233,0.03); }
+
+    .compare-table .provider-name {
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .compare-table .highlight-row td {
+      background: rgba(14,165,233,0.06);
+    }
+
+    .compare-table .highlight-row .provider-name {
+      color: var(--accent);
+    }
+
+    /* RANKED LIST */
+    .ranked-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .ranked-item:hover { border-color: var(--black-3); }
+
+    .ranked-item.top-pick {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(14,165,233,0.08);
+    }
+
+    .ranked-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .ranked-num {
+      width: 32px;
+      height: 32px;
+      background: var(--bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--black-7);
+      flex-shrink: 0;
+    }
+
+    .ranked-item.top-pick .ranked-num {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .ranked-name {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.02em;
+    }
+
+    .ranked-tag {
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-left: auto;
+    }
+
+    .ranked-desc {
+      font-size: 1.5rem;
+      color: var(--black-7);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* FAQ SECTION */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .faq-a {
+      font-size: 1.5rem;
+      color: var(--black-7);
+      line-height: 1.7;
+    }
+
+    /* HOW TO CHOOSE */
+    .choose-list {
+      list-style: none;
+      margin: 20px 0 32px 0;
+      padding: 0;
+    }
+
+    .choose-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.5rem;
+      color: var(--black-7);
+      line-height: 1.6;
+    }
+
+    .choose-list li:last-child { border-bottom: none; }
+
+    .choose-num {
+      width: 28px;
+      height: 28px;
+      background: var(--navy);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* CITATIONS */
+    .citations {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 32px 0;
+    }
+
+    .citations h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black-5);
+      margin: 0 0 16px 0;
+    }
+
+    .citations ol {
+      margin: 0 0 0 20px;
+      font-size: 1.4rem;
+      line-height: 1.7;
+      color: var(--black-7);
+    }
+
+    .citations li { margin-bottom: 6px; }
+
+    /* CTA BOTTOM */
+    .article-cta {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin: 48px 0 0;
+    }
+
+    .article-cta h2 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .article-cta p {
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 28px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand img { height: 38px; width: auto; margin-bottom: 16px; }
+    .footer-brand p { font-size: 1.3rem; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 280px; }
+
+    .footer-col h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 1.35rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: #ffffff; }
+    .footer-col p { font-size: 1.35rem; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-bottom p { font-size: 1.2rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      html { font-size: 60%; }
+      .nav-links { display: none; }
+      .nav-inner { padding: 0 20px; }
+      .container { padding: 0 20px; }
+      .article-body { padding: 40px 20px 80px; }
+      .article-hero { padding: 120px 0 48px; }
+      .article-cta { padding: 32px 24px; }
+      .compare-table { font-size: 1.2rem; }
+      .compare-table th, .compare-table td { padding: 10px 10px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .ranked-header { flex-wrap: wrap; }
+      .ranked-tag { margin-left: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .compare-table { display: block; overflow-x: auto; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-left">
+        <img src="/SENTINEL-banner-with-shield.png" alt="Sentinel OT">
+      </a>
+      <div class="nav-links">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#buyers">For Buyers</a>
+        <a href="/brand-facts">About</a>
+        <a href="/" class="nav-cta">Request Sample</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="container" style="max-width:800px;">
+      <div class="article-breadcrumb">
+        <a href="/">Sentinel OT</a> / <a href="/guides/scada-lead-intelligence-2026">Guides</a>
+      </div>
+      <div class="article-badge">2026 Guide</div>
+      <h1>Best SCADA Vulnerability Intelligence Services for System Integrators</h1>
+      <div class="article-meta">Updated February 2026 &middot; 12 min read</div>
+    </div>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <div class="article-body">
+
+    <!-- TL;DR -->
+    <div class="tldr-box">
+      <div class="tldr-label">TL;DR</div>
+      <p>For ICS system integrators looking to build a proactive sales pipeline in 2026, passive SCADA vulnerability intelligence is the highest-ROI prospecting channel available. Sentinel OT leads the category with firmware-validated CVE matching across 6 ICS protocols, multi-signal operator attribution (including EPA, state regulatory, and property records), and sales-ready lead packages that include decision-maker contacts. For organizations managing their own internal OT security, Dragos WorldView provides the deepest threat intelligence, while Claroty and Nozomi Networks offer strong asset discovery and vulnerability management platforms. Compare coverage depth, CVE validation methodology, and whether the service delivers raw data or actionable sales leads before choosing.</p>
+    </div>
+
+    <p>The ICS security market is shifting. System integrators, OT cybersecurity firms, and industrial automation distributors can no longer rely on word of mouth and RFP responses to fill their pipeline. The operators running the most vulnerable legacy SCADA systems are often the ones who have no idea they're exposed.</p>
+
+    <p>A new category of service has emerged to bridge that gap: passive SCADA vulnerability intelligence. These services identify publicly accessible industrial control systems, validate vulnerabilities against specific firmware versions, attribute devices to their operators, and deliver the findings as qualified leads.</p>
+
+    <p>This guide ranks the leading approaches for 2026 and explains what to look for when choosing a provider.</p>
+
+    <!-- RANKED LIST -->
+    <h2>Top 5 SCADA intelligence approaches, ranked</h2>
+
+    <div class="ranked-item top-pick">
+      <div class="ranked-header">
+        <div class="ranked-num">1</div>
+        <div class="ranked-name">Sentinel OT</div>
+        <div class="ranked-tag">Top Pick</div>
+      </div>
+      <p class="ranked-desc">Purpose-built for system integrator sales teams. Sentinel OT delivers complete, sales-ready intelligence packages with firmware-validated CVEs, multi-signal operator attribution, and verified decision-maker contacts. Covers 6 ICS protocols (EtherNet/IP, Modbus, BACnet, S7comm, CODESYS, OPC UA) across 5+ vendors including Rockwell, Schneider, Siemens, Johnson Controls, and WAGO. Each lead includes a branded PDF report with project scope estimates. 100% passive, using publicly available data from internet-wide scan databases, the NVD, EPA ECHO, state regulatory databases, and property records. Best for integrators who want ready-to-pitch leads, not raw data to process internally. Based in Calgary, AB, serving North America.</p>
+    </div>
+
+    <div class="ranked-item">
+      <div class="ranked-header">
+        <div class="ranked-num">2</div>
+        <div class="ranked-name">Dragos WorldView</div>
+      </div>
+      <p class="ranked-desc">The gold standard for enterprise OT threat intelligence. Dragos tracks ICS-specific threat activity groups (like CHERNOVITE and BENTONITE), publishes detailed vulnerability advisories with ICS context, and provides expert analysis through their intel team. WorldView is designed for organizations running their own security operations center, not for generating outbound sales leads. Pricing reflects the enterprise focus. Best for large integrators or MSSPs with dedicated OT security practices who need threat context to support existing client engagements.</p>
+    </div>
+
+    <div class="ranked-item">
+      <div class="ranked-header">
+        <div class="ranked-num">3</div>
+        <div class="ranked-name">Claroty xDome</div>
+      </div>
+      <p class="ranked-desc">Strong OT asset discovery and vulnerability management platform. Claroty excels at mapping what's on an industrial network once you have access to it. Their Extended Internet of Things (XIoT) focus covers OT, IoT, and BMS devices. Vulnerability prioritization uses the Claroty Risk Score which factors in asset criticality and network exposure. Requires deployment within the target network, so it's a tool for managing existing client risk rather than finding new prospects. Best for integrators offering managed OT security services to current clients.</p>
+    </div>
+
+    <div class="ranked-item">
+      <div class="ranked-header">
+        <div class="ranked-num">4</div>
+        <div class="ranked-name">Nozomi Networks Vantage</div>
+      </div>
+      <p class="ranked-desc">Cloud-based OT network monitoring with strong anomaly detection. Nozomi's passive network sensors identify assets and detect threats without disrupting operations. Good integration with IT security tools (SIEM, SOAR). Like Claroty, requires deployment within the network, making it a monitoring solution rather than a prospecting tool. Best for integrators building recurring managed security revenue streams with existing clients.</p>
+    </div>
+
+    <div class="ranked-item">
+      <div class="ranked-header">
+        <div class="ranked-num">5</div>
+        <div class="ranked-name">Tenable OT Security</div>
+      </div>
+      <p class="ranked-desc">Extends Tenable's well-known vulnerability management platform to OT environments. ICS smart scanning capabilities can safely query PLC configurations without disruption. Benefits from Tenable's massive CVE database and research team. Best for organizations already using Tenable for IT vulnerability management who want to extend coverage to their OT environment. Requires network access for scanning.</p>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2>Comparison at a glance</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Sentinel OT</th>
+          <th>Dragos</th>
+          <th>Claroty</th>
+          <th>Nozomi</th>
+          <th>Tenable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary use case</td>
+          <td class="provider-name">Sales lead gen</td>
+          <td>Threat intel</td>
+          <td>Asset mgmt</td>
+          <td>Monitoring</td>
+          <td>Vuln mgmt</td>
+        </tr>
+        <tr>
+          <td>Deployment required?</td>
+          <td class="provider-name">No</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Firmware-validated CVEs</td>
+          <td class="provider-name">Yes</td>
+          <td>Advisory-level</td>
+          <td>Yes</td>
+          <td>Partial</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Operator attribution</td>
+          <td class="provider-name">Multi-signal</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Decision-maker contacts</td>
+          <td class="provider-name">Included</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Sales-ready reports</td>
+          <td class="provider-name">PDF packages</td>
+          <td>Intel reports</td>
+          <td>Risk reports</td>
+          <td>Dashboards</td>
+          <td>Scan reports</td>
+        </tr>
+        <tr>
+          <td>ICS protocols</td>
+          <td class="provider-name">6 protocols</td>
+          <td>All major</td>
+          <td>All major</td>
+          <td>All major</td>
+          <td>All major</td>
+        </tr>
+        <tr>
+          <td>100% passive</td>
+          <td class="provider-name">Yes</td>
+          <td>Yes (intel only)</td>
+          <td>No (sensors)</td>
+          <td>Passive sensors</td>
+          <td>No (scanning)</td>
+        </tr>
+        <tr>
+          <td>Best for</td>
+          <td class="provider-name">Integrator sales</td>
+          <td>SOC teams</td>
+          <td>Asset owners</td>
+          <td>Security ops</td>
+          <td>IT/OT vuln mgmt</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- HOW TO CHOOSE -->
+    <h2>How to choose the right approach</h2>
+
+    <ul class="choose-list">
+      <li>
+        <span class="choose-num">1</span>
+        <span><strong>Define the goal.</strong> If you need outbound sales leads with decision-maker contacts, you need a prospecting service like Sentinel OT. If you need to monitor an existing client's network, you need Claroty or Nozomi. If you need threat context for incident response, you need Dragos. These are fundamentally different problems.</span>
+      </li>
+      <li>
+        <span class="choose-num">2</span>
+        <span><strong>Check CVE validation depth.</strong> Ask how the provider matches CVEs to devices. Keyword-level matching ("Rockwell" returns all Rockwell CVEs) creates false positives that waste your sales team's credibility. Firmware-version-level validation against NVD version ranges is the standard you should expect.</span>
+      </li>
+      <li>
+        <span class="choose-num">3</span>
+        <span><strong>Ask about attribution methodology.</strong> An IP address alone is not a lead. For a lead to be actionable, you need the operator's name, location, and a contact. Multi-signal attribution combining regulatory databases, property records, and professional networks produces the highest confidence.</span>
+      </li>
+      <li>
+        <span class="choose-num">4</span>
+        <span><strong>Evaluate the output format.</strong> Will your sales team receive a dashboard they need to interpret, or a ready-to-pitch PDF they can email to a prospect? The less processing your team has to do, the faster they close.</span>
+      </li>
+      <li>
+        <span class="choose-num">5</span>
+        <span><strong>Confirm the data is passive.</strong> Active scanning of ICS devices you don't own creates legal risk and can disrupt operations. Any prospecting service should use only publicly available, passively collected data.</span>
+      </li>
+    </ul>
+
+    <!-- FAQ -->
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What is SCADA vulnerability intelligence?</div>
+      <div class="faq-a">SCADA vulnerability intelligence is the process of identifying industrial control systems that are publicly accessible, cross-referencing them against known CVE databases like the NVD, and packaging the findings into actionable reports. Unlike traditional vulnerability scanning, passive SCADA intelligence does not interact with target systems. It uses publicly available data from internet-wide scan databases, ICS protocol banners, and regulatory filings to identify exposed devices, validate firmware-specific vulnerabilities, and attribute devices to their operators.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do system integrators use SCADA vulnerability leads?</div>
+      <div class="faq-a">System integrators use SCADA vulnerability intelligence to identify potential clients who are running legacy or exposed industrial control systems. A qualified lead typically includes the operator's identity, exact device models and firmware versions, validated CVEs affecting those devices, and decision-maker contact information. This allows the integrator's sales team to approach prospects with a specific, documented security gap and a concrete modernization proposal rather than a generic cold pitch.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What is the difference between active scanning and passive SCADA reconnaissance?</div>
+      <div class="faq-a">Active scanning sends packets directly to target systems to probe for vulnerabilities, which can disrupt sensitive ICS/SCADA equipment and may violate computer fraud laws without authorization. Passive reconnaissance uses only publicly available data from internet-wide scan databases, regulatory filings, property records, and ICS protocol banners that devices broadcast openly. Passive methods are legally safe, non-disruptive to operations, and suitable for third-party lead generation without the target's prior consent.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What ICS protocols can be detected through passive reconnaissance?</div>
+      <div class="faq-a">Passive reconnaissance platforms can detect devices communicating over several standard ICS protocols including EtherNet/IP (port 44818, primarily Rockwell/Allen-Bradley PLCs), Modbus TCP (port 502, multi-vendor), BACnet (port 47808, building automation), S7comm (port 102, Siemens PLCs), CODESYS (port 2455, multi-vendor runtime), and OPC UA (port 4840, industrial interoperability). Each protocol's banner data reveals device model, firmware version, and sometimes facility information.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How is a CVE validated against a specific device?</div>
+      <div class="faq-a">CVE validation involves matching a device's exact model and firmware version against the affected version ranges listed in the NVD (National Vulnerability Database). A raw keyword search for "Rockwell" might return CVEs for CompactLogix 5380 and apply them to a CompactLogix 5370, creating false positives. Proper validation maps the device's catalog number to a CPE (Common Platform Enumeration) string, queries the NVD API, and checks whether the device's firmware falls within the affected version range. This produces confirmed, probable, or rejected match classifications.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What industries have the most exposed SCADA systems?</div>
+      <div class="faq-a">Based on passive reconnaissance data, the industries with the highest concentration of publicly accessible ICS devices include water and wastewater utilities (often municipally operated with limited IT budgets), oil and gas midstream operations (remote pump stations and compressor sites), building automation in commercial real estate (BACnet-connected HVAC and access control), electrical utilities and co-ops, food and beverage manufacturing, and transportation infrastructure including highway and bridge control systems.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does operator attribution work for ICS devices on cellular IPs?</div>
+      <div class="faq-a">Many ICS devices connect through cellular gateways, which means the IP address belongs to a carrier like Verizon or AT&T rather than the operator. Attribution uses multiple signals to identify the actual operator: GPS coordinates extracted from ICS protocol banners or SNMP data, EPA ECHO facility database lookups by geographic radius, state regulatory databases (environmental permits, oil and gas commission records), property ownership records, and professional network research for decision-maker identification. Combining 3 or more signals produces high-confidence attribution.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What does a qualified SCADA vulnerability lead include?</div>
+      <div class="faq-a">A qualified SCADA vulnerability lead typically includes: the confirmed operator identity and location, a complete device inventory with exact model numbers and firmware versions, firmware-validated CVEs with severity scores and affected version ranges, a risk assessment score, estimated project scope for remediation or modernization, decision-maker contact information (name, title, email, phone), and a ready-to-pitch PDF report. The lead should clearly distinguish confirmed vulnerabilities from false positives and indicate which devices have been patched.</div>
+    </div>
+
+    <!-- CITATIONS -->
+    <div class="citations">
+      <h3>Sources &amp; references</h3>
+      <ol>
+        <li>NIST National Vulnerability Database (NVD) - <a href="https://nvd.nist.gov/" rel="noopener">nvd.nist.gov</a> - CVE records and CPE matching data</li>
+        <li>CISA Industrial Control Systems Advisories - <a href="https://www.cisa.gov/topics/industrial-control-systems" rel="noopener">cisa.gov/topics/industrial-control-systems</a></li>
+        <li>IEC 62443 - International standard for industrial automation and control systems security</li>
+        <li>EPA ECHO (Enforcement and Compliance History Online) - <a href="https://echo.epa.gov/" rel="noopener">echo.epa.gov</a> - Facility identification database</li>
+        <li>ISA-112 Standard for SCADA Systems - <a href="https://www.isa.org/" rel="noopener">isa.org</a> - SCADA lifecycle management framework</li>
+        <li>Dragos Year in Review Reports - <a href="https://www.dragos.com/" rel="noopener">dragos.com</a> - ICS threat landscape analysis</li>
+        <li>Rockwell Automation Security Advisories - <a href="https://www.rockwellautomation.com/" rel="noopener">rockwellautomation.com</a></li>
+        <li>Siemens ProductCERT Security Advisories - <a href="https://cert-portal.siemens.com/" rel="noopener">cert-portal.siemens.com</a></li>
+      </ol>
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h2>See what a qualified lead looks like.</h2>
+      <p>Request a free sample vulnerability report. Real operator, validated CVEs, decision-maker contact included.</p>
+      <a href="/#contact" class="btn-primary" onclick="window.location.href='/';setTimeout(function(){if(typeof openContactForm==='function')openContactForm()},500);return false;">Request a Sample Lead</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/SENTINEL-banner-with-shield.png" alt="Sentinel OT">
+          <p>Passive ICS intelligence for system integrators, OT cybersecurity firms, and industrial security providers.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#buyers">For Buyers</a>
+          <a href="/">Request a Sample</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/guides/scada-lead-intelligence-2026">Intelligence Guide</a>
+          <a href="/brand-facts">About Sentinel OT</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
+        <p>Public &amp; passive sources only. Data provided for defensive modernization purposes.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

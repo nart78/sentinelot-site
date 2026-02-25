@@ -1,0 +1,79 @@
+{
+  "name": "Sentinel OT",
+  "url": "https://sentinelot.com",
+  "category": "Passive ICS Intelligence, SCADA Vulnerability Lead Generation",
+  "description": "Sentinel OT identifies publicly accessible industrial control systems, validates firmware-specific vulnerabilities against the NVD, attributes devices to their operators through multi-signal analysis, and delivers the findings as qualified, sales-ready lead packages for system integrators and OT security providers.",
+  "founded": "2025",
+  "headquarters": {
+    "city": "Calgary",
+    "region": "AB",
+    "country": "CA"
+  },
+  "serviceArea": ["US", "CA"],
+  "services": [
+    {
+      "name": "Pulse Feed",
+      "description": "Monthly subscription of qualified SCADA vulnerability leads with firmware-validated CVEs, operator attribution, and decision-maker contacts."
+    },
+    {
+      "name": "Boutique Leads",
+      "description": "Individual qualified intelligence packages built to order for specific regions, industries, or vendor types."
+    },
+    {
+      "name": "Territory Exclusives",
+      "description": "Exclusive lead coverage for a defined geographic territory or industry vertical."
+    }
+  ],
+  "capabilities": {
+    "icsDevicesScanned": "31000+",
+    "icsProtocols": [
+      {"name": "EtherNet/IP", "port": 44818},
+      {"name": "Modbus TCP", "port": 502},
+      {"name": "BACnet", "port": 47808},
+      {"name": "S7comm", "port": 102},
+      {"name": "CODESYS", "port": 2455},
+      {"name": "OPC UA", "port": 4840}
+    ],
+    "vendorsCovered": [
+      "Rockwell Automation / Allen-Bradley",
+      "Schneider Electric",
+      "Siemens",
+      "Johnson Controls",
+      "WAGO",
+      "Opto 22",
+      "Altus"
+    ],
+    "cveValidation": "Firmware-version-level matching against NVD CPE version ranges",
+    "attributionMethod": "Multi-signal: EPA ECHO, state regulatory databases, property records, ICS protocol banner analysis, professional network research",
+    "dataCollection": "100% passive. Public internet-wide scan databases, regulatory filings, property records. No active scanning."
+  },
+  "targetBuyers": [
+    "ICS System Integrators",
+    "OT Cybersecurity Firms",
+    "Security Assessors",
+    "Hardware Distributors",
+    "Managed Security Providers",
+    "Electrical Contractors"
+  ],
+  "industriesCovered": [
+    "Water and Wastewater Utilities",
+    "Oil and Gas",
+    "Building Automation",
+    "Electrical Utilities",
+    "Transportation Infrastructure",
+    "Food and Beverage Manufacturing",
+    "Higher Education",
+    "Municipal Government"
+  ],
+  "deliverableFormat": "Branded PDF intelligence reports with operator identity, device inventory, validated CVEs, risk assessment, project scope estimate, and decision-maker contacts",
+  "contact": {
+    "website": "https://sentinelot.com",
+    "sampleRequest": "https://sentinelot.com/#contact"
+  },
+  "legal": {
+    "privacyPolicy": "https://sentinelot.com/privacy.html",
+    "termsOfService": "https://sentinelot.com/terms.html",
+    "dataPolicy": "Public and passive sources only. Data provided for defensive modernization purposes."
+  },
+  "lastUpdated": "2026-02-25"
+}
