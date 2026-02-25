@@ -616,19 +616,20 @@
       margin-right: auto;
     }
 
-    .btn-primary {
+    .btn-primary, .article-body .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 14px 28px;
       background: var(--accent);
-      color: #ffffff;
+      color: #ffffff !important;
       border-radius: 10px;
       font-size: 1.5rem;
       font-weight: 500;
       text-decoration: none;
       transition: background 0.2s, transform 0.1s;
       border: none;
+      border-bottom: none !important;
       cursor: pointer;
     }
 
