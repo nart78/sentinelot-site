@@ -1703,22 +1703,12 @@
     </div>
   </div>
 
-  <!-- CTA -->
-  <div class="container">
+  <!-- CONTACT -->
+  <div class="container" id="contact">
     <div class="cta-section">
-      <h2>See a real lead.</h2>
-      <p>Request a free sample vulnerability report. A real lead with validated CVEs, confirmed operator, and decision-maker contact.</p>
-      <a href="#" onclick="openContactForm();return false" class="btn-primary">Request a Sample Lead</a>
-    </div>
-  </div>
-
-  <!-- CONTACT MODAL -->
-  <div class="modal-overlay" id="contactModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeContactForm()">&times;</button>
-      <div id="contactFormWrap">
-        <h2>Request a Sample Lead</h2>
-        <p>Get a free sample vulnerability report. A real lead with validated CVEs, confirmed operator, and decision-maker contact.</p>
+      <h2>Get in touch.</h2>
+      <p>Tell us what you're working on.</p>
+      <div id="contactFormWrap" style="max-width:480px;margin:32px auto 0;text-align:left;">
         <form id="contactForm" action="https://formspree.io/f/mzdakpwg" method="POST">
           <div class="form-group">
             <label for="cf-name">Name</label>
@@ -1733,27 +1723,15 @@
             <input type="text" id="cf-company" name="company" required placeholder="Your company name">
           </div>
           <div class="form-group">
-            <label for="cf-role">Company Type</label>
-            <select id="cf-role" name="company_type">
-              <option value="">Select company type</option>
-              <option value="System Integrator">System Integrator</option>
-              <option value="OT Cybersecurity">OT Cybersecurity</option>
-              <option value="Security Assessor">Security Assessor</option>
-              <option value="Hardware Distributor">Hardware Distributor</option>
-              <option value="Managed Security Provider">Managed Security Provider</option>
-              <option value="Other">Other</option>
-            </select>
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell us what you're working on"></textarea>
           </div>
-          <div class="form-group">
-            <label for="cf-message">Message (optional)</label>
-            <textarea id="cf-message" name="message" placeholder="Tell us about your business or what you're looking for"></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send Request</button>
+          <button type="submit" class="form-submit">Send</button>
         </form>
       </div>
       <div id="contactSuccess" class="form-success" style="display:none">
-        <h3>Request sent</h3>
-        <p>We'll get back to you within 24 hours with a sample lead package.</p>
+        <h3>Message sent</h3>
+        <p>We'll be in touch shortly.</p>
       </div>
     </div>
   </div>
