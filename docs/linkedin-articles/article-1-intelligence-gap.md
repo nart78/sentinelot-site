@@ -14,7 +14,7 @@ The OT security industry has spent the last decade getting better at identifying
 
 The gap is everything before that.
 
-OT integrators trying to win new customers have no standard playbook for finding qualified opportunities. Cold calls, industry conferences, and referral networks all have the same ceiling: you are waiting for the work to come to you, or chasing contacts who may not have the authority or the problem you need them to have. What is missing is a way to walk into a conversation with a potential customer already knowing their exposure profile, having a verified decision-maker contact, and understanding the scope of what they are dealing with. That is a different conversation entirely from a cold introduction.
+OT integrators trying to win new customers have no standard playbook for finding qualified opportunities. Cold calls, industry conferences, and referral networks all have the same ceiling: you are waiting for the work to come to you, or chasing contacts who may not have the authority or the problem you need them to have. What is missing is a way to walk into a conversation with a potential customer already knowing their exposure profile and understanding the scope of what they are dealing with. That is a different conversation entirely from a cold introduction.
 
 Risk underwriters are pricing policies for facilities where the underlying OT data is thin, inconsistent, or absent. They can model aggregate sector risk. What they often cannot do is underwrite a specific facility with confidence, because site-level intelligence does not exist in any standardized form.
 
