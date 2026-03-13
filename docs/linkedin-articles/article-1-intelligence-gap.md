@@ -14,7 +14,7 @@ The OT security industry has spent the last decade getting better at identifying
 
 The gap is everything before that.
 
-Security integrators approaching a new facility rarely have a complete picture of what they are walking into. They know a sector, a geography, a rough sense of asset class. What they typically do not have is confirmed operator identity, a verified contact who actually owns the decision, or a clear read on the exposure profile before the first conversation.
+OT integrators trying to win new customers have no standard playbook for finding qualified opportunities. Cold calls, industry conferences, and referral networks all have the same ceiling: you are waiting for the work to come to you, or chasing contacts who may not have the authority or the problem you need them to have. What is missing is a way to walk into a conversation with a potential customer already knowing their exposure profile, having a verified decision-maker contact, and understanding the scope of what they are dealing with. That is a different conversation entirely from a cold introduction.
 
 Risk underwriters are pricing policies for facilities where the underlying OT data is thin, inconsistent, or absent. They can model aggregate sector risk. What they often cannot do is underwrite a specific facility with confidence, because site-level intelligence does not exist in any standardized form.
 
@@ -52,7 +52,7 @@ None of this requires solving the vulnerability management problem first. It is 
 
 ## A Note on Where This Is Heading
 
-This is the first piece in a series that will look at the intelligence gap from three angles: the security integrators who need to find and qualify OT opportunities, the risk underwriters trying to build accurate OT exposure models, and the operators who should know their own external profile before anyone else does.
+This is the first piece in a series that will look at the intelligence gap from three angles: the OT integrators who need to find and qualify new customers, the risk underwriters trying to build accurate OT exposure models, and the operators who should know their own external profile before anyone else does.
 
 Each group is experiencing the same underlying gap through a different lens. The articles that follow will go deeper into each.
 
