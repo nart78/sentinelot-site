@@ -1,8 +1,8 @@
 # OT Cyber Insurance Is Growing. The Underwriting Data Hasn't Kept Up.
 
-Cyber insurance premiums for operational technology environments have increased significantly over the past three years. The OT attack surface is now widely understood to be material. Ransomware groups have demonstrated, repeatedly, that industrial control systems are targets, not bystanders. Colonial Pipeline. Oldsmar. The string of incidents at water and energy facilities that generated congressional testimony and regulatory guidance.
+Cyber insurance premiums for operational technology environments have increased significantly over the past three years. The OT attack surface is now widely understood to be material. In July 2019, ransomware took Springhill Medical Center in Mobile, Alabama offline for more than three weeks. The central fetal heart rate monitoring display at the nurses' station went dark. A laboring patient's fetal distress went undetected. An infant was born with severe brain damage and died nine months later. The attending physician's documented response: "This was preventable." A landmark lawsuit followed, described by legal experts as the first in the US to allege a patient death linked to a ransomware attack on a hospital. A settlement was reached in 2024.
 
-The market responded. Carriers expanded their appetite for OT risk. New products emerged. Existing cyber policies started including more explicit OT provisions.
+The market responded to incidents like this. Carriers expanded their appetite for OT risk. New products emerged. Existing cyber policies started including more explicit OT provisions.
 
 The underwriting data did not keep pace with any of it.
 
@@ -30,7 +30,7 @@ In water and wastewater, the problem is compounded by the fragmentation of the s
 
 In power and utilities, the regulatory environment has driven some improvement in asset visibility, but generation assets outside the regulated utility framework, particularly distributed energy and smaller independent power producers, often have minimal OT security posture with no corresponding documentation.
 
-In healthcare, the convergence of medical OT and IT networks has created a category of risk that most cyber policies were not written to address. Connected medical equipment running legacy operating systems, attached to networks that also carry patient data, is a compounding problem that the underwriting community is still developing frameworks for.
+In healthcare, the Springhill incident illustrates the failure mode that makes this sector different from every other. When ransomware takes down clinical monitoring infrastructure, the result is not a data breach. It is a care gap. The harm is not financial loss or regulatory exposure -- it is a clinical monitoring system going dark during a delivery. Connected medical equipment running legacy operating systems, attached to networks that also carry patient data, creates a compounding risk that most cyber policies were not designed to price. Underwriting frameworks for this category are still being developed.
 
 In each case, the issue is the same: the underwriter needs site-level intelligence, and that intelligence does not exist in a standardized, accessible form.
 
