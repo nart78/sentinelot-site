@@ -604,7 +604,188 @@ cd ~/sentinelot-site && git add index.html && git commit -m "feat: update footer
 
 ---
 
-### Task 8: Deploy
+## Chunk 3: Comparison Section and Stats Bar
+
+### Task 8: Rewrite comparison section Sentinel OT column
+
+**Files:**
+- Modify: `index.html` (comparison block, lines ~1854-1885)
+
+Only the Sentinel OT (highlighted) column changes. The heading and the Traditional Lead Gen column stay as-is.
+
+- [ ] **Step 1: Update the section heading**
+
+Replace:
+```html
+      <h2 style="font-size:clamp(2.8rem,3.5vw,4.2rem);font-weight:600;letter-spacing:-0.03em;color:var(--black);margin-bottom:40px;line-height:1.1;">Your reputation is on the lead.</h2>
+```
+With:
+```html
+      <h2 style="font-size:clamp(2.8rem,3.5vw,4.2rem);font-weight:600;letter-spacing:-0.03em;color:var(--black);margin-bottom:40px;line-height:1.1;">Intelligence you can stake your reputation on.</h2>
+```
+
+- [ ] **Step 2: Replace the Sentinel OT column items**
+
+Replace:
+```html
+        <div class="comp-col highlighted">
+          <div class="comp-col-header">Sentinel OT</div>
+          <div class="comp-items">
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Firmware-validated CVEs. False positives removed</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Confirmed operators via multi-signal attribution</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Decision-maker contacts verified through public sources</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">100% passive intelligence. No scanning, ever</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Ready-to-pitch PDF reports with full project scope estimates</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Fleet detection. One device reveals entire operator infrastructure</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">6 ICS protocols, 15 vendors. Rockwell, Siemens, Schneider, ABB, Honeywell, and more</span>
+            </div>
+          </div>
+        </div>
+```
+With:
+```html
+        <div class="comp-col highlighted">
+          <div class="comp-col-header">Sentinel OT</div>
+          <div class="comp-items">
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Verified intelligence. No noise.</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Confirmed operators with named decision-maker contacts.</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Decision-ready intelligence reports. Structured for immediate action.</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Passive sources only. No active probing.</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Full scope context included. Your team walks in with numbers.</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Site-level intelligence from a single signal.</span>
+            </div>
+            <div class="comp-item">
+              <div class="comp-icon positive">&#10003;</div>
+              <span class="comp-item-text">Coverage across critical infrastructure sectors and vendors.</span>
+            </div>
+          </div>
+        </div>
+```
+
+- [ ] **Step 3: Verify**
+
+Run:
+```bash
+grep -n "Firmware-validated\|multi-signal attribution\|6 ICS protocols\|15 vendors\|No scanning, ever\|Fleet detection\|ready-to-pitch PDF" ~/sentinelot-site/index.html
+```
+Expected: zero matches.
+
+Run:
+```bash
+grep -n "Verified intelligence\|Coverage across critical" ~/sentinelot-site/index.html
+```
+Expected: 2 matches.
+
+- [ ] **Step 4: Commit**
+
+```bash
+cd ~/sentinelot-site && git add index.html && git commit -m "feat: rewrite comparison section -- remove methodology specifics"
+```
+
+---
+
+### Task 9: Update stats bar
+
+**Files:**
+- Modify: `index.html` (stats block, lines ~1935-1953)
+
+- [ ] **Step 1: Replace the stats**
+
+Replace:
+```html
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">31,000+</div>
+          <div class="stat-label">ICS devices scanned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">35+</div>
+          <div class="stat-label">Qualified leads built</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Passive. No scanning. Ever.</div>
+        </div>
+      </div>
+```
+With:
+```html
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">31,000+</div>
+          <div class="stat-label">Assets monitored</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">35+</div>
+          <div class="stat-label">Intelligence reports delivered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Critical infrastructure sectors</div>
+        </div>
+      </div>
+```
+
+- [ ] **Step 2: Verify**
+
+Run:
+```bash
+grep -n "ICS devices scanned\|Passive. No scanning. Ever.\|Qualified leads built" ~/sentinelot-site/index.html
+```
+Expected: zero matches.
+
+Run:
+```bash
+grep -n "Assets monitored\|Intelligence reports delivered\|Critical infrastructure sectors" ~/sentinelot-site/index.html
+```
+Expected: 3 matches.
+
+- [ ] **Step 3: Commit**
+
+```bash
+cd ~/sentinelot-site && git add index.html && git commit -m "feat: update stats bar -- remove methodology reveals"
+```
+
+---
+
+### Task 10: Deploy
 
 - [ ] **Step 1: Push to both branches**
 
@@ -623,16 +804,12 @@ Expected: `1`
 
 Run:
 ```bash
-curl -s https://sentinelot.com | grep -c "openContactForm\|how-it-works\|firmware-validated"
+curl -s https://sentinelot.com | grep -c "openContactForm\|how-it-works\|firmware-validated\|multi-signal attribution\|ICS devices scanned\|No scanning, ever"
 ```
 Expected: `0`
 
 ---
 
-## Notes (Out of Scope -- Follow-up Recommended)
+## Notes (Follow-up Recommended)
 
-The following sections also contain methodology reveals not addressed in the spec. Consider a follow-up pass:
-
-1. **Comparison section** (lines ~1822-1889): The "Sentinel OT" column lists firmware-validated CVEs, multi-signal attribution, 6 ICS protocols, 15 vendors. Same problem as the removed sections.
-2. **Stats bar** (lines ~1935-1953): "31,000+ ICS devices scanned" and "100% Passive. No scanning. Ever." reveal methodology.
-3. **Meta/schema** (already flagged in spec as recommended follow-up).
+- **Meta/schema**: The meta description and schema markup still reference "vulnerability leads" and "SCADA." Update in a follow-up pass.
