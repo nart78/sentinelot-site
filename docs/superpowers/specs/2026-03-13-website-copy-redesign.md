@@ -90,17 +90,65 @@ This section (5 steps: Passive Discovery, CVE Validation, Operator Attribution, 
 **New supporting copy:** "Tell us what you're working on."
 **New form:** Inline (not modal). Fields: Name, Company, Email, Message. Submit button: "Send."
 
-**Action:** Remove the modal entirely. Remove the sample lead offer. Replace with a simple inline contact form using the same Formspree endpoint.
+**Action:** Replace the entire `cta-section` div (the bottom CTA block containing "See a real lead." and the "Request a Sample Lead" button) with a new inline contact form section. The new section must carry `id="contact"` so all `href="#contact"` scroll anchors resolve correctly.
+
+New section structure:
+- Section heading: "Get in touch."
+- Supporting copy: "Tell us what you're working on."
+- Inline form fields: Name, Company, Email, Message
+- Submit button: "Send"
+- Same Formspree endpoint as the current modal form
+
+Remove the modal HTML entirely. Remove the `openContactForm()` JavaScript function. Remove the URL query string handler on the last line of the script (`if (window.location.search.indexOf('contact') !== -1) openContactForm()`). Replace it with: `if (window.location.search.indexOf('contact') !== -1) document.getElementById('contact').scrollIntoView()`.
 
 **Rationale:** "See a real lead" gives away that Sentinel OT produces specific lead packages. "Get in touch" is neutral and works for any buyer type including insurers and consultants.
+
+---
+
+## Navigation Changes
+
+The nav has two links that anchor to removed sections and a CTA that triggers the modal:
+
+- `href="#how-it-works"` ("How It Works") -- **Remove this nav link**
+- `href="#buyers"` ("For Buyers") -- **Remove this nav link**
+- Nav CTA `class="nav-cta"` ("Request Sample", modal trigger) -- **Change copy to "Get in touch"** and change `onclick` to a smooth scroll to the new inline contact form: `href="#contact"`
+
+---
+
+## Hero CTA Changes
+
+The hero has two CTAs:
+
+- "Request a Sample Lead" (modal trigger) -- **Change to "Get in touch"**, change to `href="#contact"` scroll anchor (no modal)
+- "See how it works" (`href="#how-it-works"`) -- **Remove entirely** (section is gone)
+
+---
+
+## Footer Changes
+
+The footer contains links and onclick handlers that reference removed sections and the modal:
+
+- `href="#how-it-works"` ("How It Works") -- **Remove this link**
+- `href="#buyers"` ("For Buyers") -- **Remove this link**
+- `onclick="openContactForm()"` on "Request a Sample" -- **Change to `href="#contact"`**, update copy to "Get in touch"
+- `onclick="openContactForm()"` on "Contact Us" -- **Change to `href="#contact"`**
+
+The `openContactForm()` JavaScript function and all modal HTML can be removed once no callers remain.
+
+---
+
+## Contact Form Field Changes
+
+The current modal form has a "Company Type" dropdown (`select#cf-role`) with buyer-type options (System Integrator, OT Cybersecurity, etc.). **Remove this field entirely.** It reflects the old narrow buyer framing.
+
+New inline form fields: **Name, Company, Email, Message.** Same Formspree endpoint. No dropdown.
 
 ---
 
 ## What Does Not Change
 
 - All CSS and visual styles
-- Navigation (logo, links, CTA button)
-- Footer
+- Navigation logo
 - Brand voice (professional, precise, no em dashes)
 - Formspree endpoint
 - Meta title, description, schema markup (update separately if needed)
