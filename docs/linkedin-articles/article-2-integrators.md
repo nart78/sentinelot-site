@@ -1,53 +1,45 @@
-# The OT Prospecting Problem Nobody Talks About
+# OT Security Firms Are Still Growing Their Business the Hard Way
 
-You have done the research. The facility looks right. Right sector, right geography, right asset class. The company has been running the same control systems for a decade. The risk profile fits everything you look for.
+The OT security industry has a prospecting problem that nobody wants to admit out loud.
 
-You get on the call. And something is off.
+Most firms are still building their pipeline the same way they did ten years ago. Industry conferences. Cold outreach to facility contacts who may or may not own the relevant budget. Vendor referrals that come in slowly and inconsistently. Word of mouth from previous engagements.
 
-The exposure you found is from two years ago and has been at least partially addressed. The person you reached has a relevant title but no authority over the security budget. You do not have a clear read on the scope of what they actually have. The conversation is starting from scratch, and you are burning the credibility of a warm introduction on a cold foundation.
-
-If you have been selling OT security long enough, you have had this experience more than once. Most people in this industry accept it as the cost of working a difficult market.
-
-It does not have to be.
+These methods work. But they have a ceiling, and most firms in this space have already hit it.
 
 ---
 
-## Why OT Prospecting Is Structurally Harder
+## The Ceiling on the Old Model
 
-IT security sales has a mature prospecting infrastructure. There are databases of company technology stacks. There are signals from job postings, procurement records, and security tool deployments. There are reliable org charts. There is a whole industry built around translating this data into sales intelligence.
+Conferences are expensive and slow. You meet the right people maybe twice a year. The relationship has to develop before anything happens commercially, and by the time it does, six months have gone by and you are still not sure whether this facility actually has a problem worth scoping.
 
-OT is different in almost every relevant way.
+Cold outreach in OT is harder than cold outreach almost anywhere else. The buying environment is relationship-driven, technically complex, and the decision-making structure at most facilities involves multiple people across operations, engineering, and IT. Reaching one of them with a generic pitch and hoping they route you to the right conversation is a low-yield activity.
 
-There are no standardized asset registries. Industrial equipment does not phone home to vendor databases the way enterprise software does. A Rockwell PLC that has been running in a water treatment plant for fifteen years does not generate a LinkedIn record. It does not show up in any procurement database you can buy access to.
+Vendor referrals are the best leads you will get through the old model. They come pre-qualified, pre-warmed, and with some built-in credibility. They also come on someone else's timeline, in someone else's volume, for someone else's reasons. You cannot build a growth model on referrals and pretend you are in control of your own pipeline.
 
-The buying cycle is long, technical, and relationship-driven. You are not closing a software renewal. You are asking someone to invite you inside an operational environment where the stakes are physical. The first impression carries more weight.
+The deeper problem with all three is what happens after the lead comes in. You get on a call with a facility that sounds like a fit. But you do not know what they actually have. You do not know the age or generation of the equipment, the state of their network segmentation, or which vulnerabilities are sitting unresolved in their environment. You are going into a scoping conversation blind, which means you cannot price the work accurately, you cannot commit to a realistic timeline, and you are asking the facility to trust you before you have demonstrated that you understand their specific situation.
 
-And the decision-maker problem is acute. OT security buying decisions often involve plant managers, operations directors, engineering leads, and IT/OT convergence teams simultaneously. The person with the budget may not be the same person who understands the vulnerability. The person who understands the vulnerability may not have the authority to act on it. Showing up to the wrong conversation wastes everyone's time and damages your credibility.
-
-All of this means that bad prospecting data is more expensive in OT than it is almost anywhere else.
+That is a weak position to be in for a first conversation.
 
 ---
 
-## What Qualified Intelligence Actually Changes
+## What a Better Pipeline Looks Like
 
-When you have structured intelligence on a facility before the first contact, three things change.
+The firms that are pulling ahead in OT security sales are not doing more of the same. They are working a smaller number of opportunities, but arriving at each one better prepared than their competition.
 
-First, you know whether the opportunity is real. Confirmed exposure is not a guarantee of a sale, but it is a filter. You are not chasing a facility that does not have an addressable problem. You are talking to operators who have something visible and unresolved. The conversation has a foundation.
+The difference is pre-call intelligence.
 
-Second, you know who to talk to. Named decision-maker contacts, verified through public sources, remove the single most wasteful step in the OT sales process. You are not burning a cold introduction trying to navigate an org chart. You have a person, a title, and a basis for the outreach.
+Before the first outreach, they know the facility. Confirmed exposure: what equipment is visible, what vulnerabilities are associated with it, and whether those vulnerabilities are the kind of thing their firm actually addresses. Verified contacts: not just a name and a title from a directory, but a contact who actually sits in the right part of the organization. And scope context: enough of a picture of the environment to have a real conversation about what the engagement would look like and what it is worth.
 
-Third, you have scope context before the first call. You are not walking in with a generic pitch and hoping the facility's profile matches your service offering. You have enough context to frame the conversation around their specific situation. That is the difference between a vendor prospecting and a partner who already understands the environment.
+That kind of intelligence changes the entire dynamic of the first call. You are not prospecting. You are presenting. The facility is not wondering whether you understand their environment. You have already demonstrated that you do.
 
-None of this replaces the technical work. Assessment, remediation, integration -- that work still has to happen. But it happens more often, and starts from a better position, when the pre-call intelligence is solid.
+The close rate on these conversations is structurally different from cold prospecting. Not because the sales skills are better, but because the foundation is better.
 
 ---
 
-## How Some Firms Are Already Working
+## Where This Intelligence Comes From
 
-A small number of OT security firms have shifted away from volume prospecting entirely. They are not running campaigns across broad contact lists hoping for the right response rate. They are working a smaller set of well-qualified opportunities where the exposure context is already established before the first call goes out.
+Critical infrastructure facilities leave signals that are visible from public-facing sources. Not because anyone put them there intentionally, but because connected industrial equipment operating at scale generates a readable footprint. Device identifiers, firmware generations, vendor relationships, network structure. The information exists. The question is whether it gets organized and delivered in a usable form before the sales conversation happens.
 
-The sales cycles are still long. OT does not move fast. But the close rate is structurally different when you are not starting from zero every time.
+Most OT security firms do not have the internal capacity to build this kind of pre-call intelligence systematically. The research takes time, the sources are not standardized, and maintaining current data across a meaningful number of target facilities is a full-time operation.
 
-What makes this possible is structured OT intelligence: confirmed operators, verified contacts, and site-level exposure context delivered as a ready-to-use report rather than a raw data export.
-
-This is what Sentinel OT provides. If you want to see what that looks like in practice, sentinelot.com is a good place to start.
+This is what Sentinel OT provides: fully vetted, scoped intelligence reports on critical infrastructure facilities, built for OT security teams that want to show up to their next new business conversation already knowing the environment. If that is the kind of pipeline you are trying to build, sentinelot.com is a good place to start.
