@@ -83,7 +83,7 @@ A four-article LinkedIn series for the Sentinel OT business page. One article ev
 
 **Primary goal:** Direct awareness. Name Sentinel OT explicitly as a solution to the underwriting data gap.
 
-**Core argument:** The cyber insurance market is expanding into OT and ICS. But underwriting OT risk requires different inputs than IT risk -- legacy equipment with known CVEs that nobody is patching, facilities operating systems that haven't been updated in a decade, sectors where the exposure profile is public but the underwriting process isn't using it. The article explains the specific blind spots and then describes what structured, site-level intelligence looks like as an underwriting input. Sentinel OT is named directly as a provider.
+**Core argument:** The cyber insurance market is expanding into OT and ICS. But underwriting OT risk requires different inputs than IT risk -- legacy equipment with known CVEs that nobody is patching, facilities operating systems that haven't been updated in a decade, sectors where the exposure profile is public but the underwriting process isn't using it. The article explains the specific blind spots across oil & gas, water, power, and healthcare, then describes what structured, site-level intelligence looks like as an underwriting input. Sentinel OT is named directly as a provider.
 
 **Structure:**
 1. Hook -- the OT insurance market growing while the underlying data problem compounds
