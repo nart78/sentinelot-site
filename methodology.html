@@ -332,76 +332,137 @@
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
+  <!-- HERO (solid navy, no shader) -->
+  <div style="background:var(--navy);padding:140px 0 80px;">
     <div class="container">
-      <div class="page-header-eyebrow">01</div>
-      <h1>About Sentinel OT</h1>
-      <p class="page-header-sub">Passive ICS intelligence for critical infrastructure sectors.</p>
+      <div style="max-width:760px;">
+        <div class="hero-badge" style="display:inline-block;padding:6px 14px;background:#1a2940;border:1px solid #234060;border-radius:100px;font-size:1.2rem;font-weight:600;color:#38bdf8;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:24px;">Methodology</div>
+        <h1 style="font-size:clamp(4rem,5.5vw,6.4rem);font-weight:600;line-height:1.08;letter-spacing:-0.04em;color:#ffffff;margin-bottom:24px;">Passive intelligence, in detail.</h1>
+        <p style="font-size:1.8rem;line-height:1.6;color:#cbd5e1;max-width:620px;">How Sentinel OT identifies IT and OT exposure without sending a single packet to your infrastructure.</p>
+      </div>
     </div>
   </div>
 
-  <!-- 02 MISSION -->
-  <section class="about-section">
-    <div class="about-section-inner">
-      <div class="section-eyebrow">02 -- Mission</div>
-      <p>Critical infrastructure runs on aging control systems. Many operators don't know what's exposed or what's at risk. Sentinel OT finds them -- before the wrong people do.</p>
-      <p>We produce qualified intelligence packages for system integrators, OT cybersecurity firms, and industrial security providers. Our work is passive, sourced entirely from public signals, and fully documented.</p>
-    </div>
-  </section>
+  <!-- WHAT IS PASSIVE INTELLIGENCE -->
+  <div class="container">
+    <div class="section">
+      <div class="section-label">Foundation</div>
+      <h2>What passive intelligence is.</h2>
 
-  <!-- 03 WHAT WE PRODUCE -->
-  <section class="about-section" style="background: var(--bg-card);">
-    <div class="about-section-inner">
-      <div class="section-eyebrow">03 -- What We Produce</div>
-      <p>Each intelligence package includes:</p>
-      <div class="bullet-list">
-        <div class="bullet-item">
-          <div class="bullet-dot"></div>
-          <span><strong>Firmware-validated CVE list</strong> -- confirmed vulnerabilities with CVSS scores and remediation paths, cross-referenced against actual device firmware</span>
-        </div>
-        <div class="bullet-item">
-          <div class="bullet-dot"></div>
-          <span><strong>Confirmed operator identity</strong> -- attributed to a named facility or organization, not an anonymous IP block</span>
-        </div>
-        <div class="bullet-item">
-          <div class="bullet-dot"></div>
-          <span><strong>Decision-maker contact information</strong> -- the people responsible for OT infrastructure, not just a general company listing</span>
-        </div>
+      <div style="max-width:760px;">
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;">The public internet is indexed continuously by multiple independent data providers. Industrial control systems, cellular gateways, and management interfaces that are directly reachable from the internet respond to ordinary network requests with information about themselves. That information is aggregated, catalogued, and searchable.</p>
+
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;">Sentinel OT uses that aggregated public intelligence to identify externally observable exposure, correlate it to specific operators using authoritative public records, and validate every finding against authoritative vulnerability databases.</p>
+
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;">We rely on aggregated public intelligence sources and do not operate a scanner of our own against client infrastructure. We do not send packets. We do not attempt authentication. We do not require credentials of any kind. The method is entirely observational.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 04 SECTORS -->
-  <section class="about-section">
-    <div class="container">
-      <div class="section-eyebrow">04 -- Sectors</div>
-      <p style="color: var(--black-7); font-size: 1.6rem; margin-bottom: 0;">We focus exclusively on high-value critical infrastructure:</p>
-      <div class="sector-grid">
-        <div class="sector-tile">Oil &amp; Gas</div>
-        <div class="sector-tile">Water &amp; Wastewater</div>
-        <div class="sector-tile">Power &amp; Utilities</div>
-        <div class="sector-tile">Medical Devices</div>
+  <!-- WHAT WE OBSERVE -->
+  <div class="container">
+    <div class="section" style="padding-top:20px;">
+      <div class="section-label">Scope</div>
+      <h2>What we observe.</h2>
+      <p class="section-desc">The externally observable surface area we cover on every engagement.</p>
+
+      <ul style="list-style:none;padding:0;margin:0;max-width:760px;display:flex;flex-direction:column;gap:12px;">
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Internet-facing programmable logic controllers from Allen-Bradley, Schneider Electric, Siemens, and other major industrial vendors</li>
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Cellular SCADA gateways from Microhard Systems, Sierra Wireless, Digi International, and other telemetry equipment vendors</li>
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">SCADA radio management interfaces and industrial telemetry systems</li>
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Exposed administrative services on control equipment (FTP, Telnet, SSH, HTTP, HTTPS)</li>
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Misconfigured DNS resolvers and mail services on infrastructure hosts</li>
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Industrial protocol identity responses (EtherNet/IP, Modbus TCP, DNP3, BACnet)</li>
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">SSL and TLS certificate transparency logs</li>
+        <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Public business records, EPA ECHO, and CISA advisories for operator attribution</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- VALIDATION CHAIN -->
+  <div class="container">
+    <div class="section" style="padding-top:20px;">
+      <div class="section-label">Verification</div>
+      <h2>Every finding is independently verified.</h2>
+
+      <div style="max-width:760px;">
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Vulnerability data</strong> is verified against the National Vulnerability Database and the CISA Known Exploited Vulnerabilities catalog. CVSS scores are cross-referenced. CWE categories are confirmed.</p>
+
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Operator attribution</strong> is verified against authoritative public records: EPA ECHO for water systems, PHMSA for pipeline operators, state procurement records, SSL certificate organization fields, and Certificate Transparency logs.</p>
+
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Hardware identity</strong> is verified against vendor documentation, IEEE-registered Organizationally Unique Identifier records, and industrial protocol self-identification responses.</p>
+
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:0;">If we cannot verify a finding against an independent source, it does not appear in the report.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 05 COVERAGE -->
-  <section class="about-section" style="background: var(--bg-card);">
-    <div class="about-section-inner">
-      <div class="section-eyebrow">05 -- Coverage</div>
-      <p>Sentinel OT operates globally. Our reconnaissance is not constrained by geography -- critical infrastructure exposure does not respect borders. We deliver intelligence on operators and facilities across every major region.</p>
+  <!-- STANDARDS REFERENCED -->
+  <div class="container">
+    <div class="section" style="padding-top:20px;">
+      <div class="section-label">Standards</div>
+      <h2>Standards referenced.</h2>
+      <p class="section-desc">Every engagement maps findings and remediation to recognized industry and federal standards.</p>
+
+      <table style="width:100%;max-width:860px;border-collapse:collapse;margin-top:8px;font-size:1.4rem;">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg-card);font-weight:600;color:var(--black);text-transform:uppercase;font-size:1.15rem;letter-spacing:0.06em;">Standard</th>
+            <th style="text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg-card);font-weight:600;color:var(--black);text-transform:uppercase;font-size:1.15rem;letter-spacing:0.06em;">What it covers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">IEC 62443</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Industrial automation and control systems security. Zones and conduits framework, compensating controls. International reference standard for OT security.</td></tr>
+          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">NIST SP 800-82 Rev 3</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Industrial Control Systems Security Guide. The US federal reference document for OT risk assessment.</td></tr>
+          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">CISA Cybersecurity Performance Goals 2.0</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Cross-sector cybersecurity baseline recommended for all critical infrastructure.</td></tr>
+          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">America's Water Infrastructure Act</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Federal statute requiring community water systems to complete Risk and Resilience Assessments and Emergency Response Plans.</td></tr>
+          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">EPA Water Sector Cybersecurity Guidance</strong></td><td style="padding:14px 18px;color:var(--black-9);">Non-binding reference used in AWIA enforcement and compliance context.</td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
 
-  <!-- 06 CTA -->
-  <div class="cta-section">
-    <div class="section-eyebrow">06 -- Work With Us</div>
-    <h2>Ready to work with qualified intelligence?</h2>
-    <p>Use the contact form on the homepage or connect with us on LinkedIn.</p>
-    <div class="cta-buttons">
-      <a href="/#contact" class="btn-primary">Get in touch</a>
-      <a href="https://www.linkedin.com/company/sentinelot" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
+  <!-- WHAT WE DO NOT DO -->
+  <div class="container">
+    <div class="section" style="padding-top:20px;">
+      <div class="section-label">Boundaries</div>
+      <h2>What we do not do.</h2>
+
+      <ul style="list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:1fr;gap:14px;max-width:680px;">
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not scan your internal network.</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not send packets to your infrastructure.</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not attempt authentication on any system.</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not execute exploits.</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not require credentials, VPN access, or any form of inside access.</li>
+      </ul>
+
+      <p style="margin-top:24px;font-size:1.5rem;color:var(--black-9);max-width:760px;line-height:1.65;">Our findings describe the externally observable attack surface of your infrastructure. They do not describe your internal network, your operator training, your physical security posture, your change management procedures, or your emergency response plan. Those assessments require an authorized internal engagement by a different kind of provider. We are explicit about what we can and cannot see, in every report we produce.</p>
+    </div>
+  </div>
+
+  <!-- LEGAL BASIS -->
+  <div class="container">
+    <div class="section" style="padding-top:20px;">
+      <div class="section-label">Legal</div>
+      <h2>Why this work does not require your authorization.</h2>
+
+      <div style="max-width:760px;">
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;">The Computer Fraud and Abuse Act, codified at 18 U.S.C. section 1030, prohibits unauthorized access to a protected computer. Sentinel OT never accesses any client system. The information we use is already public, aggregated by third parties, and available to any researcher, defender, or adversary. Observing what is publicly visible is not access.</p>
+
+        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:0;">This is the same legal footing used by CISA, United States Computer Emergency Readiness Team, academic security research teams, and commercial threat intelligence firms. The work is defensive by design, passive by construction, and legal by default.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="container">
+    <div class="cta-section">
+      <h2>Start with evidence.</h2>
+      <p>Read the sample report, or send us a note.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+        <a href="/sample-report.pdf" class="btn-primary" target="_blank" rel="noopener">Read sample report</a>
+        <a href="/#contact" class="btn-primary" style="background:transparent;border:1px solid var(--border);color:var(--black);">Get in touch</a>
+      </div>
     </div>
   </div>
 
@@ -411,16 +472,17 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
-          <p>OT intelligence for critical infrastructure sectors worldwide.</p>
+          <p>The single accountable IT/OT security partner for US water utilities.</p>
         </div>
         <div class="footer-col">
-          <h4>Intelligence</h4>
-          <a href="/#contact">Get in touch</a>
+          <h4>Sentinel OT</h4>
+          <a href="/methodology.html">Methodology</a>
+          <a href="/about.html">About</a>
+          <a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a>
         </div>
         <div class="footer-col">
-          <h4>Resources</h4>
-          <a href="/about.html">About Sentinel OT</a>
-          <a href="/#contact">Contact Us</a>
+          <h4>Get in touch</h4>
+          <a href="/#contact">Contact form</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
@@ -430,10 +492,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
-        <p>Public &amp; passive sources only. Data provided for defensive modernization purposes.</p>
-        <a href="https://www.linkedin.com/company/sentinelot" target="_blank" rel="noopener" class="footer-linkedin" aria-label="Sentinel OT on LinkedIn">
-          <img src="icons/linkedin.png" alt="LinkedIn" style="width:20px;height:20px;opacity:0.5;transition:opacity 0.2s;vertical-align:middle">
-        </a>
+        <p>Public and passive sources only. Findings are for defensive modernization.</p>
       </div>
     </div>
   </footer>
