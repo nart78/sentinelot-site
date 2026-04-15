@@ -2078,7 +2078,7 @@
   <div class="container" id="contact">
     <div class="cta-section">
       <h2>Get in touch.</h2>
-      <p>Tell us what you're working on.</p>
+      <p>If you received a vulnerability report from Sentinel OT, this is the fastest way to reply. If you are exploring whether your utility is a fit, we will come back to you within one business day.</p>
       <div id="contactFormWrap" style="max-width:480px;margin:32px auto 0;text-align:left;">
         <form id="contactForm" action="https://formspree.io/f/mzdakpwg" method="POST">
           <div class="form-group">
@@ -2087,15 +2087,24 @@
           </div>
           <div class="form-group">
             <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" required placeholder="you@company.com">
+            <input type="email" id="cf-email" name="email" required placeholder="you@yourcity.gov">
           </div>
           <div class="form-group">
-            <label for="cf-company">Company</label>
-            <input type="text" id="cf-company" name="company" required placeholder="Your company name">
+            <label for="cf-company">Utility or Organization</label>
+            <input type="text" id="cf-company" name="company" required placeholder="Name of your water utility or city">
+          </div>
+          <div class="form-group">
+            <label>Are you replying to a Sentinel OT report?</label>
+            <label style="display:inline-flex;align-items:center;gap:8px;font-size:1.35rem;font-weight:400;margin-right:20px;margin-top:4px;">
+              <input type="radio" name="replying_to_report" value="yes" style="width:auto;"> Yes
+            </label>
+            <label style="display:inline-flex;align-items:center;gap:8px;font-size:1.35rem;font-weight:400;margin-top:4px;">
+              <input type="radio" name="replying_to_report" value="no" style="width:auto;"> No
+            </label>
           </div>
           <div class="form-group">
             <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" placeholder="Tell us what you're working on"></textarea>
+            <textarea id="cf-message" name="message" placeholder="Tell us what prompted your outreach"></textarea>
           </div>
           <button type="submit" class="form-submit">Send</button>
         </form>
