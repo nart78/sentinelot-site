@@ -1655,11 +1655,17 @@
 
     .stage-body p:last-child { margin-bottom: 0; }
 
+    .grant-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 32px;
+    }
+
     .grant-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 32px;
       font-size: 1.4rem;
+      min-width: 640px;
     }
 
     .grant-table th,
@@ -1959,6 +1965,7 @@
       <h2>The money is already there. Most utilities never see it.</h2>
       <p class="section-desc">Federal SLCGP funds, state cybersecurity grants, and water-sector State Revolving Fund set-asides collectively allocate hundreds of millions of dollars every year to cybersecurity work in small and mid-sized water utilities. Most of it is left on the table in the communities that need it most.</p>
 
+      <div class="grant-table-wrap">
       <table class="grant-table">
         <thead>
           <tr>
@@ -2014,6 +2021,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <div class="awia-callout">
         <strong>AWIA deadline, clearly.</strong> America's Water Infrastructure Act Risk and Resilience Assessment recertification is due June 30, 2026 for community water systems serving 3,301 to 49,999 people. If that describes your utility, you have a federal deadline and a short runway. We can help you get in front of it.
