@@ -296,10 +296,63 @@
     }
     .btn-outline:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
 
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #cbd5e1;
+      border-radius: 1px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav.open .nav-hamburger span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav.open .nav-hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav.open .nav-hamburger span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       html { font-size: 60%; }
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(20,24,33,0.98);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 16px 20px;
+        gap: 0;
+      }
+      .nav.open .nav-links { display: flex; }
+      .nav-links a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .nav-cta { margin-top: 8px; justify-content: center; }
       .nav-inner { padding: 0 20px; }
       .container { padding: 0 20px; }
       .page-header h1 { font-size: 2.8rem; }
@@ -329,6 +382,11 @@
         <a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a>
         <a href="/#contact" class="nav-cta">Get in touch</a>
       </div>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -497,5 +555,23 @@
     </div>
   </footer>
 
+  <script>
+  (function() {
+    var btn = document.querySelector('.nav-hamburger');
+    var nav = document.querySelector('.nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    var links = nav.querySelectorAll('.nav-links a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  })();
+  </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Terms of Service | Sentinel OT</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -240,8 +240,63 @@
 
     .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
 
+    .footer-linkedin:hover img { opacity: 1 !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #cbd5e1;
+      border-radius: 1px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav.open .nav-hamburger span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav.open .nav-hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav.open .nav-hamburger span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(20,24,33,0.98);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 16px 20px;
+        gap: 0;
+      }
+      .nav.open .nav-links { display: flex; }
+      .nav-links a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .nav-cta { margin-top: 8px; justify-content: center; }
       .nav-inner { padding: 0 20px; }
       .container { padding: 0 20px; }
       .legal-page { padding: 88px 0 80px; }
@@ -263,11 +318,16 @@
         <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
       </a>
       <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/#how-it-works">How It Works</a>
-        <a href="/#buyers">For Buyers</a>
-        <a href="/#contact" class="nav-cta">Request Sample</a>
+        <a href="/methodology.html">Methodology</a>
+        <a href="/about.html">About</a>
+        <a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a>
+        <a href="/#contact" class="nav-cta">Get in touch</a>
       </div>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -327,18 +387,17 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
-          <p>Passive ICS intelligence for system integrators, OT cybersecurity firms, and industrial security providers.</p>
+          <p>The single accountable IT/OT security partner for US water utilities.</p>
         </div>
         <div class="footer-col">
-          <h4>Product</h4>
-          <a href="/#how-it-works">How It Works</a>
-          <a href="/#buyers">For Buyers</a>
-          <a href="/#contact">Request a Sample</a>
+          <h4>Sentinel OT</h4>
+          <a href="/methodology.html">Methodology</a>
+          <a href="/about.html">About</a>
+          <a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
-          <a href="/#contact">Contact Us</a>
-          <p>Calgary, AB, Canada</p>
+          <h4>Get in touch</h4>
+          <a href="/#contact">Contact form</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
@@ -349,9 +408,30 @@
       <div class="footer-bottom">
         <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
         <p>Public &amp; passive sources only. Data provided for defensive modernization purposes.</p>
+        <a href="https://www.linkedin.com/company/sentinelot" target="_blank" rel="noopener" class="footer-linkedin" aria-label="Sentinel OT on LinkedIn">
+          <img src="icons/linkedin.png" alt="LinkedIn" style="width:20px;height:20px;opacity:0.5;transition:opacity 0.2s;vertical-align:middle">
+        </a>
       </div>
     </div>
   </footer>
 
+  <script>
+  (function() {
+    var btn = document.querySelector('.nav-hamburger');
+    var nav = document.querySelector('.nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    var links = nav.querySelectorAll('.nav-links a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
