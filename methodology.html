@@ -203,6 +203,86 @@
     .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
     .footer-linkedin:hover img { opacity: 1 !important; }
 
+    /* ─── SECTION BACKGROUNDS ─── */
+    .section-white { background: #ffffff; }
+    .section-grey  { background: var(--bg); }
+    .section-dark  { background: var(--navy); }
+
+    .section { padding: 100px 0; }
+
+    .section-dark .section h2 { color: #ffffff; }
+    .section-dark .section-desc { color: rgba(255,255,255,0.6); }
+
+    /* Standards table */
+    .standards-table {
+      width: 100%;
+      max-width: 860px;
+      border-collapse: collapse;
+      margin: 8px auto 0;
+      font-size: 1.4rem;
+      min-width: 540px;
+    }
+
+    .standards-table th {
+      text-align: left;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+      font-weight: 600;
+      color: var(--black);
+      text-transform: uppercase;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+    }
+
+    .standards-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--black-9);
+    }
+
+    .standards-table td strong { color: var(--black); }
+
+    .section-dark .standards-table th {
+      background: var(--navy-mid);
+      color: var(--accent);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+
+    .section-dark .standards-table td {
+      color: rgba(255,255,255,0.85);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+
+    .section-dark .standards-table td strong { color: #ffffff; }
+
+    .section-dark .standards-table tbody tr:hover {
+      background: rgba(14,165,233,0.08);
+    }
+
+    /* Verification cards */
+    .verification-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+
+    .verification-card strong {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .verification-card p {
+      font-size: 1.5rem;
+      color: var(--black-9);
+      line-height: 1.65;
+      margin: 0;
+    }
+
     /* ─── ABOUT PAGE ─── */
 
     .page-header {
@@ -394,7 +474,8 @@
   </div>
 
   <!-- WHAT IS PASSIVE INTELLIGENCE -->
-  <div class="container" style="padding-top:80px;">
+  <div class="section-white">
+  <div class="container">
     <div class="section">
 
       <h2>What passive intelligence is.</h2>
@@ -409,14 +490,17 @@
     </div>
   </div>
 
+  </div><!-- /section-white -->
+
   <!-- WHAT WE OBSERVE -->
+  <div class="section-grey">
   <div class="container">
-    <div class="section" style="padding-top:20px;">
+    <div class="section">
 
       <h2>What we observe.</h2>
       <p class="section-desc">The externally observable surface area we cover on every engagement.</p>
 
-      <ul style="list-style:none;padding:0;margin:0 auto;max-width:760px;display:flex;flex-direction:column;gap:12px;">
+      <ul style="list-style:none;padding:0;margin:0 auto;max-width:820px;display:flex;flex-direction:column;gap:12px;">
         <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Internet-facing programmable logic controllers from Allen-Bradley, Schneider Electric, Siemens, and other major industrial vendors</li>
         <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Cellular SCADA gateways from Microhard Systems, Sierra Wireless, Digi International, and other telemetry equipment vendors</li>
         <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">SCADA radio management interfaces and industrial telemetry systems</li>
@@ -429,58 +513,74 @@
     </div>
   </div>
 
+  </div><!-- /section-grey -->
+
   <!-- VALIDATION CHAIN -->
+  <div class="section-white">
   <div class="container">
-    <div class="section" style="padding-top:20px;">
+    <div class="section">
 
       <h2>Every finding is independently verified.</h2>
 
-      <div style="max-width:760px;margin:0 auto;">
-        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Vulnerability data</strong> is verified against the National Vulnerability Database and the CISA Known Exploited Vulnerabilities catalog. CVSS scores are cross-referenced. CWE categories are confirmed.</p>
-
-        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Operator attribution</strong> is verified against authoritative public records: EPA ECHO for water systems, PHMSA for pipeline operators, state procurement records, SSL certificate organization fields, and Certificate Transparency logs.</p>
-
-        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Hardware identity</strong> is verified against vendor documentation, IEEE-registered Organizationally Unique Identifier records, and industrial protocol self-identification responses.</p>
-
-        <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:0;">If we cannot verify a finding against an independent source, it does not appear in the report.</p>
+      <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:20px;">
+        <div class="verification-card">
+          <strong>Vulnerability data</strong>
+          <p>Verified against the National Vulnerability Database and the CISA Known Exploited Vulnerabilities catalog. CVSS scores are cross-referenced. CWE categories are confirmed.</p>
+        </div>
+        <div class="verification-card">
+          <strong>Operator attribution</strong>
+          <p>Verified against authoritative public records: EPA ECHO for water systems, PHMSA for pipeline operators, state procurement records, SSL certificate organization fields, and Certificate Transparency logs.</p>
+        </div>
+        <div class="verification-card">
+          <strong>Hardware identity</strong>
+          <p>Verified against vendor documentation, IEEE-registered Organizationally Unique Identifier records, and industrial protocol self-identification responses.</p>
+        </div>
       </div>
+
+      <p style="font-size:1.5rem;line-height:1.65;color:var(--black-9);max-width:820px;margin:32px auto 0;text-align:center;">If we cannot verify a finding against an independent source, it does not appear in the report.</p>
     </div>
   </div>
 
+  </div><!-- /section-white -->
+
   <!-- STANDARDS REFERENCED -->
+  <div class="section-dark">
   <div class="container">
-    <div class="section" style="padding-top:20px;">
+    <div class="section">
 
       <h2>Standards referenced.</h2>
       <p class="section-desc">Every engagement maps findings and remediation to recognized industry and federal standards.</p>
 
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
-      <table style="width:100%;max-width:860px;border-collapse:collapse;margin:8px auto 0;font-size:1.4rem;min-width:540px;">
+      <table class="standards-table">
         <thead>
           <tr>
-            <th style="text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg-card);font-weight:600;color:var(--black);text-transform:uppercase;font-size:1.15rem;letter-spacing:0.06em;">Standard</th>
-            <th style="text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg-card);font-weight:600;color:var(--black);text-transform:uppercase;font-size:1.15rem;letter-spacing:0.06em;">What it covers</th>
+            <th>Standard</th>
+            <th>What it covers</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">IEC 62443</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Industrial automation and control systems security. Zones and conduits framework, compensating controls. International reference standard for OT security.</td></tr>
-          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">NIST SP 800-82 Rev 3</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Industrial Control Systems Security Guide. The US federal reference document for OT risk assessment.</td></tr>
-          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">CISA Cybersecurity Performance Goals 2.0</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Cross-sector cybersecurity baseline recommended for all critical infrastructure.</td></tr>
-          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">America's Water Infrastructure Act</strong></td><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);">Federal statute requiring community water systems to complete Risk and Resilience Assessments and Emergency Response Plans.</td></tr>
-          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--border);color:var(--black-9);"><strong style="color:var(--black);">EPA Water Sector Cybersecurity Guidance</strong></td><td style="padding:14px 18px;color:var(--black-9);">Non-binding reference used in AWIA enforcement and compliance context.</td></tr>
+          <tr><td><strong>IEC 62443</strong></td><td>Industrial automation and control systems security. Zones and conduits framework, compensating controls. International reference standard for OT security.</td></tr>
+          <tr><td><strong>NIST SP 800-82 Rev 3</strong></td><td>Industrial Control Systems Security Guide. The US federal reference document for OT risk assessment.</td></tr>
+          <tr><td><strong>CISA Cybersecurity Performance Goals 2.0</strong></td><td>Cross-sector cybersecurity baseline recommended for all critical infrastructure.</td></tr>
+          <tr><td><strong>America's Water Infrastructure Act</strong></td><td>Federal statute requiring community water systems to complete Risk and Resilience Assessments and Emergency Response Plans.</td></tr>
+          <tr><td><strong>EPA Water Sector Cybersecurity Guidance</strong></td><td>Non-binding reference used in AWIA enforcement and compliance context.</td></tr>
         </tbody>
       </table>
       </div>
     </div>
   </div>
 
+  </div><!-- /section-dark -->
+
   <!-- WHAT WE DO NOT DO -->
+  <div class="section-white">
   <div class="container">
-    <div class="section" style="padding-top:20px;">
+    <div class="section">
 
       <h2>What we do not do.</h2>
 
-      <ul style="list-style:none;padding:0;margin:24px auto 0;display:grid;grid-template-columns:1fr;gap:14px;max-width:680px;">
+      <ul style="list-style:none;padding:0;margin:24px auto 0;display:grid;grid-template-columns:1fr;gap:14px;max-width:820px;">
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not scan your internal network.</li>
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not send packets to your infrastructure.</li>
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not attempt authentication on any system.</li>
@@ -488,13 +588,16 @@
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not require credentials, VPN access, or any form of inside access.</li>
       </ul>
 
-      <p style="margin:24px auto 0;font-size:1.5rem;color:var(--black-9);max-width:760px;line-height:1.65;">Our findings describe the externally observable attack surface of your infrastructure. They do not describe your internal network, your operator training, your physical security posture, your change management procedures, or your emergency response plan. Those assessments require an authorized internal engagement by a different kind of provider. We are explicit about what we can and cannot see, in every report we produce.</p>
+      <p style="margin:24px auto 0;font-size:1.5rem;color:var(--black-9);max-width:820px;line-height:1.65;">Our findings describe the externally observable attack surface of your infrastructure. They do not describe your internal network, your operator training, your physical security posture, your change management procedures, or your emergency response plan. Those assessments require an authorized internal engagement by a different kind of provider. We are explicit about what we can and cannot see, in every report we produce.</p>
     </div>
   </div>
 
+  </div><!-- /section-white -->
+
   <!-- LEGAL BASIS -->
+  <div class="section-grey">
   <div class="container">
-    <div class="section" style="padding-top:20px;">
+    <div class="section">
 
       <h2>Why this work does not require your authorization.</h2>
 
@@ -505,6 +608,8 @@
       </div>
     </div>
   </div>
+
+  </div><!-- /section-grey -->
 
   <!-- CTA -->
   <div class="cta-section">
