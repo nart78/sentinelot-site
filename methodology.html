@@ -391,7 +391,7 @@
 
       <h2>What passive intelligence is.</h2>
 
-      <div style="max-width:760px;">
+      <div style="max-width:760px;margin:0 auto;">
         <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;">The public internet is indexed continuously by multiple independent data providers. Industrial control systems, cellular gateways, and management interfaces that are directly reachable from the internet respond to ordinary network requests with information about themselves. That information is aggregated, catalogued, and searchable.</p>
 
         <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;">Sentinel OT uses that aggregated public intelligence to identify externally observable exposure, correlate it to specific operators using authoritative public records, and validate every finding against authoritative vulnerability databases.</p>
@@ -408,7 +408,7 @@
       <h2>What we observe.</h2>
       <p class="section-desc">The externally observable surface area we cover on every engagement.</p>
 
-      <ul style="list-style:none;padding:0;margin:0;max-width:760px;display:flex;flex-direction:column;gap:12px;">
+      <ul style="list-style:none;padding:0;margin:0 auto;max-width:760px;display:flex;flex-direction:column;gap:12px;">
         <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Internet-facing programmable logic controllers from Allen-Bradley, Schneider Electric, Siemens, and other major industrial vendors</li>
         <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">Cellular SCADA gateways from Microhard Systems, Sierra Wireless, Digi International, and other telemetry equipment vendors</li>
         <li style="font-size:1.5rem;color:var(--black-9);line-height:1.55;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;">SCADA radio management interfaces and industrial telemetry systems</li>
@@ -427,7 +427,7 @@
 
       <h2>Every finding is independently verified.</h2>
 
-      <div style="max-width:760px;">
+      <div style="max-width:760px;margin:0 auto;">
         <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Vulnerability data</strong> is verified against the National Vulnerability Database and the CISA Known Exploited Vulnerabilities catalog. CVSS scores are cross-referenced. CWE categories are confirmed.</p>
 
         <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;"><strong style="color:var(--black);">Operator attribution</strong> is verified against authoritative public records: EPA ECHO for water systems, PHMSA for pipeline operators, state procurement records, SSL certificate organization fields, and Certificate Transparency logs.</p>
@@ -447,7 +447,7 @@
       <p class="section-desc">Every engagement maps findings and remediation to recognized industry and federal standards.</p>
 
       <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
-      <table style="width:100%;max-width:860px;border-collapse:collapse;margin-top:8px;font-size:1.4rem;min-width:540px;">
+      <table style="width:100%;max-width:860px;border-collapse:collapse;margin:8px auto 0;font-size:1.4rem;min-width:540px;">
         <thead>
           <tr>
             <th style="text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg-card);font-weight:600;color:var(--black);text-transform:uppercase;font-size:1.15rem;letter-spacing:0.06em;">Standard</th>
@@ -472,7 +472,7 @@
 
       <h2>What we do not do.</h2>
 
-      <ul style="list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:1fr;gap:14px;max-width:680px;">
+      <ul style="list-style:none;padding:0;margin:24px auto 0;display:grid;grid-template-columns:1fr;gap:14px;max-width:680px;">
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not scan your internal network.</li>
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not send packets to your infrastructure.</li>
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not attempt authentication on any system.</li>
@@ -480,7 +480,7 @@
         <li style="display:flex;align-items:flex-start;gap:14px;font-size:1.55rem;line-height:1.5;color:var(--black-9);padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;"><span style="flex-shrink:0;width:26px;height:26px;background:var(--danger-light);color:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;">&#10007;</span>We do not require credentials, VPN access, or any form of inside access.</li>
       </ul>
 
-      <p style="margin-top:24px;font-size:1.5rem;color:var(--black-9);max-width:760px;line-height:1.65;">Our findings describe the externally observable attack surface of your infrastructure. They do not describe your internal network, your operator training, your physical security posture, your change management procedures, or your emergency response plan. Those assessments require an authorized internal engagement by a different kind of provider. We are explicit about what we can and cannot see, in every report we produce.</p>
+      <p style="margin:24px auto 0;font-size:1.5rem;color:var(--black-9);max-width:760px;line-height:1.65;">Our findings describe the externally observable attack surface of your infrastructure. They do not describe your internal network, your operator training, your physical security posture, your change management procedures, or your emergency response plan. Those assessments require an authorized internal engagement by a different kind of provider. We are explicit about what we can and cannot see, in every report we produce.</p>
     </div>
   </div>
 
@@ -490,7 +490,7 @@
 
       <h2>Why this work does not require your authorization.</h2>
 
-      <div style="max-width:760px;">
+      <div style="max-width:760px;margin:0 auto;">
         <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:18px;">The Computer Fraud and Abuse Act, codified at 18 U.S.C. section 1030, prohibits unauthorized access to a protected computer. Sentinel OT never accesses any client system. The information we use is already public, aggregated by third parties, and available to any researcher, defender, or adversary. Observing what is publicly visible is not access.</p>
 
         <p style="font-size:1.6rem;line-height:1.7;color:var(--black-9);margin-bottom:0;">This is the same legal footing used by CISA, United States Computer Emergency Readiness Team, academic security research teams, and commercial threat intelligence firms. The work is defensive by design, passive by construction, and legal by default.</p>
