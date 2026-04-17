@@ -530,6 +530,33 @@
       color: #0ea5e9;
     }
 
+    /* ─── SECTION BACKGROUNDS ─── */
+    .section-white { background: #ffffff; }
+    .section-grey  { background: var(--bg); }
+    .section-dark  { background: var(--navy); }
+
+    .section-dark .section h2 { color: #ffffff; }
+    .section-dark .section-desc { color: rgba(255,255,255,0.6); }
+    .section-dark .grant-table th {
+      background: var(--navy-mid);
+      color: var(--accent);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+    .section-dark .grant-table td {
+      color: rgba(255,255,255,0.85);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+    .section-dark .grant-table tbody tr:hover {
+      background: rgba(14,165,233,0.08);
+    }
+    .section-dark .awia-callout {
+      background: rgba(242,201,76,0.08);
+      border-color: rgba(242,153,74,0.3);
+      border-left-color: #f2994a;
+      color: rgba(255,255,255,0.85);
+    }
+    .section-dark .awia-callout strong { color: #ffffff; }
+
     /* ─── SECTION COMMON ─── */
     .section {
       padding: 100px 0;
@@ -1608,6 +1635,8 @@
       align-items: start;
       padding-bottom: 48px;
       border-bottom: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding-left: 28px;
     }
 
     .stage:last-child {
@@ -1857,6 +1886,7 @@
   </div><!-- /hero-shader-wrap -->
 
   <!-- QUIET PROBLEM -->
+  <div class="section-white">
   <div class="container">
     <div class="section">
 
@@ -1886,7 +1916,10 @@
     </div>
   </div>
 
+  </div><!-- /section-white -->
+
   <!-- FOUR-STAGE PIPELINE -->
+  <div class="section-grey">
   <div class="container">
     <div class="section">
 
@@ -1935,7 +1968,10 @@
     </div>
   </div>
 
+  </div><!-- /section-grey -->
+
   <!-- GRANT FUNDING LANDSCAPE -->
+  <div class="section-dark">
   <div class="container">
     <div class="section">
 
@@ -2006,7 +2042,10 @@
     </div>
   </div>
 
+  </div><!-- /section-dark -->
+
   <!-- WHAT WE DO NOT DO -->
+  <div class="section-white">
   <div class="container">
     <div class="section">
 
@@ -2024,7 +2063,10 @@
     </div>
   </div>
 
+  </div><!-- /section-white -->
+
   <!-- ENGAGEMENT TIMELINE -->
+  <div class="section-grey">
   <div class="container">
     <div class="section">
 
@@ -2061,7 +2103,10 @@
     </div>
   </div>
 
+  </div><!-- /section-grey -->
+
   <!-- FAQ -->
+  <div class="section-white">
   <div class="container">
     <div class="section">
 
@@ -2114,7 +2159,10 @@
     </div>
   </div>
 
+  </div><!-- /section-white -->
+
   <!-- CONTACT -->
+  <div class="section-grey">
   <div class="container" id="contact">
     <div class="cta-section">
       <h2>Get in touch.</h2>
@@ -2155,6 +2203,8 @@
       </div>
     </div>
   </div>
+
+  </div><!-- /section-grey -->
 
   <!-- FOOTER -->
   <footer>
