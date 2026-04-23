@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Sentinel OT</title>
   <meta name="description" content="Sentinel OT is the single accountable IT/OT security partner for critical US utilities. Headquartered in Calgary, Alberta with US delivery operations in Houston, TX.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Sentinel OT",
+    "url": "https://sentinelot.com/about.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Sentinel OT",
+      "url": "https://sentinelot.com",
+      "logo": "https://sentinelot.com/logo.png",
+      "description": "The single accountable IT/OT security partner for critical US utilities. Vulnerability assessment, grant funding support, remediation delivery, and ongoing monitoring under one contract.",
+      "sameAs": ["https://www.linkedin.com/company/sentinelot"]
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -403,9 +422,27 @@
     }
 
     @media (max-width: 720px) {
-      .nav { padding: 16px 20px; }
+      .nav { padding: 16px 20px; flex-wrap: wrap; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; flex-direction: column; }
+      .nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px 0 8px;
+        gap: 4px;
+      }
+      .nav.open .nav-links li { width: 100%; }
+      .nav.open .nav-links a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav.open .nav-links .nav-cta {
+        margin-top: 8px;
+        text-align: center;
+        border-bottom: none;
+      }
 
       .page-header { padding: 120px 22px 56px; }
       .page-header h1 { font-size: 32px; }
@@ -445,7 +482,7 @@
       <li><a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a></li>
       <li><a href="/#contact" class="btn btn-primary nav-cta">Get in touch</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="Menu">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -572,6 +609,25 @@
       <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+  (function() {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('.nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    var links = nav.querySelectorAll('.nav-links a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  })();
+  </script>
 
 </body>
 </html>

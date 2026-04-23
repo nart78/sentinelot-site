@@ -1374,9 +1374,27 @@
     }
 
     @media (max-width: 720px) {
-      .nav { padding: 16px 20px; }
+      .nav { padding: 16px 20px; flex-wrap: wrap; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; flex-direction: column; }
+      .nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px 0 8px;
+        gap: 4px;
+      }
+      .nav.open .nav-links li { width: 100%; }
+      .nav.open .nav-links a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav.open .nav-links .nav-cta {
+        margin-top: 8px;
+        text-align: center;
+        border-bottom: none;
+      }
 
       .hero-wrap {
         padding: 32px 22px 40px;
@@ -1457,7 +1475,7 @@
 <body>
 
   <nav class="nav" aria-label="Primary">
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT" style="height:42px;width:auto;">
     </a>
 
@@ -1467,8 +1485,8 @@
       <li><a href="#contact" class="btn btn-primary nav-cta">Get in touch</a></li>
     </ul>
 
-    <button class="nav-toggle" aria-label="Open menu">
-      <span></span><span></span>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
@@ -1762,7 +1780,7 @@
             This is not unusual. <span class="accent">It is typical.</span>
           </div>
 
-          <a href="#sample" class="proof-link">
+          <a href="/sample-report.pdf" target="_blank" rel="noopener" class="proof-link">
             Read the full sample report
             <span class="arrow" aria-hidden="true">→</span>
           </a>
@@ -1949,6 +1967,25 @@
       <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+  (function() {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('.nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    var links = nav.querySelectorAll('.nav-links a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  })();
+  </script>
 
   <script>
     // Coverage markers. x/y in the 900×560 coordinate space of the base map.
