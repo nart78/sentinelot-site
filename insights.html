@@ -129,12 +129,16 @@
 
     /* ─── Page header ─────────────────────────────────────────── */
     .page-header {
+      position: relative;
+      overflow: hidden;
       padding: 160px 56px 80px;
       text-align: center;
       background: var(--navy-850);
       border-bottom: 1px solid var(--line);
     }
     .page-header h1 {
+      position: relative;
+      z-index: 2;
       font-weight: 500;
       font-size: 52px;
       letter-spacing: -0.03em;
@@ -144,11 +148,84 @@
       margin: 0 auto 24px;
     }
     .page-header p {
+      position: relative;
+      z-index: 2;
       font-size: 18px;
       line-height: 1.6;
       color: var(--text-mid);
       max-width: 640px;
       margin: 0 auto;
+    }
+
+    /* Aurora gradient background */
+    .aurora {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.35;
+    }
+    .aurora-layer {
+      position: absolute;
+      inset: -100%;
+      filter: blur(80px);
+    }
+    .aurora-layer-1 {
+      background:
+        repeating-linear-gradient(100deg,
+          #0ea5e9 10%,
+          #0c4a6e 15%,
+          #164e63 20%,
+          #0ea5e9 25%,
+          #0369a1 30%);
+      background-size: 300% 100%;
+      animation: aurora-drift 20s linear infinite;
+    }
+    .aurora-layer-2 {
+      inset: -10px;
+      mix-blend-mode: screen;
+      background:
+        repeating-linear-gradient(100deg,
+          rgba(14,165,233,0.08) 0%,
+          rgba(14,165,233,0.08) 7%,
+          transparent 10%,
+          transparent 12%,
+          rgba(14,165,233,0.08) 16%),
+        repeating-linear-gradient(100deg,
+          #0ea5e9 10%,
+          #0c4a6e 15%,
+          #155e75 20%,
+          #0ea5e9 25%,
+          #0369a1 30%);
+      background-size: 200%, 100%;
+      background-position: 50% 50%, 50% 50%;
+      animation: aurora-shift 15s linear infinite;
+    }
+    .aurora-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 0%, var(--navy-850) 75%);
+    }
+    @keyframes aurora-drift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes aurora-shift {
+      0%   { background-position: 50% 50%, 50% 50%; }
+      50%  { background-position: 100% 50%, 150% 50%; }
+      100% { background-position: 50% 50%, 50% 50%; }
+    }
+
+    .crosshair {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><path d='M 60 54 L 60 66 M 54 60 L 66 60' stroke='rgba(255,255,255,0.04)' stroke-width='1' fill='none'/></svg>");
+      background-size: 120px 120px;
     }
 
     /* ─── Content sections ────────────────────────────────────── */
@@ -466,6 +543,12 @@
 
   <!-- ─── PAGE HEADER ──────────────────────────────────────────── -->
   <header class="page-header">
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora-layer aurora-layer-1"></div>
+      <div class="aurora-layer aurora-layer-2"></div>
+    </div>
+    <div class="aurora-vignette" aria-hidden="true"></div>
+    <div class="crosshair" aria-hidden="true"></div>
     <h1>Insights.</h1>
     <p>Intelligence, analysis, and guidance for US water utility operators.</p>
   </header>
