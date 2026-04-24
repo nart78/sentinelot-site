@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Your OT Network Is Visible from the Public Internet | Sentinel OT</title>
+  <meta name="description" content="Cellular SCADA gateways, misconfigured firewalls, and direct-connected PLCs are routinely indexed by public scanning infrastructure. If you have not checked, you are probably exposed.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy-950: #0b0e14;
+      --navy-900: #0f131b;
+      --navy-850: #141821;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --line-faint: rgba(255,255,255,0.04);
+      --text-hi: #f4f6fa;
+      --text-mid: #c9d0db;
+      --text-lo: #8892a3;
+      --text-dim: #5b6473;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14,165,233,0.18);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--navy-850);
+      color: var(--text-hi);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      letter-spacing: -0.005em;
+    }
+    a { color: inherit; }
+
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 29px 56px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11,14,20,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .logo img { height: 42px; width: auto; }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-mid);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--text-hi); }
+
+    .btn {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      border-radius: 2px;
+      padding: 14px 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #03131f; font-weight: 600; }
+    .btn-primary:hover { background: #38bdf8; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-hi);
+      border: 1px solid var(--line-strong);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.03);
+    }
+    .nav-cta { padding: 10px 18px; font-size: 13px; }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--line-strong);
+      border-radius: 2px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: var(--text-hi);
+      margin: 3px 0;
+    }
+
+    .article-header {
+      padding: 160px 56px 72px;
+      text-align: center;
+      background: var(--navy-850);
+      border-bottom: 1px solid var(--line);
+    }
+    .article-header .category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .article-header h1 {
+      font-weight: 500;
+      font-size: 52px;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text-hi);
+      max-width: 820px;
+      margin: 0 auto 20px;
+      text-wrap: balance;
+    }
+    .article-header .date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+    .article-header .deck {
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--text-mid);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .article-body {
+      background: #ffffff;
+      padding: 72px 56px 80px;
+    }
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .article-content p {
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(0,0,0,0.75);
+      margin: 0 0 24px;
+      letter-spacing: -0.005em;
+    }
+    .article-content h2 {
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      color: #151515;
+      margin: 48px 0 20px;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+    }
+    .article-content h2:first-child {
+      margin-top: 0;
+    }
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+      margin: 32px 0;
+      font-style: italic;
+      color: rgba(0,0,0,0.55);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .article-content blockquote p {
+      color: inherit;
+      margin: 0;
+    }
+    .article-content strong {
+      color: #151515;
+      font-weight: 600;
+    }
+    .article-content ul,
+    .article-content ol {
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(0,0,0,0.75);
+      margin: 0 0 24px;
+      padding-left: 24px;
+    }
+    .article-content li {
+      margin-bottom: 8px;
+    }
+    .article-content a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-end {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color .15s;
+    }
+    .back-link:hover { color: #38bdf8; }
+    .back-link .arrow { transition: transform .2s ease; }
+    .back-link:hover .arrow { transform: translateX(4px); }
+
+    .cta-band {
+      background: var(--navy-950);
+      padding: 80px 56px;
+      text-align: center;
+      border-top: 1px solid var(--accent-soft);
+      border-bottom: 1px solid var(--line);
+    }
+    .cta-band h2 {
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -0.025em;
+      color: var(--text-hi);
+      margin: 0 0 16px;
+    }
+    .cta-band p {
+      font-size: 17px;
+      color: var(--text-mid);
+      margin: 0 0 36px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      background: var(--navy-950);
+      color: rgba(255,255,255,0.5);
+      padding: 64px 56px 32px;
+    }
+    .footer-grid {
+      max-width: 1080px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand img {
+      height: 38px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      margin: 0 0 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #ffffff; }
+    .footer-bottom {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      .nav { padding: 16px 20px; flex-wrap: wrap; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; flex-direction: column; }
+      .nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px 0 8px;
+        gap: 4px;
+      }
+      .nav.open .nav-links li { width: 100%; }
+      .nav.open .nav-links a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav.open .nav-links .nav-cta {
+        margin-top: 8px;
+        text-align: center;
+        border-bottom: none;
+      }
+
+      .article-header { padding: 120px 22px 48px; }
+      .article-header h1 { font-size: 30px; }
+      .article-header .deck { font-size: 16px; }
+
+      .article-body { padding: 48px 22px 56px; }
+      .article-content p { font-size: 16px; }
+      .article-content h2 { font-size: 22px; }
+      .article-content blockquote { font-size: 16px; }
+
+      .cta-band { padding: 56px 22px; }
+      .cta-band h2 { font-size: 28px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+
+      footer { padding: 48px 22px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="logo">
+      <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/insights.html">Insights</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a></li>
+      <li><a href="/#contact" class="btn btn-primary nav-cta">Get in touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="article-header">
+    <div class="category">OT SECURITY</div>
+    <h1>Why Your OT Network Is Visible from the Public Internet</h1>
+    <div class="date">JANUARY 2026</div>
+    <p class="deck">Cellular SCADA gateways, misconfigured firewalls, and direct-connected PLCs are routinely indexed by public scanning infrastructure. If you have not checked, you are probably exposed.</p>
+  </header>
+
+  <section class="article-body">
+    <div class="article-content">
+
+      <p>There is a common assumption among water utility operators that their control systems are not on the internet. The SCADA server is in the plant. The PLCs are in the field cabinets. The HMI is on a desktop in the control room. None of it was deliberately connected to the public internet. So it must not be visible. That assumption is wrong more often than it is right.</p>
+
+      <p>The public internet is continuously scanned by automated infrastructure that indexes every device responding on every routable IP address. When an industrial controller, a SCADA gateway, or a VPN concentrator responds to a network request, that response is recorded, indexed, and made searchable. The device's manufacturer, model, firmware version, and open services become part of a publicly available dataset. This happens whether or not the device operator knows about it. And it happens every day.</p>
+
+      <h2>How OT equipment ends up on the internet</h2>
+
+      <p>The most common path is cellular SCADA gateways. Utilities deploy cellular modems at remote sites, lift stations, pump houses, and water towers to provide remote monitoring and telemetry. The devices from manufacturers like Sierra Wireless, Digi International, and Cradlepoint come with a public IP address assigned by the cellular carrier. Unless the utility has explicitly configured a VPN or private APN, that device is directly reachable from the internet.</p>
+
+      <p>Many of these gateways are configured to pass traffic through to the control equipment behind them. A cellular modem at a lift station may forward Modbus/TCP traffic on port 502 directly to the PLC. The result is a PLC that is not physically plugged into the internet but is functionally reachable from anywhere in the world through the cellular gateway.</p>
+
+      <p>The second common path is misconfigured firewalls. A utility installs a firewall between its IT network and its OT network. The integrator configures a rule to allow remote access for programming and troubleshooting. That rule allows inbound traffic on port 44818 (EtherNet/IP) or port 502 (Modbus/TCP) from "any" source instead of a specific IP address. The firewall is in place. The rule is permissive. The control equipment is exposed.</p>
+
+      <p>The third path is VPN concentrators and remote access servers with known vulnerabilities. Utilities deploy VPN appliances to provide secure remote access to their OT networks. But VPN appliances themselves are internet-facing devices with their own attack surface. If the VPN appliance is running outdated firmware with known vulnerabilities, it becomes the entry point. Multiple CISA advisories have documented active exploitation of VPN appliances from Fortinet, Pulse Secure, and Cisco specifically targeting critical infrastructure networks.</p>
+
+      <h2>What gets indexed</h2>
+
+      <p>When public scanning infrastructure encounters an industrial control device, the response reveals a significant amount of information. A Rockwell CompactLogix PLC responding on port 44818 will identify itself by model number, firmware revision, and module configuration. A Modbus device on port 502 may return its device identification, including vendor name and product code. A Siemens S7 PLC on port 102 will respond with its module type, serial number, and firmware version.</p>
+
+      <p>This information is not being extracted through exploitation. These are standard protocol responses that the devices are designed to provide. The device is simply answering the question it was asked. The problem is that anyone can ask.</p>
+
+      <p>The scanned data includes:</p>
+
+      <ul>
+        <li><strong>IP address and geolocation.</strong> The physical location of the device, typically accurate to the city level.</li>
+        <li><strong>Open ports and services.</strong> Which industrial protocols are accessible: Modbus/TCP (502), EtherNet/IP (44818), DNP3 (20000), BACnet (47808), S7comm (102).</li>
+        <li><strong>Device identification.</strong> Manufacturer, model, firmware version, and sometimes the system name configured by the integrator.</li>
+        <li><strong>Banner information.</strong> Text strings returned by web interfaces, including login pages that identify the device type and sometimes the organization operating it.</li>
+        <li><strong>SSL/TLS certificates.</strong> Certificate details, including organization names and domain names, that can identify the operator.</li>
+      </ul>
+
+      <p>An attacker who wants to find water utility SCADA equipment in a specific state does not need to send a single packet. The data is already collected, indexed, and searchable.</p>
+
+      <blockquote>
+        <p>The question is not whether your OT equipment is being scanned. It is whether you know what the scan results say about you.</p>
+      </blockquote>
+
+      <h2>Why this matters more than you think</h2>
+
+      <p>Internet exposure does not mean compromise. But it does mean that the first step of any attack, reconnaissance, has already been completed for the adversary. A threat actor targeting water utilities does not need to identify targets through labor-intensive research. The targets are already cataloged.</p>
+
+      <p>The progression from exposure to compromise is predictable. The device is discovered in the public index. The firmware version is checked against the National Vulnerability Database. If a known vulnerability exists, and if the device is running default credentials or no authentication, the attacker has everything they need. No zero-days required. No sophisticated tooling. Just standard engineering software connecting to an unprotected device at a known address.</p>
+
+      <p>This is exactly the attack chain documented in every major water utility cyber incident. Oldsmar, Aliquippa, Muleshoe. Internet-facing equipment. Known vulnerabilities. Default or missing credentials. The pattern is consistent because the underlying exposure is consistent.</p>
+
+      <h2>Finding out what is exposed</h2>
+
+      <p>The first step is knowing what an external observer can see. A passive vulnerability assessment uses the same publicly available intelligence sources that adversaries use, but for a defensive purpose. It identifies every device associated with your utility's IP space that is indexed by public scanning infrastructure, maps those devices to known vulnerabilities in the NVD and CISA KEV catalog, and produces a report that documents exactly what is visible and what the risk is.</p>
+
+      <p>This assessment does not require network access, credentials, or any interaction with your systems. It is entirely observational. The data already exists. The question is whether you have looked at it.</p>
+
+      <p>At Sentinel OT, this is what we do. We provide passive vulnerability assessments for water and wastewater utilities across the United States. The assessment documents what is exposed, identifies the specific CVEs that apply, and provides remediation recommendations. Typical turnaround is one week. The resulting report directly supports AWIA Risk and Resilience Assessments, grant applications, and remediation planning.</p>
+
+      <p>If you operate a water utility and you have not verified whether your control systems are visible from the public internet, the answer is probably yes. Finding out takes days, not months. And the cost of not finding out is measured in incidents that were entirely preventable.</p>
+
+      <div class="article-end">
+        <a href="/insights.html" class="back-link">
+          Back to Insights <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Start with evidence.</h2>
+    <p>Read the sample report, or send us a note.</p>
+    <div class="cta-buttons">
+      <a href="/sample-report.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Read sample report</a>
+      <a href="/#contact" class="btn btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
+        <p>The single accountable IT/OT security partner for critical US utilities.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sentinel OT</h4>
+        <a href="/insights.html">Insights</a>
+        <a href="/about.html">About</a>
+        <a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="/#contact">Contact form</a>
+        <a href="https://www.linkedin.com/company/sentinelot" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('.nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    var links = nav.querySelectorAll('.nav-links a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  })();
+  </script>
+
+</body>
+</html>

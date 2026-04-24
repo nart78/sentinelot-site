@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What the SLCGP Actually Pays For (and How to Apply) | Sentinel OT</title>
+  <meta name="description" content="The State and Local Cybersecurity Grant Program has allocated over $1 billion for infrastructure hardening. Most small water utilities never apply. Here is what is covered, who qualifies, and how to start.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy-950: #0b0e14;
+      --navy-900: #0f131b;
+      --navy-850: #141821;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --line-faint: rgba(255,255,255,0.04);
+      --text-hi: #f4f6fa;
+      --text-mid: #c9d0db;
+      --text-lo: #8892a3;
+      --text-dim: #5b6473;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14,165,233,0.18);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--navy-850);
+      color: var(--text-hi);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      letter-spacing: -0.005em;
+    }
+    a { color: inherit; }
+
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 29px 56px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11,14,20,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .logo img { height: 42px; width: auto; }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-mid);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--text-hi); }
+
+    .btn {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      border-radius: 2px;
+      padding: 14px 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--accent); color: #03131f; font-weight: 600; }
+    .btn-primary:hover { background: #38bdf8; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-hi);
+      border: 1px solid var(--line-strong);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.03);
+    }
+    .nav-cta { padding: 10px 18px; font-size: 13px; }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--line-strong);
+      border-radius: 2px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: var(--text-hi);
+      margin: 3px 0;
+    }
+
+    .article-header {
+      padding: 160px 56px 72px;
+      text-align: center;
+      background: var(--navy-850);
+      border-bottom: 1px solid var(--line);
+    }
+    .article-header .category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .article-header h1 {
+      font-weight: 500;
+      font-size: 52px;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text-hi);
+      max-width: 820px;
+      margin: 0 auto 20px;
+      text-wrap: balance;
+    }
+    .article-header .date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+    .article-header .deck {
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--text-mid);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .article-body {
+      background: #ffffff;
+      padding: 72px 56px 80px;
+    }
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .article-content p {
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(0,0,0,0.75);
+      margin: 0 0 24px;
+      letter-spacing: -0.005em;
+    }
+    .article-content h2 {
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      color: #151515;
+      margin: 48px 0 20px;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+    }
+    .article-content h2:first-child {
+      margin-top: 0;
+    }
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+      margin: 32px 0;
+      font-style: italic;
+      color: rgba(0,0,0,0.55);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .article-content blockquote p {
+      color: inherit;
+      margin: 0;
+    }
+    .article-content strong {
+      color: #151515;
+      font-weight: 600;
+    }
+    .article-content ul,
+    .article-content ol {
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(0,0,0,0.75);
+      margin: 0 0 24px;
+      padding-left: 24px;
+    }
+    .article-content li {
+      margin-bottom: 8px;
+    }
+    .article-content a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-end {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color .15s;
+    }
+    .back-link:hover { color: #38bdf8; }
+    .back-link .arrow { transition: transform .2s ease; }
+    .back-link:hover .arrow { transform: translateX(4px); }
+
+    .cta-band {
+      background: var(--navy-950);
+      padding: 80px 56px;
+      text-align: center;
+      border-top: 1px solid var(--accent-soft);
+      border-bottom: 1px solid var(--line);
+    }
+    .cta-band h2 {
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -0.025em;
+      color: var(--text-hi);
+      margin: 0 0 16px;
+    }
+    .cta-band p {
+      font-size: 17px;
+      color: var(--text-mid);
+      margin: 0 0 36px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      background: var(--navy-950);
+      color: rgba(255,255,255,0.5);
+      padding: 64px 56px 32px;
+    }
+    .footer-grid {
+      max-width: 1080px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand img {
+      height: 38px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      margin: 0 0 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #ffffff; }
+    .footer-bottom {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      .nav { padding: 16px 20px; flex-wrap: wrap; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; flex-direction: column; }
+      .nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px 0 8px;
+        gap: 4px;
+      }
+      .nav.open .nav-links li { width: 100%; }
+      .nav.open .nav-links a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav.open .nav-links .nav-cta {
+        margin-top: 8px;
+        text-align: center;
+        border-bottom: none;
+      }
+
+      .article-header { padding: 120px 22px 48px; }
+      .article-header h1 { font-size: 30px; }
+      .article-header .deck { font-size: 16px; }
+
+      .article-body { padding: 48px 22px 56px; }
+      .article-content p { font-size: 16px; }
+      .article-content h2 { font-size: 22px; }
+      .article-content blockquote { font-size: 16px; }
+
+      .cta-band { padding: 56px 22px; }
+      .cta-band h2 { font-size: 28px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+
+      footer { padding: 48px 22px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="logo">
+      <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/insights.html">Insights</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a></li>
+      <li><a href="/#contact" class="btn btn-primary nav-cta">Get in touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="article-header">
+    <div class="category">GRANT FUNDING</div>
+    <h1>What the SLCGP Actually Pays For (and How to Apply)</h1>
+    <div class="date">APRIL 2026</div>
+    <p class="deck">The State and Local Cybersecurity Grant Program has allocated over $1 billion for infrastructure hardening. Most small utilities never apply. Here is what is covered, who qualifies, and how to start.</p>
+  </header>
+
+  <section class="article-body">
+    <div class="article-content">
+
+      <p>There is over $1 billion in federal cybersecurity grant funding that most small water utilities have never heard of. The State and Local Cybersecurity Grant Program, created under the Infrastructure Investment and Jobs Act of 2021, was designed specifically to help state, local, and territorial governments improve their cybersecurity posture. Water and wastewater utilities operated by municipalities are eligible. And every year, hundreds of millions of dollars go unclaimed.</p>
+
+      <p>The reason is not complicated. Small utilities do not have grant writers on staff. The person running the water plant is also the person ordering chlorine, managing SCADA alarms, and fielding complaints about water pressure. Nobody has time to research federal grant programs, figure out what qualifies, navigate the application process, and manage the reporting requirements. So the money sits there.</p>
+
+      <h2>What the program actually is</h2>
+
+      <p>The SLCGP is a four-year, $1 billion program administered jointly by CISA and FEMA. Funding is distributed to states through their State Administrative Agencies (SAAs), which then sub-grant it to local governments and critical infrastructure operators. Each state is required to submit a Cybersecurity Plan that outlines how the funds will be used. Individual utilities apply through their state's SAA.</p>
+
+      <p>The program has two structural requirements that matter for small utilities. First, at least 80% of the funds must pass through to local governments. Second, at least 25% must go to rural communities. If your utility serves a community under 50,000 people, both of those provisions work in your favor.</p>
+
+      <h2>What it pays for</h2>
+
+      <p>The SLCGP covers a broad range of cybersecurity activities. For water and wastewater utilities, the most relevant categories include:</p>
+
+      <ul>
+        <li><strong>Cybersecurity assessments and risk evaluations.</strong> This includes external vulnerability assessments, network architecture reviews, and the kind of passive reconnaissance that identifies internet-exposed control systems. If you need to document your attack surface to meet AWIA requirements, this is a fundable activity.</li>
+        <li><strong>Cybersecurity planning.</strong> Developing or updating incident response plans, continuity of operations plans, and the Risk and Resilience Assessments that AWIA mandates.</li>
+        <li><strong>Implementation of security controls.</strong> Network segmentation, firewall deployment, access control hardening, encryption, and monitoring. The actual remediation work that follows an assessment.</li>
+        <li><strong>Workforce development.</strong> Training existing staff on cybersecurity practices, including OT-specific training for plant operators who manage SCADA and PLC equipment.</li>
+        <li><strong>Cybersecurity tools and infrastructure.</strong> Purchasing and deploying intrusion detection systems, security information and event management (SIEM) platforms, and endpoint protection for control system networks.</li>
+      </ul>
+
+      <p>In practical terms, a small water utility could use SLCGP funds to pay for an external vulnerability assessment, implement the recommendations from that assessment, train operators on basic cybersecurity hygiene, and deploy monitoring tools on the OT network. That is the full lifecycle from discovery to remediation to ongoing protection, funded by a single grant program.</p>
+
+      <h2>What it does not pay for</h2>
+
+      <p>The SLCGP cannot be used for general IT expenses, hardware that is not cybersecurity-related, or construction projects. It does not cover replacing a SCADA system entirely unless the replacement is specifically driven by a documented cybersecurity need. And it cannot be used to backfill existing staff salaries. The funds are for new cybersecurity capabilities, not for keeping the lights on.</p>
+
+      <h2>How to apply</h2>
+
+      <p>The application process goes through your state, not directly through CISA or FEMA. Here is the sequence:</p>
+
+      <ol>
+        <li><strong>Identify your state's SAA.</strong> Every state has a designated State Administrative Agency that manages SLCGP distribution. In most states, this is the Department of Homeland Security, the Office of Emergency Management, or the Governor's Office of Homeland Security. FEMA maintains a list of SAAs by state.</li>
+        <li><strong>Check the application window.</strong> Each state sets its own sub-grant application timeline. Some states have already distributed their FY2025 allocation. Others have open application windows right now. Contact your SAA to find out.</li>
+        <li><strong>Document the need.</strong> The strongest applications tie directly to a documented cybersecurity gap. A passive vulnerability assessment that identifies internet-exposed PLCs, unpatched firmware, or missing network segmentation creates exactly the kind of evidence that grant applications need. It shows the problem is real, specific, and fixable.</li>
+        <li><strong>Submit through the state process.</strong> Each state has its own application form and evaluation criteria. Most require a project narrative, a budget, a timeline, and evidence that the proposed work aligns with the state's Cybersecurity Plan.</li>
+      </ol>
+
+      <blockquote>
+        <p>The hardest part of applying is not the paperwork. It is having the documentation that proves you need the money. A vulnerability assessment creates that documentation.</p>
+      </blockquote>
+
+      <h2>The SLCGP is not the only option</h2>
+
+      <p>Water utilities also have access to the EPA's Water Infrastructure Finance and Innovation Act (WIFIA) program, the Drinking Water State Revolving Fund (DWSRF), and the Clean Water State Revolving Fund (CWSRF). All three have cybersecurity-eligible set-asides. Some states also have their own cybersecurity grant programs that stack on top of federal funding.</p>
+
+      <p>The pattern is the same across all of them. The money exists. The eligibility criteria are met. The application requires evidence of a specific, documented need. The utility that has a vulnerability assessment in hand is the one that gets funded.</p>
+
+      <h2>Where Sentinel OT fits</h2>
+
+      <p>We provide the documentation that grant applications require. Our passive vulnerability assessments identify externally observable exposure on water utility IT and OT infrastructure. Every finding is verified against the National Vulnerability Database and the CISA Known Exploited Vulnerabilities catalog. The resulting report documents the specific CVEs, the affected systems, and the remediation path.</p>
+
+      <p>That report is the evidence your grant application needs. It demonstrates a specific, verifiable cybersecurity gap. It scopes the remediation work. And it gives your finance office the documentation to justify the expenditure. We also support grant application preparation, helping utilities translate assessment findings into the project narratives and budgets that SAAs require.</p>
+
+      <p>If your utility serves a community under 50,000 people and you have never applied for SLCGP funding, the first step is understanding what is exposed. Everything after that is paperwork.</p>
+
+      <div class="article-end">
+        <a href="/insights.html" class="back-link">
+          Back to Insights <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Start with evidence.</h2>
+    <p>Read the sample report, or send us a note.</p>
+    <div class="cta-buttons">
+      <a href="/sample-report.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Read sample report</a>
+      <a href="/#contact" class="btn btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="SENTINEL-banner-with-shield.png" alt="Sentinel OT">
+        <p>The single accountable IT/OT security partner for critical US utilities.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sentinel OT</h4>
+        <a href="/insights.html">Insights</a>
+        <a href="/about.html">About</a>
+        <a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="/#contact">Contact form</a>
+        <a href="https://www.linkedin.com/company/sentinelot" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Sentinel OT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('.nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    var links = nav.querySelectorAll('.nav-links a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  })();
+  </script>
+
+</body>
+</html>
