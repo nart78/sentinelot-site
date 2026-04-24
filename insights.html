@@ -165,10 +165,34 @@
     .featured {
       background: var(--navy-900);
       border: 1px solid var(--line-strong);
-      border-left: 3px solid var(--accent);
-      border-radius: 2px;
-      padding: 40px 44px;
+      border-radius: 6px;
+      overflow: hidden;
       margin-bottom: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .featured:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(14,165,233,0.12);
+    }
+    .featured-img {
+      position: relative;
+      min-height: 340px;
+      overflow: hidden;
+    }
+    .featured-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .featured-body {
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .featured .eyebrow {
       font-family: var(--font-mono);
@@ -180,19 +204,17 @@
     }
     .featured h2 {
       font-weight: 500;
-      font-size: 32px;
+      font-size: 28px;
       letter-spacing: -0.02em;
       line-height: 1.2;
       color: var(--text-hi);
       margin: 0 0 16px;
-      max-width: 720px;
     }
     .featured .excerpt {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.6;
       color: var(--text-mid);
       margin: 0 0 28px;
-      max-width: 680px;
     }
     .article-link {
       display: inline-flex;
@@ -212,26 +234,64 @@
     .article-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
     }
     .article-card {
       background: var(--navy-900);
       border: 1px solid var(--line-strong);
-      border-radius: 2px;
-      padding: 28px;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .article-card:hover {
       border-color: var(--accent);
       box-shadow: 0 2px 16px rgba(14,165,233,0.12);
     }
-    .article-card .card-date {
+    .card-img {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .article-card:hover .card-img img {
+      transform: scale(1.03);
+    }
+    .card-body {
+      padding: 24px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .card-date {
       font-family: var(--font-mono);
       font-size: 10.5px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--text-dim);
-      margin-bottom: 14px;
     }
     .article-card h3 {
       font-weight: 500;
@@ -246,6 +306,7 @@
       line-height: 1.55;
       color: var(--text-mid);
       margin: 0 0 20px;
+      flex: 1;
     }
 
     /* ─── CTA band ────────────────────────────────────────────── */
@@ -333,7 +394,9 @@
 
     /* ─── Responsive ──────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .article-grid { gap: 16px; }
+      .featured { grid-template-columns: 1fr; }
+      .featured-img { min-height: 260px; }
+      .article-grid { gap: 20px; }
     }
 
     @media (max-width: 720px) {
@@ -365,8 +428,10 @@
 
       .section-dark { padding: 64px 22px; }
 
-      .featured { padding: 28px 24px; }
-      .featured h2 { font-size: 24px; }
+      .featured { grid-template-columns: 1fr; }
+      .featured-img { min-height: 200px; }
+      .featured-body { padding: 24px; }
+      .featured h2 { font-size: 22px; }
       .featured .excerpt { font-size: 15px; }
 
       .article-grid { grid-template-columns: 1fr; }
@@ -410,71 +475,108 @@
     <div class="section-inner-wide">
 
       <!-- Featured article -->
-      <article class="featured">
-        <div class="eyebrow">FEATURED</div>
-        <h2>That Iranian Hacker Advisory Is About Your Public Utility.</h2>
-        <p class="excerpt">
-          When CISA published its joint advisory on Iranian IRGC-affiliated actors targeting US water systems,
-          it named the exact PLCs we find exposed every week. This is not a distant threat.
-          It is a documented operation against the devices your community depends on.
-        </p>
-        <a href="/iranian-hacker-advisory.html" class="article-link">
-          Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
-        </a>
-      </article>
+      <a href="/iranian-hacker-advisory.html" class="featured" style="text-decoration:none">
+        <div class="featured-img">
+          <img src="img/insights/iranian-advisory.jpg" alt="Industrial control system panel in a water treatment facility">
+        </div>
+        <div class="featured-body">
+          <div class="eyebrow">FEATURED</div>
+          <h2>That Iranian Hacker Advisory Is About Your Public Utility.</h2>
+          <p class="excerpt">
+            When CISA published its joint advisory on Iranian IRGC-affiliated actors targeting US water systems,
+            it named the exact PLCs we find exposed every week. This is not a distant threat.
+            It is a documented operation against the devices your community depends on.
+          </p>
+          <span class="article-link">
+            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+          </span>
+        </div>
+      </a>
 
       <!-- Article grid -->
       <div class="article-grid">
 
-        <article class="article-card">
-          <div class="card-date">APR 2026</div>
-          <h3>What the SLCGP Actually Pays For (and How to Apply).</h3>
-          <p class="card-excerpt">
-            The State and Local Cybersecurity Grant Program has allocated hundreds of millions for
-            infrastructure hardening. Most small utilities never apply. Here is what is covered and how
-            to start.
-          </p>
-          <a href="#" class="article-link">
-            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </article>
+        <a href="#" class="article-card" style="text-decoration:none">
+          <div class="card-img">
+            <img src="img/insights/slcgp-grants.jpg" alt="Federal building representing grant funding programs">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Grant Funding</span>
+              <span class="card-date">APR 2026</span>
+            </div>
+            <h3>What the SLCGP Actually Pays For (and How to Apply).</h3>
+            <p class="card-excerpt">
+              The State and Local Cybersecurity Grant Program has allocated hundreds of millions for
+              infrastructure hardening. Most small utilities never apply. Here is what is covered and how
+              to start.
+            </p>
+            <span class="article-link">
+              Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+            </span>
+          </div>
+        </a>
 
-        <article class="article-card">
-          <div class="card-date">MAR 2026</div>
-          <h3>Default Credentials Are Not a Configuration Problem. They Are an Exposure.</h3>
-          <p class="card-excerpt">
-            Factory-default passwords on PLCs and RTUs are not an oversight your IT team missed.
-            They are a documented, indexed, searchable attack surface visible to anyone on the internet.
-          </p>
-          <a href="#" class="article-link">
-            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </article>
+        <a href="#" class="article-card" style="text-decoration:none">
+          <div class="card-img">
+            <img src="img/insights/default-credentials.jpg" alt="PLC controller with default login screen">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">OT Security</span>
+              <span class="card-date">MAR 2026</span>
+            </div>
+            <h3>Default Credentials Are Not a Configuration Problem. They Are an Exposure.</h3>
+            <p class="card-excerpt">
+              Factory-default passwords on PLCs and RTUs are not an oversight your IT team missed.
+              They are a documented, indexed, searchable attack surface visible to anyone on the internet.
+            </p>
+            <span class="article-link">
+              Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+            </span>
+          </div>
+        </a>
 
-        <article class="article-card">
-          <div class="card-date">FEB 2026</div>
-          <h3>AWIA Compliance Is Not Optional. Here Is What It Requires.</h3>
-          <p class="card-excerpt">
-            America's Water Infrastructure Act mandates Risk and Resilience Assessments for every
-            community water system serving more than 3,300 people. Most are out of compliance and do
-            not know it.
-          </p>
-          <a href="#" class="article-link">
-            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </article>
+        <a href="#" class="article-card" style="text-decoration:none">
+          <div class="card-img">
+            <img src="img/insights/awia-compliance.jpg" alt="Water treatment plant control room">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Compliance</span>
+              <span class="card-date">FEB 2026</span>
+            </div>
+            <h3>AWIA Compliance Is Not Optional. Here Is What It Requires.</h3>
+            <p class="card-excerpt">
+              America's Water Infrastructure Act mandates Risk and Resilience Assessments for every
+              community water system serving more than 3,300 people. Most are out of compliance and do
+              not know it.
+            </p>
+            <span class="article-link">
+              Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+            </span>
+          </div>
+        </a>
 
-        <article class="article-card">
-          <div class="card-date">JAN 2026</div>
-          <h3>Why Your OT Network Is Visible from the Public Internet.</h3>
-          <p class="card-excerpt">
-            Cellular SCADA gateways, misconfigured firewalls, and direct-connected PLCs are routinely
-            indexed by public scanning infrastructure. If you have not checked, you are probably exposed.
-          </p>
-          <a href="#" class="article-link">
-            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
-          </a>
-        </article>
+        <a href="#" class="article-card" style="text-decoration:none">
+          <div class="card-img">
+            <img src="img/insights/ot-network-exposed.jpg" alt="SCADA gateway mounted on utility infrastructure">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">OT Security</span>
+              <span class="card-date">JAN 2026</span>
+            </div>
+            <h3>Why Your OT Network Is Visible from the Public Internet.</h3>
+            <p class="card-excerpt">
+              Cellular SCADA gateways, misconfigured firewalls, and direct-connected PLCs are routinely
+              indexed by public scanning infrastructure. If you have not checked, you are probably exposed.
+            </p>
+            <span class="article-link">
+              Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+            </span>
+          </div>
+        </a>
 
       </div>
     </div>
