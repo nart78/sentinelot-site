@@ -3,27 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | Sentinel OT</title>
-  <meta name="description" content="Sentinel OT is the single accountable IT/OT security partner for critical US utilities. Headquartered in Calgary, Alberta with US delivery operations in Houston, TX.">
+  <title>Insights | Sentinel OT</title>
+  <meta name="description" content="Intelligence, analysis, and guidance for US water utility operators. Sentinel OT Insights covers OT security threats, federal compliance, and grant funding.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About Sentinel OT",
-    "url": "https://sentinelot.com/about.html",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "Sentinel OT",
-      "url": "https://sentinelot.com",
-      "logo": "https://sentinelot.com/logo.png",
-      "description": "The single accountable IT/OT security partner for critical US utilities. Vulnerability assessment, grant funding support, remediation delivery, and ongoing monitoring under one contract.",
-      "sameAs": ["https://www.linkedin.com/company/sentinelot"]
-    }
-  }
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,14 +41,6 @@
       letter-spacing: -0.005em;
     }
     a { color: inherit; }
-
-    .tick {
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
 
     /* ─── Nav ─────────────────────────────────────────────────── */
     .nav {
@@ -181,155 +156,96 @@
       background: var(--navy-850);
       padding: 96px 56px;
     }
-    .section-navy {
-      background: var(--navy-900);
-      padding: 96px 56px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .section-white {
-      background: #ffffff;
-      padding: 96px 56px;
-      color: #141821;
-    }
-
-    .section-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
     .section-inner-wide {
       max-width: 1080px;
       margin: 0 auto;
     }
 
-    .section-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 28px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    /* ─── End to end ──────────────────────────────────────────── */
-    .ete-heading {
-      font-weight: 500;
-      font-size: 44px;
-      letter-spacing: -0.025em;
-      line-height: 1.08;
-      margin: 0 0 32px;
-      color: #151515;
-    }
-    .ete-body {
-      font-size: 17px;
-      line-height: 1.65;
-      color: rgba(0,0,0,0.64);
-      margin: 0;
-    }
-
-    /* ─── Do not list ─────────────────────────────────────────── */
-    .donot-heading {
-      font-weight: 500;
-      font-size: 40px;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      color: var(--text-hi);
-      margin: 0 0 40px;
-    }
-    .donot-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .donot-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 20px;
-      background: var(--navy-850);
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.5;
-    }
-    .donot-x {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      color: #ef4444;
-      border: 1px solid rgba(239,68,68,0.25);
-      border-radius: 2px;
-      background: rgba(239,68,68,0.08);
-    }
-
-    /* ─── Beliefs ─────────────────────────────────────────────── */
-    .beliefs-heading {
-      font-weight: 500;
-      font-size: 40px;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      margin: 0 0 48px;
-    }
-    .beliefs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      background: var(--line);
-      border: 1px solid var(--line-strong);
-    }
-    .belief-card {
+    /* ─── Featured article ────────────────────────────────────── */
+    .featured {
       background: var(--navy-900);
-      padding: 36px 32px;
+      border: 1px solid var(--line-strong);
+      border-left: 3px solid var(--accent);
+      border-radius: 2px;
+      padding: 40px 44px;
+      margin-bottom: 56px;
     }
-    .belief-card h3 {
+    .featured .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .featured h2 {
       font-weight: 500;
-      font-size: 20px;
-      letter-spacing: -0.01em;
+      font-size: 32px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
       color: var(--text-hi);
-      margin: 0 0 10px;
+      margin: 0 0 16px;
+      max-width: 720px;
     }
-    .belief-card p {
-      font-size: 15px;
+    .featured .excerpt {
+      font-size: 17px;
       line-height: 1.6;
       color: var(--text-mid);
-      margin: 0;
+      margin: 0 0 28px;
+      max-width: 680px;
     }
+    .article-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color .15s;
+    }
+    .article-link:hover { color: #38bdf8; }
+    .article-link .arrow { transition: transform .2s ease; }
+    .article-link:hover .arrow { transform: translateX(4px); }
 
-    /* ─── Where we work ───────────────────────────────────────── */
-    .where-grid {
+    /* ─── Article grid ────────────────────────────────────────── */
+    .article-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
+      gap: 20px;
     }
-    .where-heading {
-      font-weight: 500;
-      font-size: 40px;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      color: var(--text-hi);
-      margin: 0 0 24px;
-    }
-    .where-body {
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-mid);
-      margin: 0;
-    }
-    .where-map img {
-      width: 100%;
-      height: auto;
+    .article-card {
+      background: var(--navy-900);
+      border: 1px solid var(--line-strong);
       border-radius: 2px;
+      padding: 28px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .article-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 16px rgba(14,165,233,0.12);
+    }
+    .article-card .card-date {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 14px;
+    }
+    .article-card h3 {
+      font-weight: 500;
+      font-size: 19px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      color: var(--text-hi);
+      margin: 0 0 12px;
+    }
+    .article-card .card-excerpt {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--text-mid);
+      margin: 0 0 20px;
     }
 
     /* ─── CTA band ────────────────────────────────────────────── */
@@ -417,8 +333,7 @@
 
     /* ─── Responsive ──────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .beliefs-grid { grid-template-columns: 1fr; }
-      .where-grid { grid-template-columns: 1fr; gap: 40px; }
+      .article-grid { gap: 16px; }
     }
 
     @media (max-width: 720px) {
@@ -448,17 +363,13 @@
       .page-header h1 { font-size: 32px; }
       .page-header p { font-size: 16px; }
 
-      .section-dark,
-      .section-navy,
-      .section-white { padding: 64px 22px; }
+      .section-dark { padding: 64px 22px; }
 
-      .ete-heading,
-      .donot-heading,
-      .beliefs-heading,
-      .where-heading { font-size: 28px; }
+      .featured { padding: 28px 24px; }
+      .featured h2 { font-size: 24px; }
+      .featured .excerpt { font-size: 15px; }
 
-      .beliefs-grid { grid-template-columns: 1fr; }
-      .where-grid { grid-template-columns: 1fr; gap: 32px; }
+      .article-grid { grid-template-columns: 1fr; }
 
       .cta-band { padding: 56px 22px; }
       .cta-band h2 { font-size: 28px; }
@@ -483,100 +394,96 @@
       <li><a href="/sample-report.pdf" target="_blank" rel="noopener">Sample Report</a></li>
       <li><a href="/#contact" class="btn btn-primary nav-cta">Get in touch</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- ─── PAGE HEADER ──────────────────────────────────────────── -->
   <header class="page-header">
-    <h1>Sentinel OT is the single accountable IT/OT security partner for critical US utilities.</h1>
-    <p>We show you what is exposed. We help you fund the fix. We deliver the full assessment and remediation. We monitor it after. One contract. One invoice. One point of contact.</p>
+    <h1>Insights.</h1>
+    <p>Intelligence, analysis, and guidance for US water utility operators.</p>
   </header>
 
-  <!-- ─── END TO END ───────────────────────────────────────────── -->
-  <section class="section-white">
-    <div class="section-inner">
-      <div class="section-eyebrow" style="color:var(--accent);">What we do</div>
-      <h2 class="ete-heading">End to end, under one name.</h2>
-      <p class="ete-body">Sentinel OT begins by identifying externally observable IT and OT exposure in critical US utility infrastructure. That initial assessment opens the door to a full engagement: a comprehensive internal vulnerability assessment, grant funding to pay for remediation, and delivery of the fix under a single contract. Our work starts with what we can see from the outside and ends with a validated, monitored system. Every deliverable is verified against authoritative sources and documented to the standards a municipal procurement officer can take to counsel.</p>
-    </div>
-  </section>
-
-  <!-- ─── WHAT WE DO NOT DO ────────────────────────────────────── -->
-  <section class="section-navy">
-    <div class="section-inner">
-      <div class="section-eyebrow" style="color:var(--accent);">Before we engage</div>
-      <h2 class="donot-heading">How we start the conversation.</h2>
-      <p style="font-size:17px;line-height:1.65;color:var(--text-mid);margin:0 0 36px;max-width:640px;">Before any contract is signed, our initial external assessment requires nothing from you. No credentials, no network access, no disruption to operations.</p>
-      <ul class="donot-list">
-        <li class="donot-item">
-          <span class="donot-x">&times;</span>
-          No internal network scanning until you engage us.
-        </li>
-        <li class="donot-item">
-          <span class="donot-x">&times;</span>
-          No packets sent to your infrastructure.
-        </li>
-        <li class="donot-item">
-          <span class="donot-x">&times;</span>
-          No authentication attempts on any system.
-        </li>
-        <li class="donot-item">
-          <span class="donot-x">&times;</span>
-          No credentials, VPN access, or inside access required.
-        </li>
-      </ul>
-      <p style="font-size:15px;line-height:1.6;color:var(--text-lo);margin:32px 0 0;max-width:640px;">Once engaged, we conduct a full internal vulnerability assessment with your authorization, giving you a complete picture of your security posture.</p>
-    </div>
-  </section>
-
-  <!-- ─── WHAT WE BELIEVE ──────────────────────────────────────── -->
+  <!-- ─── ARTICLES ─────────────────────────────────────────────── -->
   <section class="section-dark">
     <div class="section-inner-wide">
-      <div class="section-eyebrow" style="color:var(--accent);">Principles</div>
-      <h2 class="beliefs-heading" style="color:var(--text-hi);">What we believe.</h2>
-      <div class="beliefs-grid">
-        <div class="belief-card">
-          <h3>Public infrastructure deserves private-sector rigor.</h3>
-          <p>Small and mid-sized utilities serve communities that cannot absorb a treatment plant failure or a grid outage. The work we do for them is the work large enterprises pay six figures for.</p>
-        </div>
-        <div class="belief-card">
-          <h3>Start safe, then go deep.</h3>
-          <p>Our initial assessment touches nothing. Once you engage us, we conduct a thorough internal review with your full authorization and cooperation. No shortcuts, no assumptions.</p>
-        </div>
-        <div class="belief-card">
-          <h3>Grant dollars are part of the job.</h3>
-          <p>Finding the exposure is the first half. Funding the fix is the second half. A shop that only does one of those is not actually solving the problem.</p>
-        </div>
-        <div class="belief-card">
-          <h3>One accountable partner.</h3>
-          <p>Municipal buyers do not have time to coordinate three vendors. We are the prime, the single point of contact, and the single invoice. Everything else happens behind that interface.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ─── WHERE WE WORK ───────────────────────────────────────── -->
-  <section class="section-navy">
-    <div class="section-inner-wide">
-      <div class="where-grid">
-        <div>
-          <div class="section-eyebrow" style="color:var(--accent);">Locations</div>
-          <h2 class="where-heading">Calgary and Houston. Work across the United States.</h2>
-          <p class="where-body">Sentinel OT is headquartered in Calgary, Alberta with US delivery operations in Houston, TX, and serves utilities across the United States. Our engagement model is designed for US federal and state grant compliance across water, electric, and healthcare infrastructure, including AWIA, SLCGP, IIJA, and sector-specific cybersecurity programs.</p>
-        </div>
-        <div class="where-map">
-          <img src="usa.jpg" alt="Map of the United States">
-        </div>
+      <!-- Featured article -->
+      <article class="featured">
+        <div class="eyebrow">FEATURED</div>
+        <h2>That Iranian Hacker Advisory Is About Your Water Plant.</h2>
+        <p class="excerpt">
+          When CISA published its joint advisory on Iranian IRGC-affiliated actors targeting US water systems,
+          it named the exact PLCs we find exposed every week. This is not a distant threat.
+          It is a documented operation against the devices your community depends on.
+        </p>
+        <a href="/iranian-hacker-advisory.html" class="article-link">
+          Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+
+      <!-- Article grid -->
+      <div class="article-grid">
+
+        <article class="article-card">
+          <div class="card-date">APR 2026</div>
+          <h3>What the SLCGP Actually Pays For (and How to Apply).</h3>
+          <p class="card-excerpt">
+            The State and Local Cybersecurity Grant Program has allocated hundreds of millions for
+            infrastructure hardening. Most small utilities never apply. Here is what is covered and how
+            to start.
+          </p>
+          <a href="#" class="article-link">
+            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+
+        <article class="article-card">
+          <div class="card-date">MAR 2026</div>
+          <h3>Default Credentials Are Not a Configuration Problem. They Are an Exposure.</h3>
+          <p class="card-excerpt">
+            Factory-default passwords on PLCs and RTUs are not an oversight your IT team missed.
+            They are a documented, indexed, searchable attack surface visible to anyone on the internet.
+          </p>
+          <a href="#" class="article-link">
+            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+
+        <article class="article-card">
+          <div class="card-date">FEB 2026</div>
+          <h3>AWIA Compliance Is Not Optional. Here Is What It Requires.</h3>
+          <p class="card-excerpt">
+            America's Water Infrastructure Act mandates Risk and Resilience Assessments for every
+            community water system serving more than 3,300 people. Most are out of compliance and do
+            not know it.
+          </p>
+          <a href="#" class="article-link">
+            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+
+        <article class="article-card">
+          <div class="card-date">JAN 2026</div>
+          <h3>Why Your OT Network Is Visible from the Public Internet.</h3>
+          <p class="card-excerpt">
+            Cellular SCADA gateways, misconfigured firewalls, and direct-connected PLCs are routinely
+            indexed by public scanning infrastructure. If you have not checked, you are probably exposed.
+          </p>
+          <a href="#" class="article-link">
+            Read the article <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+
       </div>
     </div>
   </section>
 
   <!-- ─── CTA ──────────────────────────────────────────────────── -->
   <section class="cta-band">
-    <h2>Get in touch.</h2>
-    <p>Tell us what you are working on and we will respond within one business day.</p>
+    <h2>Start with evidence.</h2>
+    <p>Read the sample report, or send us a note.</p>
     <div class="cta-buttons">
       <a href="/sample-report.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Read sample report</a>
       <a href="/#contact" class="btn btn-primary">Get in touch</a>
